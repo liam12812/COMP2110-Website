@@ -94,7 +94,7 @@ to implement as a Lit component, following the basic outline provided in
 * Currency conversion with data from <https://exchangerate.host/> e.g. 
 [USD to EUR](https://api.exchangerate.host/convert?from=USD&to=EUR).  Your widget should
 allow the user to input an amount to be converted and possibly select the to/from
-currencies.
+currencies. 
 
 * A widget showing a random fact about the current date from <http://numbersapi.com/>,
 e.g. <http://numbersapi.com/3/22/date>.
