@@ -122,7 +122,12 @@ class LoginWidget extends LitElement {
         }
         #logged-in input{
           width: 130%;
-        }       
+        }   
+        
+        img{
+          width:140px;
+          height:140px;
+        }
           `;
 
     
@@ -160,7 +165,9 @@ class LoginWidget extends LitElement {
                 <form @submit=${this.logout}>
                     <ul>
                         <li>
-                          <p>Hello</p>
+                          <img src="https://img.freepik.com/free-icon/user_318-563642.jpg">
+                        <li>
+                          <p>Welcome ${getUser()}</p>
                         </li>
                         <li id="submitbutton">
                             <input type='submit' value='Log out'>
