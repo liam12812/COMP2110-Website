@@ -12,27 +12,279 @@ class Comp2110Portal extends LitElement {
 
   static styles = css`
     :host {
-      min-height: 100vh;   
-      font-size: 14pt;
-      color: #1a2b42;
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      background-color: lightgoldenrodyellow;
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+      font-family: hat;
+      color: rgb(223, 220, 216);
+      background: url(images/funky-lines.webp);
+      background-color: rgb(24, 26, 27);  
     }
-
-    main {
+    
+    .page-header{
+      width: 100%;
+      height: 200px;
+    
+      background: url(images/funky-lines.webp);
+      background-color: rgb(24, 26, 27);
+    }
+    
+    .page-header .logo{
+      float: left;
+      width: 10%;
+      height: 100px;
+    
+      background: url(funky-lines.webp);
+      background-color: rgb(24, 26, 27);
+    
       display: flex;
-    }
-
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
+      justify-content: center;
       align-items: center;
     }
-
-    .app-footer a {
+    
+    .page-header h1{
+      float: right;
+      width: 90%;
+      height: 100px;
+      color:rgb(24, 26, 27);
+    
+      background: url(funky-lines.webp);
+      background-color: rgb(24, 26, 27);
+    
+      text-align: center;
+      vertical-align: middle;
+      line-height: 100px;
+      padding-right: 10%;
+    
+      font-size: 60px;
+    }
+    
+    .page-header-main{
+      float: left;
+      width: 99%;
+      height: 100px;
+    
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+    
+      background-color: #282A35;
+      border-radius: 10px;
+    }
+    
+    
+    
+    .main-nav{
+      float: left;
+      width: 50%;
+      min-width: ;
+      height: 100px;
+    
+      display: flex;
+      align-items: center;
+      justify-content: left;
+    
+      padding: 5px 5px 5px 20px;
+    
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+    }
+    
+    .main-menu {
+      list-style-type: none;
+    }
+    
+    .main-menu li{
+      display: inline;
+      font-size: 30px;
+    }
+    
+    .main-menu span{
+      float: left;
+    
+      height: 60px;
+      border-radius: 5px;
+      color: rgb(223, 220, 216);
+    
+      text-align: center;
+      vertical-align: middle;
+      line-height: 58px;
+      text-decoration: none;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-right: 5px;
+    }
+    
+    .main-menu span.currentpage {
+      background-color:rgb(219, 23, 23);
+      color: white;
+    }
+    
+    .main-menu a{
+      float: left;
+    
+      height: 60px;
+      border-radius: 5px;
+      color: rgb(223, 220, 216);
+    
+    
+      text-align: center;
+      vertical-align: middle;
+      line-height: 58px;
+      text-decoration: none;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-right: 5px;
       margin-left: 5px;
     }
+    
+    .main-menu a:hover {
+      background-color: rgb(3, 136, 87);
+    }
+    
+    
+    
+    
+    
+    .header-search {
+      float: right;
+      width: 50%;
+      height: 100px;
+      padding-right: 10px;
+    
+      display: flex;
+      align-items: center;
+      justify-content: right;
+    }
+    
+    #nav-main-search {
+      height: 100px;
+      width: 100%;
+    
+      display: flex;
+      align-items: center;
+      justify-content: right;
+    }
+    
+    #nav-main-search label{
+      width: 100px;
+      font-size: 25px;
+      text-align: center;
+      border-right: 1px solid silver;
+    
+      margin-right: 10px;
+      padding-right: 5px;
+    }
+    
+    #nav-main-search input[type=search]{
+      height: 50px;
+      width: 200px;
+      margin: 25px 5px 25px 5px;
+    
+      background: none;
+      border: 1px solid silver;
+      border-radius: 10px;
+    
+      transition: width 0.4s ease-in-out;
+    }
+    
+    #nav-main-search input[type=search]::placeholder{
+     color:rgba(223, 220, 216, 0.6);
+    }
+    
+    #main-q {
+      color:rgb(223, 220, 216);
+      padding-left: 5px;
+    }
+    
+    #nav-main-search input[type=search]:hover{
+      width: 400px;
+    }
+    
+    #nav-main-search input[type=search]:focus{
+      width: 400px;
+    }
+    
+    .search-button{
+      width: 100px;
+      height: 50px;
+    
+      margin: 0px 0px 0px 10px;
+    
+      color: rgb(223, 220, 216);
+      border: 0px solid silver;
+      border-radius: 10px;
+      background-color:rgb(219, 23, 23);
+      font-size: 20px;
+    
+      transition: transform 0.3s ease-in-out;
+      transform-style: preserve-3d;
+    }
+    
+    .search-button:hover{
+      transform: scale(1.1);
+    }
+    
+    .search-button:focus{
+      background-color:rgb(3, 136, 87);
+    }
+    
+    
+    
+    main{
+      display: grid;
+      grid-template-columns: 70% 30%;
+      grid-template-rows: 350px 3fr;
+    
+      margin-top: 20px;
+    
+      background: url(/images/funky-lines.webp);
+      background-color: rgb(24, 26, 27);
+    
+    }
+    
+    #primary-widgets{
+      grid-column: 1;
+      grid-row: 1;
+    
+      margin: 0px 10px 10px 20px;
+    
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      font-size: 30px;
+    
+      box-shadow: 5px 5px 4px 2px slategray;
+
+      border: 2px solid white;
+    }
+
+    .blog{
+      grid-column: 1;
+      grid-row: 2;
+    
+      margin: 10px 10px 0px 20px;
+    }
+
+    
+    #secondary-widgets{
+      grid-column: 2;
+      grid-row: 2;
+      width: 329.22;
+
+      margin: 10px 20px 0px 10px;
+
+     display: grid;
+     grid-template-rows: 1fr 1fr 1fr;
+
+     font-size: 30px;
+
+     box-shadow: 5px 5px 4px 2px slategray;
+
+     background-color: red;
+
+     border: 2px solid white;
+    }
+
   `;
 
   constructor() {
@@ -42,28 +294,48 @@ class Comp2110Portal extends LitElement {
 
   render() {
     return html`
-      <header>
+      <header class="page-header">
+        <a href="#" class="logo">COMP2110 Portal</a>
         <h1>${this.header}</h1>
-        <login-widget></login-widget>
+        <div class="page-header-main">
+                <nav class="main-nav">
+                    <ul class="main-menu">
+                        <li><span class="currentpage">Home</span></li>
+                        <li><a href="#" class="pagelink">About</a></li>
+                        <li><a href="#" class="pagelink">Blog</a></li>
+                    </ul>
+                </nav>
+                                            
+                <div class="header-search">
+                    <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
+                    <label for="main-q" class="visually-hidden">Search Site</label>
+                    <input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..." value="">
+                    <input type="submit" class="search-button" aria-label="Search" value="Search"> 
+                    </form>
+                </div>
+
+
+
       </header>
 
       <main>
-        <widget-column header="Left">
-          <widget-block header="First Widget"></widget-block>
-          <widget-block header="Second Widget"></widget-block>
-          <widget-block header="Third Widget"></widget-block>
-        </widget-column>
-        <blog-block></blog-block>       
-        <widget-column header="Right">
-          <ad-widget></ad-widget>
-          <widget-block header="Fourth Widget"></widget-block>
-          <widget-block header="Fifth Widget"></widget-block>
-        </widget-column>
+        <section class="widgets" id="primary-widgets">
+
+        </section>
+
+        <div class="blog">
+          <blog-block ></blog-block> 
+        </div>
+
+        <section class="widgets" id="secondary-widgets">
+
+        </section>
       </main>
 
-      <p class="app-footer">
-        A product of the COMP2110 Web Development Collective &copy; 2023
-      </p>
+      <footer id="footer">
+            <p id="copyright">Copyright &copy; COMP2110 Web Designers, 2023.</p>
+            <p id="attribution">The COMP2110 Portal is a service of Bob Bobalooba Enterprises.</p>
+      </footer>
     `;
   }
 }
