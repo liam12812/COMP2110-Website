@@ -9,6 +9,29 @@
   <base href="/">
 
   <style>
+    @font-face {
+      font-family: hat;
+      src: url(src/images/RedHatText-Regular.woff2);
+    } 
+  
+    @font-face {
+      font-family: hat;
+      src: url(src/images/RedHatText-Bold.woff2);
+      font-weight: bold;
+    }
+  
+    @font-face {
+      font-family: hat;
+      src: url(src/images/RedHatText-Light.woff2);
+      font-weight: lighter;
+    }
+  
+    @font-face {
+      font-family: hat;
+      src: url(src/images/RedHatText-Italic.woff2);
+      font-style: italic;
+    }
+  
     * {
       box-sizing: border-box;
       margin: 0px;
@@ -17,9 +40,13 @@
     
     body{
       color: rgb(223, 220, 216);
-      background: url(images/funky-lines.webp);
+      background: url(src/images/funky-lines.webp);
       background-color: rgb(24, 26, 27);
     }
+
+    html{
+    font-family: hat;
+  }
   </style>
 
   <title>COMP2110 Portal</title>
