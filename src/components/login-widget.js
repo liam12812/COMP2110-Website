@@ -167,7 +167,7 @@ class LoginWidget extends LitElement {
                         <li>
                           <img src="https://img.freepik.com/free-icon/user_318-563642.jpg">
                         <li>
-                          <p>Welcome ${getUser()}</p>
+                          <p>Welcome ${JSON.stringify(getUser())}</p>
                         </li>
                         <li id="submitbutton">
                             <input type='submit' value='Log out'>
