@@ -24,6 +24,7 @@ class BlockBlock extends LitElement {
     background-color: pink;
     text-transform: capitalize;
   }
+
   `;
 
   constructor() {
@@ -45,7 +46,7 @@ class BlockBlock extends LitElement {
     const paragraphs = text.split('\r\n')
     return paragraphs.map(paragraph => html`<p>${paragraph}</p>`)
   }
-  
+
   render() {
     if (!this._posts)
       return html`Loading...`
@@ -61,5 +62,4 @@ class BlockBlock extends LitElement {
 }
 
 customElements.define('blog-block', BlockBlock);
-
 

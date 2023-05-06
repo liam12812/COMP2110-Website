@@ -12,7 +12,7 @@
  */
 export const storeUser = (userInfo) => {
     window.localStorage.setItem('user', JSON.stringify(userInfo));
-    const event = new CustomEvent('user', {action: 'login'});
+    const event = new CustomEvent('user', {detail: 'login'});
     window.dispatchEvent(event);
 }
 
@@ -22,7 +22,7 @@ export const storeUser = (userInfo) => {
  */
 export const deleteUser = () => {
     window.localStorage.removeItem('user');
-    const event = new CustomEvent('user', {action: 'logout'}); 
+    const event = new CustomEvent('user', {detail: 'logout'}); 
     window.dispatchEvent(event);
 }
 

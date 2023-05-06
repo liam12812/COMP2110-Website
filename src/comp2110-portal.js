@@ -344,10 +344,6 @@ class Comp2110Portal extends LitElement {
     text-decoration: underline;
   }
   
-  
-  
-  
-  
   .blog{
     grid-column: 1;
     grid-row: 2;
@@ -373,7 +369,7 @@ class Comp2110Portal extends LitElement {
     font-size: 50px;
   }
   
-  .byline{
+  .blogpost h3{
     padding-top: 10px;
     padding-bottom: 10px;
     
@@ -386,10 +382,6 @@ class Comp2110Portal extends LitElement {
     padding-top: 30px;
     font-size: 25px;
   }
-  
-  
-  
-  
   
   
   #secondary-widgets{
@@ -437,9 +429,6 @@ class Comp2110Portal extends LitElement {
     padding-left: 20px;
   }
   
-  
-  
-  
   #assignments-widget{
     grid-row: 2; 
   
@@ -474,8 +463,6 @@ class Comp2110Portal extends LitElement {
     align-items: center;
     justify-content: center;
   }
-  
-  
   
   
   footer{
@@ -544,67 +531,11 @@ class Comp2110Portal extends LitElement {
         <ad-widget></ad-widget>
     </section>
 
+
     <div class="blog">
         <div class="blogpost" id="blogpost-1">
-            <h2>About this Assignment</h2>
-            <h3 class="byline">By Steve Cassidy</h3>
-            <p>In this assignment you need to develop a CSS stylesheet to display
-                this web page as professionally and clearly as possible.  You are not
-                allowed to modify the HTML code in any way; you can only use CSS to
-                generate the page layout and add style to the page.  
-            </p>
-            <p>The page is a prototype for the portal application that you will build
-                later in this project. The idea is that it is a <em>landing page</em>
-                for COMP2110 students containing a mix of information from different
-                sources.   The real site you will build later will be dynamic, pulling 
-                data from different places. This version is a static mockup so that 
-                you can concentrate on design.
-            </p>
-
-            <p>The blog posts below are nonsense text to fill the space in your design.</p>
+            <blog-block></blog-block>
         </div>
-
-        <div class="blogpost" id="blogpost-2">
-            <h2>Veniam sit adipisicing ea et</h2>
-            <h3 class="byline">By Bob Bobalooba</h3>
-            <p>Ea irure aute minim aliqua consequat. Sint est occaecat est
-            eiusmod eu ad est anim magna incididunt. Officia elit id velit et
-            incididunt. Veniam culpa irure aliqua occaecat nisi exercitation
-            sunt culpa non et exercitation officia. Ad aliqua magna magna ad
-            adipisicing exercitation mollit elit eu cillum culpa Lorem. Dolore
-            excepteur voluptate ea ullamco ex pariatur nisi cupidatat laboris
-            magna. Ullamco est reprehenderit nisi consectetur proident nulla qui
-            ipsum dolor in in deserunt
-            deserunt.</p>
-
-            <p>Sint occaecat
-            commodo tempor proident occaecat. Non minim est sint voluptate.
-            Reprehenderit dolore fugiat enim nostrud dolor ea consequat non
-            esse. Eiusmod et culpa velit fugiat occaecat enim fugiat nulla non.
-            Lorem ea labore dolor duis mollit duis velit commodo sit ipsum
-            aliqua anim. Nostrud ad esse commodo et
-            esse.</p>
-            
-            <p>Sunt labore fugiat
-            officia velit commodo exercitation ut est elit consequat ullamco
-            aliqua quis. Magna ex occaecat occaecat tempor esse ipsum magna.
-            Enim est nulla id ullamco incididunt. In excepteur nulla
-            exercitation eu ex et dolore nisi ut ea magna cupidatat. Amet sunt
-            reprehenderit ex deserunt aliquip est
-            reprehenderit.</p>
-        </div>
-
-        <div class="blogpost" id="blogpost-3">
-            <h2>Pellentesque velit Mauris</h2>
-            <h3 class="byline">By Mary Contrary</h3>
-            <p>Pellentesque velit mauris, vulputate et diam vitae, pellentesque
-            elementum est. Pellentesque nulla ligula, finibus consequat
-            porttitor a, auctor vel odio. Suspendisse in tellus metus. Phasellus
-            nec sem ante. Ut vestibulum iaculis ornare. Aliquam eget blandit
-            lectus, et hendrerit enim. Morbi blandit purus a auctor rutrum.
-            Suspendisse sed lacus sit amet leo placerat cursus quis ut odio.
-            </p>
-        </div> 
     </div>
 
     <section class="widgets" id="secondary-widgets">
