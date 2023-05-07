@@ -4,7 +4,6 @@ import './components/blog-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
-import './FelixWidget/sun-widget.js/'
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -501,55 +500,54 @@ class Comp2110Portal extends LitElement {
   render() {
     return html`
     <header class="page-header">
-    <a href="#" class="logo">COMP2110 Portal</a>
-    <h1>COMP2110 Portal</h1>
-    <div class="page-header-main">
-        <nav class="main-nav">
-            <ul class="main-menu">
+      <a href="#" class="logo">COMP2110 Portal</a>
+        <h1>COMP2110 Portal</h1>
+          <div class="page-header-main">
+            <nav class="main-nav">
+              <ul class="main-menu">
                 <li><span class="currentpage">Home</span></li>
                 <li><a href="#" class="pagelink">About</a></li>
                 <li><a href="#" class="pagelink">Blog</a></li>
-            </ul>
-        </nav>
+              </ul>
+            </nav>
                                     
-        <div class="header-search">
-            <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
-            <label for="main-q" class="visually-hidden">Search Site</label>
-            <input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..." value="">
-            <input type="submit" class="search-button" aria-label="Search" value="Search"> 
-            </form>
-        </div>
+            <div class="header-search">
+              <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
+                <label for="main-q" class="visually-hidden">Search Site</label>
+                <input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..." value="">
+                <input type="submit" class="search-button" aria-label="Search" value="Search"> 
+              </form>
+            </div>
 
-      <login-widget></login-widget>
+            <login-widget></login-widget>
 
-    </div>
-</header>
+          </div>
+    </header>
 
-<main>
-    <section class="widgets" id="primary-widgets">
+    <main>
+      <section class="widgets" id="primary-widgets">
         <widget-block></widget-block>
         <widget-block></widget-block>
         <ad-widget></ad-widget>
-    </section>
+      </section>
 
-
-    <div class="blog">
+      <div class="blog">
         <div class="blogpost" id="blogpost-1">
             <blog-block></blog-block>
         </div>
-    </div>
+      </div>
 
-    <section class="widgets" id="secondary-widgets">
-      <widget-block></widget-block>
-      <widget-block></widget-block>
-      <ad-widget></ad-widget>
-    </section>
-</main>
+      <section class="widgets" id="secondary-widgets">
+        <widget-block></widget-block>
+        <widget-block></widget-block>
+        <ad-widget></ad-widget>
+      </section>
+    </main>
 
-<footer id="footer">
-    <p id="copyright">Copyright &copy; COMP2110 Web Designers, 2023.</p>
-    <p id="attribution">The COMP2110 Portal is a service of Bob Bobalooba Enterprises.</p>
-</footer>
+    <footer id="footer">
+      <p id="copyright">Copyright &copy; COMP2110 Web Designers, 2023.</p>
+      <p id="attribution">The COMP2110 Portal is a service of Bob Bobalooba Enterprises.</p>
+    </footer>
     `;
   }
 }
