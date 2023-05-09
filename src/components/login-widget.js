@@ -5,7 +5,8 @@ import { BASE_URL } from '../config.js';
 class LoginWidget extends LitElement {
   static properties = {
     loginUrl: { type: String },
-    user: {type: String, state: true }
+    user: {type: String, state: true },
+    valid: false
   }
 
   static styles = css`
@@ -130,6 +131,28 @@ class LoginWidget extends LitElement {
           margin-right: auto;
         }
 
+        #fail{
+          text-align: center;
+          position:relative;
+          top: -30px;
+          color: rgb(219,23,23);
+        }
+
+        #register2{
+          text-align: center;
+          position:relative;
+          top: -37px;
+        }
+        
+        #register2 a{
+          text-decoration: none;
+          color:rgb(223, 220, 216);
+        }
+        
+        #register2 a:hover{
+          text-decoration: underline;
+        }
+
         
           `;
 
@@ -140,6 +163,7 @@ class LoginWidget extends LitElement {
     this.loginUrl = `${BASE_URL}users/login`;
     this.user = getUser();
   }
+
 
   submitForm(event) { 
     event.preventDefault();
@@ -153,6 +177,9 @@ class LoginWidget extends LitElement {
         this.user = response;
         storeUser(response);
     })
+
+    
+    
   }
 
   logout() {
@@ -161,7 +188,7 @@ class LoginWidget extends LitElement {
   }
 
   render() {
-    if (this.user) {
+    if (this.user && !this.user.error) {
         return html`
         <div class="header-auth">
             <div id="logged-in">
@@ -180,6 +207,32 @@ class LoginWidget extends LitElement {
             </div>
         </div>`
     } 
+    else if(this.user && this.user.error){
+      return html`
+      <div class="header-auth">
+          <div id="login_register">
+              <div id="login">
+                  <form @submit=${this.submitForm}>
+                    <ul>
+                        <li><label for="username">Username</label>
+                            <input name="username">
+                        </li>
+                        <li><label for="password">Password</label>
+                            <input type="password" name="password">
+                        </li>
+                        <li id="submitbutton">
+                            <input type='submit' value='Login'>
+                        </li>
+                    </ul>
+                  </form>
+                  <p id='fail'> Username or Password is incorrect</p>
+              </div>
+              <div id="register2">
+                  <a href="#" id="register-link">Register</a>
+              </div>
+          </div>
+      </div>`;
+    }
     return html`
     <div class="header-auth">
         <div id="login_register">
