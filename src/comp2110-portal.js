@@ -424,7 +424,9 @@ class Comp2110Portal extends LitElement {
   render() {
     return html`
     <header class="page-header">
-      <a href="#" class="logo">COMP2110 Portal</a>
+      <a href="#" class="logo">
+        <img src="src/images/COMP2110_Logo.png" width="500" height="80"/>
+      </a>
         <h1>COMP2110 Portal</h1>
           <div class="page-header-main">
             <nav class="main-nav">
