@@ -8,7 +8,13 @@ class UpcomingPublicHolidays extends LitElement {
 
     }
 
+    static MainUrl = "https://date.nager.at/api/v2/publicholidays/";
+
     static styles = css`
+
+    .main {
+        size 20px;
+    }
    `;
 
    constructor(){
@@ -22,11 +28,13 @@ class UpcomingPublicHolidays extends LitElement {
     this.fetchUpcomingholidays();
    }
 
-   async fetchUpcomingholidays(){
-    const url = 'https://date.nager.at/api/v2/publicholidays/${new Date().getFullYear()}/${this.country}';
-    const answer = await fetch(url);
-    const data = await answer.json();
-    this.upcomingHolidays = data;
+    fetchUpcomingholidays(){
+    fetch(UpcomingPublicHolidays.MainUrl + "country="+ this.country +"upcomingholidays="+this.upcomingholidays)
+    .then(response => response.json())
+    .then(data => {
+        this.upcomingHolidays= data
+    })
+    
    }
 
    render(){
