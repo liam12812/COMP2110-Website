@@ -526,7 +526,7 @@ class Comp2110Portal extends LitElement {
 
     <main>
       <section class="widgets" id="primary-widgets">
-        <widget-block></widget-block>
+        <cc-widget></cc-widget>
         <widget-block></widget-block>
         <ad-widget></ad-widget>
       </section>

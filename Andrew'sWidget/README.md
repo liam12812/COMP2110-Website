@@ -1,2 +1,0 @@
-this is andrew's widget, it will he about: Currency Conversions.
-It will be able to take an amount of mony in many different supported currencys, and convert it into an amount of money in any other of the suppotred currencys.
