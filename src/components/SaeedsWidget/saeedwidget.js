@@ -29,11 +29,13 @@ class UpcomingPublicHolidays extends LitElement {
    }
 
     fetchUpcomingHolidays(){
-    const url = `${UpcomingPublicHolidays.MainUrl}/${new Date().getFullYear()}/${this.country}` ;
+    const cdate = new Date();
+    const url = `${UpcomingPublicHolidays.MainUrl}/${cdate.getFullYear()}/${this.country}` ;
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        this.upcomingHolidays=data;
+        const upcomingHolidays=data.filter(holiday => new Date(holiday.date) >= cdate)
+        this.upcomingHolidays= upcomingHolidays;
         this.requestUpdate();
     });
     
