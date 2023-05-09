@@ -32,7 +32,7 @@ class AdWidget extends LitElement {
     return html`
   <div>
         <img src=${this.adUrl} alt="Advertisment">
-        <p>Advertisment</p>
+        <!-- <p>Advertisment</p> -->
   </div>
     `;
   }

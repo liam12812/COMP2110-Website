@@ -5,3 +5,5 @@ I have made a lot of changes without comitting and I think it is about time I co
 I copied some classwork from a few weeks ago as a baseline to work from,
 I changed the render, fetch and constructor function, and I added a calculate function.
 I have moved the file to the src/components/ folder so that I can test it in the preview of the main document.
+
+I removed the word advertisement from the ad-widget

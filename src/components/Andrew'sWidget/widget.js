@@ -16,7 +16,7 @@ class CurrencyConversions extends LitElement {
         this.from = "AUD";
         this.to = "USD";
         this.amount = "1";
-        this._currencys = [1, 2, 3, 4, 5, 6]
+        this._currencys = ["AUD","USD","EUR"]
     }
 
     connectedCallback() {
@@ -51,14 +51,12 @@ class CurrencyConversions extends LitElement {
                         console.log(from===this.from);
                         let selected = from == this.from;
                         return html`<option name=${from} ?selected=${selected}>${from}</option>`
-                    }
-                        )}
+                    })}
                     ${this._currencys.map(to => {
                         console.log(to===this.to);
                         let selected = to == this.to;
                         return html`<option name=${to} ?selected=${selected}>${to}</option>`
-                    }
-                        )}
+                    })}
                 </select>
             </form>
             
