@@ -300,7 +300,7 @@ class Comp2110Portal extends LitElement {
   }
   
   .blogpost{
-    padding: 40px 80px 40px 80px;
+    padding: 40px 20px 40px 20px;
     background-color: rgb(36, 39, 41);
     border-radius: 10px;
     box-shadow: 5px 5px 4px 2px slategray;
