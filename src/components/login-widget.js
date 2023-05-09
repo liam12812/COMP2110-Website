@@ -114,20 +114,23 @@ class LoginWidget extends LitElement {
         }
           
         #logged-in ul{
-          list-style: none;        
+          list-style: none;      
           padding: 10px;
           font-size: 25px;
           color:rgb(223, 220, 216);
 
         }
-        #logged-in input{
-          width: 130%;
-        }   
+  
         
         img{
           width:140px;
           height:140px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
         }
+
+        
           `;
 
     

@@ -10,7 +10,9 @@ import { BASE_URL } from '../config.js';
 
 class BlockBlock extends LitElement {
   static properties = {
-    _posts: { state: true }
+    _posts: { state: true },
+    blogpost: {type: String},
+
   }
 
   static styles = css`
@@ -21,22 +23,44 @@ class BlockBlock extends LitElement {
     text-align: left;
   }
   .blogpost h2 {
-    background-color: pink;
     text-transform: capitalize;
   }
-
+  hr.dashed {
+    border: none;
+    border-top: 3px dashed;
+    padding-bottom: 20px;
+  }
   `;
 
   constructor() {
     super();
-
-    const url = `${BASE_URL}blog`;
-    fetch(url)
-        .then(response => response.json())
-        .then(posts => {
-            this._posts = posts.posts; 
-        });
+    this.blogpost = "5";
+    this._blogposts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._fetch();
+}
+
+  _fetch(){
+    const url = `${BASE_URL}blog`;
+    fetch(url + '?start=1&count=' + this.blogpost)
+    .then(response => response.json())
+    .then(posts => {
+        this._posts = posts.posts; 
+    });
+}
+
+
+ _updateBlog(e) {
+  this.blogpost = e.target.value;
+  this._posts = undefined;
+  this._fetch();  
+};
+
+
+
 
   // A simple formatter that just splits text into paragraphs and 
   // wraps each in a <p> tag
@@ -52,12 +76,24 @@ class BlockBlock extends LitElement {
       return html`Loading...`
     
     return html`
-      ${this._posts.map(post => html`<div class="blogpost">
-        <h2>${post.title}</h2>
-        <h3>By ${post.name}</h3>
-        ${BlockBlock.formatBody(post.content)}
-      </div>`)}
-      `;
+    <form>
+      <select name="film" @change=${this._updateBlog}>
+          ${this._blogposts.map(blogpost => {
+              console.log(blogpost===this._blogpost);
+              let selected = blogpost == this.blogpost;
+              return html`<option name=${blogpost} ?selected=${selected}>${blogpost}</option>`
+         }
+           )}
+      </select>
+    </form>
+
+        ${this._posts.map(post => html`<div class="blogpost">
+          <h2>${post.title}</h2>
+          <h3>By ${post.name}</h3>
+          ${BlockBlock.formatBody(post.content)}
+          <hr class="dashed">
+        </div>`)}
+        `;
   }
 }
 
