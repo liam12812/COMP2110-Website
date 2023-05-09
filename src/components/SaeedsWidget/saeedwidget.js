@@ -12,8 +12,16 @@ class UpcomingPublicHolidays extends LitElement {
 
     static styles = css`
 
-    .main {
-        size 10px;
+    h3{
+        font-family:Georgia,'Times New Roman', Times, serif;
+        font-size:20px;
+    }
+    ul{
+        border-style:groove;
+        display: inline-block;
+        font-size:15px;
+        margin-left:0;
+        
     }
    `;
 
