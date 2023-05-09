@@ -30,6 +30,10 @@ class BlockBlock extends LitElement {
     border-top: 3px dashed;
     padding-bottom: 20px;
   }
+  .subject{
+    display: inline-block;
+    padding-right: 10px;
+  }
   `;
 
   constructor() {
@@ -76,7 +80,9 @@ class BlockBlock extends LitElement {
       return html`Loading...`
     
     return html`
-    <form>
+    <h1> COMP2110 Blog </h1>
+    <p class='subject'> Welcome to the COMP2110 Blog, select the number of posts here:  </p> 
+    <form class='subject'>
       <select name="film" @change=${this._updateBlog}>
           ${this._blogposts.map(blogpost => {
               console.log(blogpost===this._blogpost);
