@@ -8,7 +8,7 @@ class CurrencyConversions extends LitElement {
         _data: {state: true}
     }
     static styles = css`
-    h2 {
+    .definatly a unique class name {
         size: 15px;
     }`;
 
@@ -74,8 +74,8 @@ class CurrencyConversions extends LitElement {
                 </select>
             </form>
             
-            <h2 class="heading">Currency Conversions</h2>
-            <h3>${this.from} to ${this.to}</h3>
+            <p>Currency Conversions</p>
+            <p>${this.from} to ${this.to}</p>
             <p>${this.amount} ${this.from} is ${this._data.result} ${this.to}</p>
             <p>The conversion rate is 1:${this._data.info.rate}.</p>
             `;
