@@ -8,7 +8,7 @@ class UpcomingPublicHolidays extends LitElement {
 
     }
 
-    static MainUrl = "https://date.nager.at/api/v2/publicholidays/";
+    static MainUrl = "https://date.nager.at/api/v2/publicholidays";
 
     static styles = css`
 
