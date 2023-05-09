@@ -4,6 +4,7 @@ import './components/blog-block.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
+import './components/AndrewsWidget/widget.js';
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -24,15 +25,12 @@ class Comp2110Portal extends LitElement {
   body{
     color: rgb(223, 220, 216);
     background: url(src/images/funky-lines.webp);
-  
-  
     /* background-color: rgb(24, 26, 27);*/
   }
   
   .page-header{
     width: 100%;
     height: 200px;
-  
     background: url(src/images/funky-lines.webp);
     /* background-color: rgb(24, 26, 27);*/
   }
@@ -41,10 +39,8 @@ class Comp2110Portal extends LitElement {
     float: left;
     width: 10%;
     height: 100px;
-  
     background: url(src/images/funky-lines.webp);
     background-color: rgb(24, 26, 27);
-  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,15 +51,12 @@ class Comp2110Portal extends LitElement {
     width: 90%;
     height: 100px;
     color: rgb(24, 26, 27);
-  
     background: url(src/images/funky-lines.webp);
     background-color: rgb(24, 26, 27);
-  
     text-align: center;
     vertical-align: middle;
     line-height: 100px;
     padding-right: 10%;
-  
     font-size: 60px;
   }
   
@@ -71,28 +64,21 @@ class Comp2110Portal extends LitElement {
     float: left;
     width: 99%;
     height: 100px;
-  
     margin-left: 0.5%;
     margin-right: 0.5%;
-  
     background-color: #282A35;
     border-radius: 10px;
   }
-  
-  
-  
+
   .main-nav{
     float: left;
     width: 50%;
     min-width: ;
     height: 100px;
-  
     display: flex;
     align-items: center;
     justify-content: left;
-  
     padding: 5px 5px 5px 20px;
-  
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -109,11 +95,9 @@ class Comp2110Portal extends LitElement {
   
   .main-menu span{
     float: left;
-  
     height: 60px;
     border-radius: 5px;
     color: rgb(223, 220, 216);
-  
     text-align: center;
     vertical-align: middle;
     line-height: 58px;
@@ -130,12 +114,9 @@ class Comp2110Portal extends LitElement {
   
   .main-menu a{
     float: left;
-  
     height: 60px;
     border-radius: 5px;
     color: rgb(223, 220, 216);
-  
-  
     text-align: center;
     vertical-align: middle;
     line-height: 58px;
@@ -150,16 +131,11 @@ class Comp2110Portal extends LitElement {
     background-color: rgb(3, 136, 87);
   }
   
-  
-  
-  
-  
   .header-search {
     float: right;
     width: 50%;
     height: 100px;
     padding-right: 10px;
-  
     display: flex;
     align-items: center;
     justify-content: right;
@@ -168,7 +144,6 @@ class Comp2110Portal extends LitElement {
   #nav-main-search {
     height: 100px;
     width: 100%;
-  
     display: flex;
     align-items: center;
     justify-content: right;
@@ -179,7 +154,6 @@ class Comp2110Portal extends LitElement {
     font-size: 25px;
     text-align: center;
     border-right: 1px solid silver;
-  
     margin-right: 10px;
     padding-right: 5px;
   }
@@ -188,11 +162,9 @@ class Comp2110Portal extends LitElement {
     height: 50px;
     width: 200px;
     margin: 25px 5px 25px 5px;
-  
     background: none;
     border: 1px solid silver;
     border-radius: 10px;
-  
     transition: width 0.4s ease-in-out;
   }
   
@@ -216,15 +188,12 @@ class Comp2110Portal extends LitElement {
   .search-button{
     width: 100px;
     height: 50px;
-  
     margin: 0px 0px 0px 10px;
-  
     color: rgb(223, 220, 216);
     border: 0px solid silver;
     border-radius: 10px;
     background-color:rgb(219, 23, 23);
     font-size: 20px;
-  
     transition: transform 0.3s ease-in-out;
     transform-style: preserve-3d;
   }
@@ -237,31 +206,18 @@ class Comp2110Portal extends LitElement {
     background-color:rgb(3, 136, 87);
   }
   
-  
-  
-  
-  
-  
-  
   main{
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: 350px 3fr;
-  
     margin-top: 20px;
-  
     background: url(src/images/funky-lines.webp);
     background-color: rgb(24, 26, 27);
   }
   
-  
-  
-  
-  
   .widgets{
     padding: 10px;
     margin-top: 20px;
-  
     background-color: rgb(36, 39, 41);
     border-radius: 10px;
   }
@@ -270,20 +226,14 @@ class Comp2110Portal extends LitElement {
     padding: 10px;
     margin: 10px;
   }
-  
-  
-  
-  
+
   #primary-widgets{
     grid-column: 1;
     grid-row: 1;
-  
     margin: 0px 10px 10px 20px;
-  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     font-size: 30px;
-  
     box-shadow: 5px 5px 4px 2px slategray;
   }
   
@@ -291,7 +241,6 @@ class Comp2110Portal extends LitElement {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     border-left: 1px solid silver;
     border-right: 1px solid silver;
   }
@@ -347,17 +296,13 @@ class Comp2110Portal extends LitElement {
   .blog{
     grid-column: 1;
     grid-row: 2;
-  
     margin: 10px 10px 0px 20px;
   }
   
   .blogpost{
     padding: 40px 80px 40px 80px;
-  
     background-color: rgb(36, 39, 41);
     border-radius: 10px;
-  
-    
     box-shadow: 5px 5px 4px 2px slategray;
   }
   
@@ -372,9 +317,7 @@ class Comp2110Portal extends LitElement {
   .blogpost h3{
     padding-top: 10px;
     padding-bottom: 10px;
-    
     border-bottom: 1px solid silver;
-  
     font-size: 30px;
   }
   
@@ -383,26 +326,20 @@ class Comp2110Portal extends LitElement {
     font-size: 25px;
   }
   
-  
   #secondary-widgets{
     grid-column: 2;
     grid-row: 2;
     width: 329.22;
-  
     margin: 10px 20px 0px 10px;
-  
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-  
     font-size: 30px;
-  
     box-shadow: 5px 5px 4px 2px slategray;
   }
   
   #task-widget{
     grid-row: 1;
     border-bottom: 1px solid silver;
-  
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -410,10 +347,6 @@ class Comp2110Portal extends LitElement {
   #task-widget h2{
     text-align: center;
     padding-bottom: 20px;
-  }
-  
-  #task-widget dl{
-    
   }
   
   #task-widget dt{
@@ -430,8 +363,7 @@ class Comp2110Portal extends LitElement {
   }
   
   #assignments-widget{
-    grid-row: 2; 
-  
+    grid-row: 2;
     margin-top: 40px;
     margin-bottom: 40px
   }
@@ -450,20 +382,16 @@ class Comp2110Portal extends LitElement {
     font-size: 25px;
     padding-bottom: 20px;
     padding-left: 20px;
-  
     margin-left: 30px;
   }
-  
-  
+
   #secondary-widgets .advertisement{
     grid-row: 3;
     border-top: 1px solid silver;
-  
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
   
   footer{
     width: 99%;
@@ -471,9 +399,7 @@ class Comp2110Portal extends LitElement {
     margin: 20px 0.5% 0.5% 0.5%;
     background-color: #282A35;
     border-radius: 10px;
-  
     font-size: 20px;
-  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -488,8 +414,6 @@ class Comp2110Portal extends LitElement {
     padding-left: 5px;
     padding-right: 10px;
   }
-  
-
   `;
 
   constructor() {

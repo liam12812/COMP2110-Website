@@ -32,9 +32,19 @@ class CurrencyConversions extends LitElement {
         });
     }
 
-    _calculate(f,t,a) {
+    _changefrom(f) {
         this.from = f.target.value;
+        this._data = undefined;
+        this._fetch();  
+    }
+
+    _changeto(t) {
         this.to = t.target.value;
+        this._data = undefined;
+        this._fetch();  
+    }
+
+    _changeamount(a) {
         this.amount = a.target.value;
         this._data = undefined;
         this._fetch();  
@@ -42,27 +52,28 @@ class CurrencyConversions extends LitElement {
 
     render() { 
         if (this._data) {
-            const crawl = this._data.opening_crawl.split('\r\n')
             return html`
 
             <form>
-                <select name="from" @change=${this._calculate}>
+                <select name="from" @change=${this._changefrom}>
                     ${this._currencys.map(from => {
                         console.log(from===this.from);
-                        let selected = from == this.from;
-                        return html`<option name=${from} ?selected=${selected}>${from}</option>`
+                        let fchoice = from == this.from;
+                        return html`<option name=${from} ?selected=${fchoice}>${from}</option>`
                     })}
+                </select>
+                <select name="to" @change=${this._changeto}>
                     ${this._currencys.map(to => {
                         console.log(to===this.to);
-                        let selected = to == this.to;
-                        return html`<option name=${to} ?selected=${selected}>${to}</option>`
+                        let tchoice = to == this.to;
+                        return html`<option name=${to} ?selected=${tchoice}>${to}</option>`
                     })}
                 </select>
             </form>
             
-            <h2>Currency Conversions</h2>
+            <!-- <h2>Currency Conversions</h2> -->
             <h3>${this.from} to ${this.to}</h3>
-            <p>${this.amount}${this.from} is ${this._data.result}${this.to}</p>
+            <p>${this.amount} ${this.from} is ${this._data.result} ${this.to}</p>
             <p>The conversion rate is 1:${this._data.info.rate}.</p>
             `;
         } else {
