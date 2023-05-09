@@ -18,14 +18,14 @@ class UpcomingPublicHolidays extends LitElement {
    }
 
    connectedCallback(){
-    this.connectedCallback();
+    super.connectedCallback();
     this.fetchUpcomingholidays();
    }
 
    async fetchUpcomingholidays(){
     const url = 'https://date.nager.at/api/v2/publicholidays/${new Date().getFullYear()}/${this.country}';
     const answer = await fetch(url);
-    const data = await response.json();
+    const data = await answer.json();
     this.upcomingHolidays = data;
    }
 
@@ -47,7 +47,7 @@ class UpcomingPublicHolidays extends LitElement {
 
    userCountryChange(event){
     this.country= event.target.value;
-    this.fetchUpcomingholidays;
+    this.fetchUpcomingholidays();
 
    }
     
