@@ -3,7 +3,7 @@ import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core
 class UpcomingPublicHolidays extends LitElement {
 
     static properties = {
-        holidays:{type: Array},
+        upcomingholidays:{type: Array},
         country: {type:String}
 
     }
@@ -13,7 +13,7 @@ class UpcomingPublicHolidays extends LitElement {
 
    constructor(){
    super();
-   this.holidays=[];
+   this.upcomingholidays=[];
    this.country = 'AUS';
    }
 
@@ -32,18 +32,26 @@ class UpcomingPublicHolidays extends LitElement {
    render(){
     return html`
         <h3> Next Public Holidays </h3>
-        <
+        <select @change="${this.userCountryChange}">
+            <option value= "AUS"> Australia</option>
+            <option value= "CAN"> Canada</option>
+            <option value= "MEX"> Mexico</option>
+            <option value= "USA"> United States of America</option>
+        </select>
 
-
-
-
+        <ul>
+            ${this.upcomingholidays.map((holiday) => html`<li>${holiday.date}: ${holiday.name}</li>`)}
+        </ul>
     `;
    }
 
+   userCountryChange(event){
+    this.country= event.target.value;
+    this.fetchUpcomingholidays;
 
-
-
+   }
     
 }
+customElements.define('uph-widget', UpcomingPublicHolidays);
 
 
