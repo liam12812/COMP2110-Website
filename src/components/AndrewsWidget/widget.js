@@ -7,7 +7,10 @@ class CurrencyConversions extends LitElement {
         to: {type: String},
         _data: {state: true}
     }
-    static styles = css``;
+    static styles = css`
+    h2 {
+        size: 15px;
+    }`;
 
     static BASE_URL = "https://api.exchangerate.host/convert?";
 
@@ -71,7 +74,7 @@ class CurrencyConversions extends LitElement {
                 </select>
             </form>
             
-            <!-- <h2>Currency Conversions</h2> -->
+            <h2 class="heading">Currency Conversions</h2>
             <h3>${this.from} to ${this.to}</h3>
             <p>${this.amount} ${this.from} is ${this._data.result} ${this.to}</p>
             <p>The conversion rate is 1:${this._data.info.rate}.</p>
