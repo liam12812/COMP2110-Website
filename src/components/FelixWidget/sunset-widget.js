@@ -17,6 +17,7 @@ class SunWidget extends LitElement {
             box-sizing: border-box;
             position: relative;
             border: 1px solid white;
+            border-radius: 5px;
 
             width: 100%;
             height: 0;
@@ -24,20 +25,67 @@ class SunWidget extends LitElement {
             padding-right: 20px;
             padding-bottom: 100%;
             margin: auto;
+
+            background: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg);
+            background-size: 150%;
+            background-repeat: no-repeat;
+
+            color: white;
         }
+
 
         .title {
             text-align: center;
             margin-top: 20px;
+            text-decoration: underline;
         }
 
         .data {
-            text-align: right;
+            width: 45%;
+            float: left;
 
+            text-align: right;
+            backdrop-filter: blur(6px);
+            border: 1px solid white;
+            border-radius: 5px;
+
+            padding: 10px;
         }
 
-        .credit {
-            font-size: 16px;
+        #sunrise-icon {
+            float: left;
+            border: 1px dotted black;
+            margin: 0px 0px 15px 20px;
+
+            height: 80px;
+            width: 80px;
+        }
+
+        #sunset-icon {
+            float: left;
+            border: 1px dotted black;
+            margin: 0px 0px 15px 20px;
+
+            height: 80px;
+            width: 80px;
+        }
+
+        #creditAPI {
+            font-size: 12px;
+            width: 50%;
+            float: right;
+            text-align: right;
+        }
+
+        #creditIMG {
+            font-size: 12px;
+            width: 50%;
+            float: left;
+            text-align: left;
+        }
+
+        a {
+            color: white;
         }
 
     `;
@@ -67,18 +115,22 @@ class SunWidget extends LitElement {
             return html`
             <div class="widget-box">
                 <h3 class="title">Sunrise/set Times</h3>
+                <slot></slot>
+
                 <p class="data">
+                    <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
                     Sunrise <br>
                     ${this._data.results.sunrise}
-                    ${console.log(this._data)}
                 </p>
                 <p class="data">
+                    <img class="icon" id="sunset-icon" src="src/components/FelixWidget/content/vecteezy_sunset-sun-line-icon-vector-illustration-logo_.jpg">
                     Sunset <br>    
                     ${this._data.results.sunset}
-                    ${console.log(this._data)}
                 </p>
-                <p class="credit"> 
+                <p id="creditAPI"> 
                     Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
+                <p id="creditIMG">
+                    <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
                 </p>
             </div>
             `;
