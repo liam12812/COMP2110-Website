@@ -64,6 +64,16 @@ class BlockBlock extends LitElement {
 };
 
 
+_post() {
+  fetch(url), {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ "id": 46611142, "name":"Liam Caden" })
+}
+}
+
 
 
   // A simple formatter that just splits text into paragraphs and 
@@ -99,9 +109,16 @@ class BlockBlock extends LitElement {
           ${BlockBlock.formatBody(post.content)}
           <hr class="dashed">
         </div>`)}
+
+
+        <p> hello </p>
+        
         `;
+
+      
   }
 }
 
 customElements.define('blog-block', BlockBlock);
+
 

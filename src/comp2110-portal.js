@@ -6,6 +6,7 @@ import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/AndrewsWidget/widget.js';
 import './components/SaeedsWidget/saeedwidget.js';
+import './components/LiamWidget/liamwidget.js';
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -455,8 +456,7 @@ class Comp2110Portal extends LitElement {
       <section class="widgets" id="primary-widgets">
         <cc-widget></cc-widget>
         <uph-widget></uph-widget>
-        <widget-block></widget-block>
-        <ad-widget></ad-widget>
+        <weather-widget></weather-widget>
       </section>
 
       <div class="blog">
