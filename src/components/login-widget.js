@@ -6,7 +6,6 @@ class LoginWidget extends LitElement {
   static properties = {
     loginUrl: { type: String },
     user: {type: String, state: true },
-    valid: false
   }
 
   static styles = css`
