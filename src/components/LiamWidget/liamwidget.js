@@ -14,7 +14,7 @@ class WeatherWidget extends LitElement {
             display: block;
             width: 250px;
             height: 320px;
-            background-color: green;
+            background-color: none;
             position:relative;
             left: 20px;
             
