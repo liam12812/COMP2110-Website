@@ -56,7 +56,10 @@ class UpcomingPublicHolidays extends LitElement {
         <h3> Next Public Holidays </h3>
         <select @change="${this.userCountryChange}">
             <option value= "AU"> Australia</option>
+            <option value= "AT"> Austria</option>
+            <option value= "AR"> Argentina</option>
             <option value= "CA"> Canada</option>
+            <option value= "CN"> China</option>
             <option value= "MX"> Mexico</option>
             <option value= "US"> United States</option>
             <option value= "PY"> Paraguay</option>
