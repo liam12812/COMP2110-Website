@@ -19,7 +19,7 @@ class UpcomingPublicHolidays extends LitElement {
     ul{
         border-style:groove;
         display: inline-block;
-        font-size:15px;
+        font-size:12px;
         margin-left:0;
         
     }
@@ -53,7 +53,7 @@ class UpcomingPublicHolidays extends LitElement {
 
    render(){
         return html`
-        <h3> Next Public Holidays </h3>
+        <h3> Upcoming Public Holidays </h3>
         <select @change="${this.userCountryChange}">
             <option value= "AU"> Australia</option>
             <option value= "CA"> Canada</option>
