@@ -8,6 +8,7 @@ import './components/login-widget.js';
 import './components/AndrewsWidget/widget.js';
 import './components/SaeedsWidget/saeedwidget.js';
 import './components/LiamWidget/liamwidget.js';
+import './components/FelixWidget/sunset-widget.js'
 
 
 class Comp2110Portal extends LitElement {
@@ -471,7 +472,7 @@ class Comp2110Portal extends LitElement {
       </div>
 
       <section class="widgets" id="secondary-widgets">
-        <widget-block></widget-block>
+        <sun-widget></sun-widget>
         <widget-block></widget-block>
         <ad-widget></ad-widget>
       </section>
