@@ -110,9 +110,7 @@ _post() {
   })
 }
 
-test(){
-  this.authToken = document.getElementById('title').value;
-}
+
 
 
   render() {
