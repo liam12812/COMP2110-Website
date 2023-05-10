@@ -24,6 +24,9 @@ class CurrencyConversions extends LitElement {
     p {
         font-size: 25px;
         font-weight: ;
+    }
+    #amount {
+        max-width: 30px;
     }`;
 
     static BASE_URL = "https://api.exchangerate.host/convert?";
@@ -88,10 +91,11 @@ class CurrencyConversions extends LitElement {
                             let tchoice = to == this.to;
                             return html`<option name=${to} ?selected=${tchoice}>${to}</option>`
                         })}
-                    </select>
+                    </select><br>
+                    <input type="text" id="amount" name="amount" value="${this.amount}" @change=${this._changeamount}>
+                    <p>${this.from} is <br>
+                    ${this._data.result} ${this.to}</p>
                 </form>
-                <p>${this.amount} ${this.from} is <br>
-                ${this._data.result} ${this.to}</p>
                 <p>The conversion rate is
                 <br> 1 : ${this._data.info.rate}.</p>
             </div>
