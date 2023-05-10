@@ -1,12 +1,14 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import './components/widget-block.js';
 import './components/blog-block.js';
+import './components/blog-post.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/AndrewsWidget/widget.js';
 import './components/SaeedsWidget/saeedwidget.js';
 import './components/LiamWidget/liamwidget.js';
+
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -463,6 +465,9 @@ class Comp2110Portal extends LitElement {
         <div class="blogpost" id="blogpost-1">
             <blog-block></blog-block>
         </div>
+        <div class="blogpost" id="blogpost-2">
+        <blog-post></blog-post>
+    </div>
       </div>
 
       <section class="widgets" id="secondary-widgets">

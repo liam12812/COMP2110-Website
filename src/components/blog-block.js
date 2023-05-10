@@ -13,8 +13,7 @@ class BlockBlock extends LitElement {
     _posts: { state: true },
     blogpost: {type: String},
     start: {type: Number},
-    pagenum: {type: Number}
-
+    pagenum: {type: Number},
   }
 
   static styles = css`
@@ -96,11 +95,10 @@ class BlockBlock extends LitElement {
 
   constructor() {
     super();
-    this.blogpost = "5";
+    this.blogpost = "3";
     this._blogposts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     this.start = 1;
     this.pagenum = 1;
-
   }
 
   connectedCallback() {
@@ -114,7 +112,7 @@ class BlockBlock extends LitElement {
     .then(response => response.json())
     .then(posts => {
         this._posts = posts.posts; 
-    });
+    })
 }
 
 
@@ -124,6 +122,7 @@ class BlockBlock extends LitElement {
   this.pagenum = 1;
   this._posts = undefined;
   this._fetch();  
+
 };
 
 _nextpage(){
@@ -140,22 +139,14 @@ if(this.start - parseInt(this.blogpost) > 0){
   this._posts = undefined
   this._fetch();
 }
+else{
   this.start = 1;
   this.pagenum = 1;
   this._posts = undefined;
   this._fetch(); 
 }
-
-
-_post() {
-  fetch(url), {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ "id": 46611142, "name":"Liam Caden" })
 }
-}
+
 
 
 
@@ -169,8 +160,9 @@ _post() {
   }
 
   render() {
-    if (!this._posts)
+    if (!this._posts){
       return html`Loading...`
+    }
     
     return html`
     <h1> COMP2110 Blog </h1>
@@ -190,12 +182,12 @@ _post() {
               <input type='submit' value='&laquo; Back'>
         </li>
     </form>
-    <p class="subject" id = "pagenum">${this.pagenum}</p>
-    <form class= 'subject' id='next' @submit=${this._nextpage}> 
-    <li id="submitbutton">
-          <input type='submit' value='Next &raquo;'>
-    </li>
-</form>
+        <p class="subject" id = "pagenum">${this.pagenum}</p>
+        <form class= 'subject' id='next' @submit=${this._nextpage}> 
+        <li id="submitbutton">
+              <input type='submit' value='Next &raquo;'>
+        </li>
+    </form>
 
         ${this._posts.map(post => html`<div class="blogpost">
           <h2>${post.title}</h2>
@@ -203,14 +195,12 @@ _post() {
           ${BlockBlock.formatBody(post.content)}
           <hr class="dashed">
         </div>`)}
-
-
-        <p> hello </p>
-        
+         
         `;
 
       
   }
+
 }
 
 customElements.define('blog-block', BlockBlock);
