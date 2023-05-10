@@ -56,6 +56,7 @@ class CurrencyConversions extends LitElement {
     render() { 
         if (this._data) {
             return html`
+            <p>Currency Conversions</p>
 
             <form>
                 <select name="from" @change=${this._changefrom}>
@@ -65,6 +66,7 @@ class CurrencyConversions extends LitElement {
                         return html`<option name=${from} ?selected=${fchoice}>${from}</option>`
                     })}
                 </select>
+                <p style="display: Inline;"> to </p>
                 <select name="to" @change=${this._changeto}>
                     ${this._currencys.map(to => {
                         console.log(to===this.to);
@@ -73,9 +75,6 @@ class CurrencyConversions extends LitElement {
                     })}
                 </select>
             </form>
-            
-            <p>Currency Conversions</p>
-            <p>${this.from} to ${this.to}</p>
             <p>${this.amount} ${this.from} is ${this._data.result} ${this.to}</p>
             <p>The conversion rate is 1:${this._data.info.rate}.</p>
             `;
