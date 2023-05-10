@@ -456,7 +456,11 @@ class Comp2110Portal extends LitElement {
       <section class="widgets" id="primary-widgets">
         <cc-widget></cc-widget>
         <uph-widget></uph-widget>
+<<<<<<< HEAD
         <weather-widget></weather-widget>
+=======
+        <ad-widget></ad-widget>
+>>>>>>> 5610c51b57ee0736a68e22674d6beed3827923f6
       </section>
 
       <div class="blog">

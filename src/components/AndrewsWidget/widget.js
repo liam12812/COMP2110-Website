@@ -8,8 +8,25 @@ class CurrencyConversions extends LitElement {
         _data: {state: true}
     }
     static styles = css`
-    .definatly a unique class name {
-        size: 15px;
+    div {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+    }
+    h2 {
+        margin: 0;
+        font-size: 30px;
+    }
+    form p {
+        display: Inline;
+        font-size: 20px;
+    }
+    p {
+        font-size: 25px;
+        font-weight: ;
+    }
+    #amount {
+        max-width: 30px;
     }`;
 
     static BASE_URL = "https://api.exchangerate.host/convert?";
@@ -19,7 +36,8 @@ class CurrencyConversions extends LitElement {
         this.from = "AUD";
         this.to = "USD";
         this.amount = "1";
-        this._currencys = ["AUD","USD","EUR"]
+        //this._currencys = ["AUD","USD","EUR","GBP","CAD","BRL"]
+        this._currencys = ["AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTN","BWP","BZD","CAD","CDF","CHF","CLP","CNY","COP","CRC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","STD","SVC","SYP","SZL","THB","TJS","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","USD","UYU","UZS","VES","VND","VUV","WST","XAF","XCD","XOF","XPF","YER","ZAR"]
     }
 
     connectedCallback() {
@@ -56,28 +74,32 @@ class CurrencyConversions extends LitElement {
     render() { 
         if (this._data) {
             return html`
+            <div>
+                <h2>Currency Conversions</h2>
 
-            <form>
-                <select name="from" @change=${this._changefrom}>
-                    ${this._currencys.map(from => {
-                        console.log(from===this.from);
-                        let fchoice = from == this.from;
-                        return html`<option name=${from} ?selected=${fchoice}>${from}</option>`
-                    })}
-                </select>
-                <select name="to" @change=${this._changeto}>
-                    ${this._currencys.map(to => {
-                        console.log(to===this.to);
-                        let tchoice = to == this.to;
-                        return html`<option name=${to} ?selected=${tchoice}>${to}</option>`
-                    })}
-                </select>
-            </form>
-            
-            <p>Currency Conversions</p>
-            <p>${this.from} to ${this.to}</p>
-            <p>${this.amount} ${this.from} is ${this._data.result} ${this.to}</p>
-            <p>The conversion rate is 1:${this._data.info.rate}.</p>
+                <form>
+                    <select name="from" @change=${this._changefrom}>
+                        ${this._currencys.map(from => {
+                            console.log(from===this.from);
+                            let fchoice = from == this.from;
+                            return html`<option name=${from} ?selected=${fchoice}>${from}</option>`
+                        })}
+                    </select>
+                    <p> to </p>
+                    <select name="to" @change=${this._changeto}>
+                        ${this._currencys.map(to => {
+                            console.log(to===this.to);
+                            let tchoice = to == this.to;
+                            return html`<option name=${to} ?selected=${tchoice}>${to}</option>`
+                        })}
+                    </select><br>
+                    <input type="text" id="amount" name="amount" value="${this.amount}" @change=${this._changeamount}>
+                    <p>${this.from} is <br>
+                    ${this._data.result} ${this.to}</p>
+                </form>
+                <p>The conversion rate is
+                <br> 1 : ${this._data.info.rate}</p>
+            </div>
             `;
         } else {
             return html`<p>Loading...</p>`;

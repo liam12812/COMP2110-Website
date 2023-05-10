@@ -7,12 +7,12 @@ export function Fetch () {
             longitude
         } = position.coords;
 
-        fetchAPI(latitude, longitude)
+        fetchAPI(latitude, longitude);
     }
 
     function fetchAPI(lat, lng) {
         alert(lat + " " + lng);
-        var url = ("https://api.sunrisesunset.io/json?lat=" + lat + "&lng=" + lng)
+        var url = ("https://api.sunrisesunset.io/json?lat=" + lat + "&lng=" + lng);
         alert(url);
 
         const response = fetch(url);
@@ -23,7 +23,7 @@ export function Fetch () {
         return;
     }
 
-    navigator.geolocation.getCurrentPosition(getPos)  
+    navigator.geolocation.getCurrentPosition(getPos);
 
     return;
 };
