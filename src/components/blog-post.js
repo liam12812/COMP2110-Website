@@ -6,7 +6,8 @@ import { getUser, storeUser, deleteUser} from '../auth.js';
 class BlogPost extends LitElement {
   static properties = {
    user: {type: String},
-   authToken: {type: String}
+   authToken: {type: String},
+   success: {type: String}
   }
 
   static styles = css`
@@ -94,21 +95,25 @@ class BlogPost extends LitElement {
 _post() {
   event.preventDefault();
   this.authToken = JSON.stringify(getUser().token);
-  const title = document.getElementById("title").value;
-  const content = document.getElementById("content").value;
+  const title = event.target.title.value;
+  const content = event.target.content.value;
   const url = `${BASE_URL}blog`;
-  fetch(url), {
+  fetch(url, {
     method: 'POST',
+    body: JSON.stringify({title, content}),
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'basic' + this.auth
-    },
-    body: {
-      "title": title,
-      "content": content
-   }
-  }
+        'Authorization': 'basic' + this.authToken
+    }
+  }).then(result => result.json()).then(response => {
+    this.success = response;
+  })
 }
+
+test(){
+  this.authToken = document.getElementById('title').value;
+}
+
 
   render() {
     
@@ -132,6 +137,7 @@ _post() {
                     </form>
                 </div>     
                 <p> ${JSON.stringify(getUser().token)}</p>   
+
     `;
     }
     else{

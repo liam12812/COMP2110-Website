@@ -186,6 +186,8 @@ class LoginWidget extends LitElement {
     this.user = null;
   }
 
+  
+
   render() {
     if (this.user && !this.user.error) {
         return html`
