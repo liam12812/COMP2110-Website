@@ -74,9 +74,11 @@ class BlogPost extends LitElement {
     transform: scale(1.2);
   }
   
-  #submitbutton input:focus{
+  #submitbutton input:active{
     background-color: rgb(3, 136, 87);
   }
+
+
 
   #contentfield textarea{
     height: 100px;
@@ -109,7 +111,8 @@ _post(event) {
         'Content-Type': 'application/json',
     }    
   });
-  location.reload();
+  event.target.title.value = " ";
+  event.target.content.value = " ";
 }
 
 
