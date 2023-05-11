@@ -1,12 +1,15 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import './components/widget-block.js';
 import './components/blog-block.js';
+import './components/blog-post.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/AndrewsWidget/widget.js';
 import './components/SaeedsWidget/saeedwidget.js';
 import './components/LiamWidget/liamwidget.js';
+import './components/FelixWidget/sunset-widget.js'
+
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -74,7 +77,7 @@ class Comp2110Portal extends LitElement {
 
   .main-nav{
     float: left;
-    width: 50%;
+    width: 45%;
     min-width: ;
     height: 100px;
     display: flex;
@@ -107,6 +110,12 @@ class Comp2110Portal extends LitElement {
     padding-left: 20px;
     padding-right: 20px;
     margin-right: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform-style: preserve-3d;
+  }
+  
+  .main-menu span:hover{
+    transform: scale(1.1);
   }
   
   .main-menu span.currentpage {
@@ -127,15 +136,18 @@ class Comp2110Portal extends LitElement {
     padding-right: 20px;
     margin-right: 5px;
     margin-left: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform-style: preserve-3d;
   }
   
   .main-menu a:hover {
     background-color: rgb(3, 136, 87);
+    transform: scale(1.1);
   }
   
   .header-search {
     float: right;
-    width: 50%;
+    width: 55%;
     height: 100px;
     padding-right: 10px;
     display: flex;
@@ -156,18 +168,21 @@ class Comp2110Portal extends LitElement {
     font-size: 25px;
     text-align: center;
     border-right: 1px solid silver;
-    margin-right: 10px;
     padding-right: 5px;
   }
   
   #nav-main-search input[type=search]{
     height: 50px;
     width: 200px;
-    margin: 25px 5px 25px 5px;
+    margin: 25px 5px 25px 0px;
     background: none;
     border: 1px solid silver;
     border-radius: 10px;
     transition: width 0.4s ease-in-out;
+  }
+
+  #nav-main-search #searchBar{
+    padding-left: 15px;
   }
   
   #nav-main-search input[type=search]::placeholder{
@@ -442,7 +457,7 @@ class Comp2110Portal extends LitElement {
             <div class="header-search">
               <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
                 <label for="main-q" class="visually-hidden">Search Site</label>
-                <input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..." value="">
+                <div id="searchBar"><input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..."></div>
                 <input type="submit" class="search-button" aria-label="Search" value="Search"> 
               </form>
             </div>
@@ -455,20 +470,22 @@ class Comp2110Portal extends LitElement {
     <main>
       <section class="widgets" id="primary-widgets">
         <cc-widget></cc-widget>
+        <ad-widget></ad-widget>
         <uph-widget></uph-widget>
-        <weather-widget></weather-widget>
       </section>
 
       <div class="blog">
         <div class="blogpost" id="blogpost-1">
             <blog-block></blog-block>
         </div>
+        <div class="blogpost" id="blogpost-2">
+        <blog-post></blog-post>
+    </div>
       </div>
 
       <section class="widgets" id="secondary-widgets">
-        <widget-block></widget-block>
-        <widget-block></widget-block>
-        <ad-widget></ad-widget>
+        <sun-widget></sun-widget>
+        <weather-widget></weather-widget>
       </section>
     </main>
 

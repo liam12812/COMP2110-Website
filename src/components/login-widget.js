@@ -55,21 +55,34 @@ class LoginWidget extends LitElement {
           color: rgb(223 220 216);
         }
         
-        #login input{
+        .textin input{
           width: 100%;
           height: 30px;
         
-          border-top: 1px solid #282A35;
+          border-top: none;
           border-bottom: 1px solid silver;
           border-left: 1px solid #282A35;
-          border-right: 1px solid #282A35;
+          border-right: none;
         
           background: none;
-        
-          color:rgb(223, 220, 216);
+          color: silver;
+        }
+
+        .textin input:hover{
+          background: none;
         }
         
-        #login input:focus{
+        .textin input::placeholder{
+          color: silver;
+          background: none;
+        }
+        
+        .textin input:hover::placeholder{
+          color: grey;
+          background: none;
+        }
+
+        .textin input:focus{
           background: none;
         }
         
@@ -187,6 +200,10 @@ class LoginWidget extends LitElement {
     this.user = null;
   }
 
+  _retry() {
+    this.user.error=false;
+  }
+
   render() {
     if (this.user && !this.user.error) {
         return html`
@@ -212,13 +229,15 @@ class LoginWidget extends LitElement {
       <div class="header-auth">
           <div id="login_register">
               <div id="login">
-                  <form @submit=${this.submitForm}>
+                  <form @submit=${this.submitForm} @change=${this._retry}>
                     <ul>
-                        <li><label for="username">Username</label>
-                            <input name="username">
+                        <li class="textin">
+                            <label for="username">Username</label>
+                            <input name="username" placeholder="Username">
                         </li>
-                        <li><label for="password">Password</label>
-                            <input type="password" name="password">
+                        <li class="textin">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" placeholder="Password">
                         </li>
                         <li id="submitbutton">
                             <input type='submit' value='Login'>
@@ -237,13 +256,15 @@ class LoginWidget extends LitElement {
     <div class="header-auth">
         <div id="login_register">
             <div id="login">
-                <form @submit=${this.submitForm}>
+                <form @submit=${this.submitForm} @change=${this._retry}>
                   <ul>
-                      <li><label for="username">Username</label>
-                          <input name="username">
+                      <li class="textin">
+                          <label for="username">Username</label>
+                          <input name="username" placeholder="Username">
                       </li>
-                      <li><label for="password">Password</label>
-                          <input type="password" name="password">
+                      <li class="textin">
+                          <label for="password">Password</label>
+                          <input type="password" name="password" placeholder="Password">
                       </li>
                       <li id="submitbutton">
                           <input type='submit' value='Login'>

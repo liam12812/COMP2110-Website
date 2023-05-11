@@ -23,11 +23,37 @@ class CurrencyConversions extends LitElement {
     }
     p {
         font-size: 25px;
-        font-weight: ;
     }
     #amount {
-        max-width: 30px;
-    }`;
+        max-width: 100px;
+    }
+    #amount:hover{
+        background-color: rgba(255,255,255,0.1);
+    }
+    input{
+        height: 25px;
+        width: 150px;
+        color: silver;
+        background: none;
+        border: 1px solid silver;
+        border-radius: 10px;
+    }
+    select{
+        height: 25px;
+        color: silver;
+        background: none;
+        border: 1px solid silver;
+        border-radius: 10px;
+    }
+    select:hover{
+        background-color: rgba(255,255,255,0.1);
+    }
+    select option{
+        background-color: #282A35;
+        border: 1px solid silver;
+        border-radius: 10px;
+    }
+  `;
 
     static BASE_URL = "https://api.exchangerate.host/convert?";
 
