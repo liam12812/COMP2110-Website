@@ -351,7 +351,6 @@ class Comp2110Portal extends LitElement {
             </div>
 
             <login-widget></login-widget>
-
           </div>
     </header>
 
@@ -379,7 +378,7 @@ class Comp2110Portal extends LitElement {
 
     <footer id="footer">
       <p id="copyright">Copyright &copy; COMP2110 Web Designers, 2023.</p>
-      <p id="attribution">The COMP2110 Portal is a service of Bob Bobalooba Enterprises.</p>
+      <p id="attribution">The COMP2110 Portal is a service of Group 48.</p>
     </footer>
     `;
   }
