@@ -15,13 +15,12 @@ class LoginWidget extends LitElement {
     }
 
         .header-auth{
-          width: calc(30% - 30px);
-          min-width: 329.22px;
+          width: calc(20% - 30px);
           height: 340px;
         
           position: absolute;
           top: 220px;
-          right: 20px;
+          right: calc(10% + 20px);
         
           background-color: #282A35;
           border-radius: 10px;

@@ -10,18 +10,15 @@ class SunWidget extends LitElement {
     }
 
     static styles = css`
-        .widget-box {
+
+        :host {
             box-sizing: border-box;
-            position: relative;
+
             border: 1px solid white;
             border-radius: 5px;
 
-            max-width: 500px;
-            max-height: 500px;
-
-            width: 500px;
-            height: 500px;
-            
+            width: 100%;
+            height: 100%;
             padding-left: 20px;
             padding-right: 20px;
             padding-bottom: 100%;
@@ -32,8 +29,9 @@ class SunWidget extends LitElement {
             background-repeat: no-repeat;
 
             color: white;
-        }
 
+            overflow: hidden;
+        }
 
         .title {
             text-align: center;
@@ -46,13 +44,14 @@ class SunWidget extends LitElement {
 
         .main {
             width: 80%;
-            
-            padding: 10px;
+            height: 80%;
+
             margin: auto;
         }
 
         .sunrise {
-            width: 100%;
+            width: 80%;
+
             margin: auto;
             float: left;
 
@@ -65,7 +64,7 @@ class SunWidget extends LitElement {
         }
 
         .sunset {
-            width: 100%;
+            width: 80%;
             margin: auto;
             float: left;
 
@@ -136,9 +135,7 @@ class SunWidget extends LitElement {
     render() {  
         if(this._data) {
             return html`
-            <div class="widget-box">
                 <h3 class="title">Sunrise/set Times</h3>
-                <section class="main">
                         <p class="sunrise">
                         <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
                         Sunrise <br>
@@ -149,7 +146,6 @@ class SunWidget extends LitElement {
                         Sunset <br>    
                         ${this._data.results.sunset}
                     </p>
-                </section>
                 <section class="footer">
                 <p id="creditAPI"> 
                     Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
@@ -157,7 +153,6 @@ class SunWidget extends LitElement {
                     <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
                 </p>
                 </section>
-            </div>
             `;
         } else {
             return html`
