@@ -225,7 +225,7 @@ class Comp2110Portal extends LitElement {
   
   main{
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 10% 60% 20% 10%;
     grid-template-rows: 350px 3fr;
     margin-top: 20px;
     background: url(src/images/funky-lines.webp);
@@ -245,17 +245,19 @@ class Comp2110Portal extends LitElement {
   }
 
   #primary-widgets{
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
     margin: 0px 10px 10px 20px;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+
     font-size: 30px;
     box-shadow: 5px 5px 4px 2px slategray;
   }
   
   .blog{
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 2;
     margin: 10px 10px 0px 20px;
   }
@@ -288,12 +290,16 @@ class Comp2110Portal extends LitElement {
   }
   
   #secondary-widgets{
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 2;
-    width: 329.22;
+
+    height: 1500px;
+
     margin: 10px 20px 0px 10px;
+
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
+
     font-size: 30px;
     box-shadow: 5px 5px 4px 2px slategray;
   }
@@ -319,6 +325,28 @@ class Comp2110Portal extends LitElement {
     padding-left: 5px;
     padding-right: 10px;
   }
+
+  cc-widget{
+    grid-column: 1;
+  }
+
+  #primary-ad{
+    grid-column: 2;
+  } 
+
+  uph-widget{
+    grid-column: 3;
+  }
+
+  sun-widget{
+    grid-row: 1;
+  }
+
+  weather-widget{
+    grid-row: 2;
+  }
+
+
   `;
 
   constructor() {
@@ -357,7 +385,7 @@ class Comp2110Portal extends LitElement {
     <main>
       <section class="widgets" id="primary-widgets">
         <cc-widget></cc-widget>
-        <ad-widget></ad-widget>
+        <ad-widget id="primary-ad"></ad-widget>
         <uph-widget></uph-widget>
       </section>
 
