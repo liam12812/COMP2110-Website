@@ -7,7 +7,8 @@ class BlogPost extends LitElement {
   static properties = {
    user: {type: String},
    authToken: {type: String},
-   success: {type: String}
+   success: {type: String},
+   PostUrl: { type: String }
   }
 
   static styles = css`
@@ -85,6 +86,7 @@ class BlogPost extends LitElement {
   constructor() {
     super();
     this.user = getUser();
+    this.PostUrl = `${BASE_URL}blog`;
   }
 
   connectedCallback() {
@@ -92,22 +94,24 @@ class BlogPost extends LitElement {
 }
 
 
-_post() {
+_post(event) {
   event.preventDefault();
-  this.authToken = JSON.stringify(getUser().token);
+  this.authToken = (getUser().token);
   const title = event.target.title.value;
   const content = event.target.content.value;
-  const url = `${BASE_URL}blog`;
-  fetch(url, {
+  const authorization = `basic ${this.authToken}`;
+  console.log(authorization);
+  fetch(this.PostUrl, {
     method: 'POST',
-    body: JSON.stringify({title, content}),
+    body: {
+      'title': JSON.stringify(title),
+      'content': JSON.stringify(content)
+    },
     headers: {
+        'Authorization': authorization,
         'Content-Type': 'application/json',
-        'Authorization': 'basic' + this.authToken
     }
-  }).then(result => result.json()).then(response => {
-    this.success = response;
-  })
+  });
 }
 
 
@@ -134,7 +138,7 @@ _post() {
                       </ul>
                     </form>
                 </div>     
-                <p> ${JSON.stringify(getUser().token)}</p>   
+                <p> ${(getUser().token)}</p>   
 
     `;
     }
