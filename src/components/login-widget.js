@@ -199,10 +199,6 @@ class LoginWidget extends LitElement {
     this.user = null;
   }
 
-  _retry() {
-    this.user.error=false;
-  }
-
   render() {
     if (this.user && !this.user.error) {
         return html`
@@ -228,7 +224,7 @@ class LoginWidget extends LitElement {
       <div class="header-auth">
           <div id="login_register">
               <div id="login">
-                  <form @submit=${this.submitForm} @change=${this._retry}>
+                  <form @submit=${this.submitForm}>
                     <ul>
                         <li class="textin">
                             <label for="username">Username</label>
@@ -255,7 +251,7 @@ class LoginWidget extends LitElement {
     <div class="header-auth">
         <div id="login_register">
             <div id="login">
-                <form @submit=${this.submitForm} @change=${this._retry}>
+                <form @submit=${this.submitForm}>
                   <ul>
                       <li class="textin">
                           <label for="username">Username</label>
