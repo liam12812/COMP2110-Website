@@ -110,6 +110,12 @@ class Comp2110Portal extends LitElement {
     padding-left: 20px;
     padding-right: 20px;
     margin-right: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform-style: preserve-3d;
+  }
+  
+  .main-menu span:hover{
+    transform: scale(1.1);
   }
   
   .main-menu span.currentpage {
@@ -130,10 +136,13 @@ class Comp2110Portal extends LitElement {
     padding-right: 20px;
     margin-right: 5px;
     margin-left: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform-style: preserve-3d;
   }
   
   .main-menu a:hover {
     background-color: rgb(3, 136, 87);
+    transform: scale(1.1);
   }
   
   .header-search {
@@ -445,7 +454,7 @@ class Comp2110Portal extends LitElement {
             <div class="header-search">
               <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
                 <label for="main-q" class="visually-hidden">Search Site</label>
-                <input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..." value="">
+                <input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search...">
                 <input type="submit" class="search-button" aria-label="Search" value="Search"> 
               </form>
             </div>

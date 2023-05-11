@@ -25,7 +25,10 @@ class CurrencyConversions extends LitElement {
         font-size: 25px;
     }
     #amount {
-        max-width: 30px;
+        max-width: 100px;
+    }
+    #amount:hover{
+        background-color: rgba(255,255,255,0.1);
     }
     input{
         height: 25px;
@@ -41,6 +44,9 @@ class CurrencyConversions extends LitElement {
         background: none;
         border: 1px solid silver;
         border-radius: 10px;
+    }
+    select:hover{
+        background-color: rgba(255,255,255,0.1);
     }
     select option{
         background-color: #282A35;
