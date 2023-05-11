@@ -1,4 +1,6 @@
-export function Fetch () {
+var x = document.getElementById("co");
+
+export function URL () {
 
     function getPos(position){
 
@@ -8,25 +10,21 @@ export function Fetch () {
         } = position.coords;
 
         fetchAPI(latitude, longitude);
+
+        x.innerHTML = latitude + " " + longitude;
     }
 
     function fetchAPI(lat, lng) {
         alert(lat + " " + lng);
         var url = ("https://api.sunrisesunset.io/json?lat=" + lat + "&lng=" + lng);
         alert(url);
-
-        const response = fetch(url);
-        const jsonData = response.json;
-
-        alert(jsonData);
-
         return;
     }
 
     navigator.geolocation.getCurrentPosition(getPos);
 
     return;
-};
+}
 
 
 /*

@@ -15,13 +15,12 @@ class LoginWidget extends LitElement {
     }
 
         .header-auth{
-          width: calc(30% - 30px);
-          min-width: 329.22px;
-          height: 340px;
+          width: calc(25% - 30px);
+          height: 390px;
         
           position: absolute;
           top: 220px;
-          right: calc(0% + 20px);
+          right: calc(10% + 20px);
         
           background-color: #282A35;
           border-radius: 10px;
@@ -29,7 +28,9 @@ class LoginWidget extends LitElement {
           display: flex;
           align-items: center;
           justify-content: center;
-        } #login_register{
+        } 
+        
+        #login_register{
           width: 100%;
           height: 100%;
         
