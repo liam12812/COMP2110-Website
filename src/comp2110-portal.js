@@ -77,7 +77,7 @@ class Comp2110Portal extends LitElement {
 
   .main-nav{
     float: left;
-    width: 50%;
+    width: 45%;
     min-width: ;
     height: 100px;
     display: flex;
@@ -147,7 +147,7 @@ class Comp2110Portal extends LitElement {
   
   .header-search {
     float: right;
-    width: 50%;
+    width: 55%;
     height: 100px;
     padding-right: 10px;
     display: flex;
@@ -168,18 +168,21 @@ class Comp2110Portal extends LitElement {
     font-size: 25px;
     text-align: center;
     border-right: 1px solid silver;
-    margin-right: 10px;
     padding-right: 5px;
   }
   
   #nav-main-search input[type=search]{
     height: 50px;
     width: 200px;
-    margin: 25px 5px 25px 5px;
+    margin: 25px 5px 25px 0px;
     background: none;
     border: 1px solid silver;
     border-radius: 10px;
     transition: width 0.4s ease-in-out;
+  }
+
+  #nav-main-search #searchBar{
+    padding-left: 15px;
   }
   
   #nav-main-search input[type=search]::placeholder{
@@ -454,7 +457,7 @@ class Comp2110Portal extends LitElement {
             <div class="header-search">
               <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
                 <label for="main-q" class="visually-hidden">Search Site</label>
-                <input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search...">
+                <div id="searchBar"><input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..."></div>
                 <input type="submit" class="search-button" aria-label="Search" value="Search"> 
               </form>
             </div>
