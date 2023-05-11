@@ -11,12 +11,11 @@ class LoginWidget extends LitElement {
   static styles = css`
     :host {
         display: block;
-        
     }
 
         .header-auth{
           width: calc(20% - 30px);
-          height: 340px;
+          height: 370px;
         
           position: absolute;
           top: 220px;

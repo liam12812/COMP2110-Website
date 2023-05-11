@@ -226,7 +226,7 @@ class Comp2110Portal extends LitElement {
   main{
     display: grid;
     grid-template-columns: 10% 60% 20% 10%;
-    grid-template-rows: 350px 3fr;
+    grid-template-rows: 380px 3fr;
     margin-top: 20px;
     background: url(src/images/funky-lines.webp);
     background-color: rgb(24, 26, 27);
@@ -330,12 +330,12 @@ class Comp2110Portal extends LitElement {
     grid-column: 1;
   }
 
-  #primary-ad{
-    grid-column: 2;
+  #secondary-ad{
+    grid-row: 3;
   } 
 
   uph-widget{
-    grid-column: 3;
+    grid-row: 2;
   }
 
   sun-widget{
@@ -343,7 +343,7 @@ class Comp2110Portal extends LitElement {
   }
 
   weather-widget{
-    grid-row: 2;
+    grid-column: 2;
   }
 
 
@@ -385,12 +385,8 @@ class Comp2110Portal extends LitElement {
     <main>
       <section class="widgets" id="primary-widgets">
         <cc-widget></cc-widget>
-<<<<<<< HEAD
         <weather-widget></weather-widget>
-=======
-        <ad-widget id="primary-ad"></ad-widget>
-        <uph-widget></uph-widget>
->>>>>>> 05f6ddd21c1774767c8ac5dd2fa0645b0d82ac68
+        
       </section>
 
       <div class="blog">
@@ -405,6 +401,7 @@ class Comp2110Portal extends LitElement {
       <section class="widgets" id="secondary-widgets">
         <sun-widget></sun-widget>
         <uph-widget></uph-widget>
+        <ad-widget id="secondary-ad"></ad-widget>
       </section>
     </main>
 
