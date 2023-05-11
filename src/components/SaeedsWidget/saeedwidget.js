@@ -23,6 +23,10 @@ class UpcomingPublicHolidays extends LitElement {
         margin-left:0;
         
     }
+    #widget{
+        display:flex;
+        flex:wrap;
+    }
    `;
 
    constructor(){
@@ -53,6 +57,7 @@ class UpcomingPublicHolidays extends LitElement {
 
    render(){
         return html`
+        <div class ="widget">
         <h3> Upcoming Public Holidays </h3>
         <select @change="${this.userCountryChange}">
             <option value= "AU"> Australia</option>
@@ -65,6 +70,7 @@ class UpcomingPublicHolidays extends LitElement {
             <option value= "ZA"> South Africa</option>
             <option value= "US"> United States</option>
         </select>
+        </div>
 
         <ul>
           ${this.upcomingHolidays.length === 0
