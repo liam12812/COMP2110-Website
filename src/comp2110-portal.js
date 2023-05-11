@@ -357,8 +357,7 @@ class Comp2110Portal extends LitElement {
     <main>
       <section class="widgets" id="primary-widgets">
         <cc-widget></cc-widget>
-        <ad-widget></ad-widget>
-        <uph-widget></uph-widget>
+        <weather-widget></weather-widget>
       </section>
 
       <div class="blog">
@@ -372,7 +371,7 @@ class Comp2110Portal extends LitElement {
 
       <section class="widgets" id="secondary-widgets">
         <sun-widget></sun-widget>
-        <weather-widget></weather-widget>
+        <uph-widget></uph-widget>
       </section>
     </main>
 
