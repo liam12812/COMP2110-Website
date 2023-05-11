@@ -254,62 +254,6 @@ class Comp2110Portal extends LitElement {
     box-shadow: 5px 5px 4px 2px slategray;
   }
   
-  #primary-widgets .advertisement{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-left: 1px solid silver;
-    border-right: 1px solid silver;
-  }
-  
-  #weather-widget{
-    grid-column: 3;
-  }
-  
-  #weather-widget h2{
-    text-align: center;
-    font-size: 40px;
-    padding-bottom: 10px;
-  }
-  
-  #weather-widget ul{
-    list-style: none;
-    padding-left: 10px;
-  }
-  
-  #weather-widget li{
-    padding: 5px;
-  }
-  
-  #links-widget{
-    grid-column: 1;
-    grid-row: 1;
-  }
-  
-  #links-widget h2{
-    text-align: center;
-    font-size: 40px;
-    padding-bottom: 10px;
-  }
-  
-  #links-widget ul{
-    list-style: none;
-    padding-left: 10px;
-  }
-  
-  #links-widget li{
-    padding: 3px;
-  }
-  
-  #links-widget a{
-    text-decoration: none;
-    color:rgb(219, 23, 23);
-  }
-  
-  #links-widget a:hover{
-    text-decoration: underline;
-  }
-  
   .blog{
     grid-column: 1;
     grid-row: 2;
@@ -352,62 +296,6 @@ class Comp2110Portal extends LitElement {
     grid-template-rows: 1fr 1fr 1fr;
     font-size: 30px;
     box-shadow: 5px 5px 4px 2px slategray;
-  }
-  
-  #task-widget{
-    grid-row: 1;
-    border-bottom: 1px solid silver;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  
-  #task-widget h2{
-    text-align: center;
-    padding-bottom: 20px;
-  }
-  
-  #task-widget dt{
-    border-bottom: 1px solid silver;
-    font-weight: bold;
-    padding-bottom: 10px;
-  }
-  
-  #task-widget dd{
-    font-size: 25px;
-    padding-bottom: 20px;
-    padding-top: 10px;
-    padding-left: 20px;
-  }
-  
-  #assignments-widget{
-    grid-row: 2;
-    margin-top: 40px;
-    margin-bottom: 40px
-  }
-  
-  #assignments-widget h2{
-    text-align: center;
-    padding-bottom: 20px;
-  }
-  
-  #assignments-widget ul{
-    list-style: circle;
-    list-style-position: outside;
-  }
-  
-  #assignments-widget li{
-    font-size: 25px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    margin-left: 30px;
-  }
-
-  #secondary-widgets .advertisement{
-    grid-row: 3;
-    border-top: 1px solid silver;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   footer{
