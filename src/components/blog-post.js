@@ -100,17 +100,14 @@ _post(event) {
   const title = event.target.title.value;
   const content = event.target.content.value;
   const authorization = `basic ${this.authToken}`;
-  console.log(authorization);
+  console.log(this.auth);
   fetch(this.PostUrl, {
     method: 'POST',
-    body: {
-      'title': JSON.stringify(title),
-      'content': JSON.stringify(content)
-    },
+    body: JSON.stringify({title, content}),
     headers: {
         'Authorization': authorization,
         'Content-Type': 'application/json',
-    }
+    }    
   });
 }
 
@@ -138,7 +135,6 @@ _post(event) {
                       </ul>
                     </form>
                 </div>     
-                <p> ${(getUser().token)}</p>   
 
     `;
     }
