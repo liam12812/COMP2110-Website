@@ -21,7 +21,7 @@ class LoginWidget extends LitElement {
         
           position: absolute;
           top: 220px;
-          right: calc(0% + 20px);
+          right: 20px;
         
           background-color: #282A35;
           border-radius: 10px;
