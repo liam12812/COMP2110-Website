@@ -109,7 +109,7 @@ _post(event) {
         'Content-Type': 'application/json',
     }    
   });
-  
+  location.reload();
 }
 
 
@@ -128,7 +128,7 @@ _post(event) {
                               <input name="title" id='title'>
                           </li>
                           <li id='contentfield'><label for="content">Content</label>
-                              <textarea name="content" id='content'> </textarea>
+                              <textarea name="content" id='content'></textarea>
                           </li>
                           <li id="submitbutton">
                               <input type='submit' value='Post'>
