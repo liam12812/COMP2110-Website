@@ -42,7 +42,7 @@ class SunWidget extends LitElement {
             margin-bottom: 20px;
         }
 
-        .main {
+        .content {
             width: 100%;
             height: 70%;
 
@@ -202,36 +202,12 @@ class SunWidget extends LitElement {
     render() {  
         if(this._data) {
             return html`
-
-            <script>
-            var slideIndex = 1;
-            showDivs(slideIndex);
-            
-            function plusDivs(n) {
-              showDivs(slideIndex += n);
-            }
-            
-            showDivs(n){
-                var i;
-                var x = document.getElementsByClassName("main");
-                if (n > x.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = x.length}
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";  
-                }
-                x[slideIndex-1].style.display = "block";
-            }
-            
-            }
-            </script>
-
-
                 <h3 class="title">Sun Position</h3>
 
-                    <div class="main">
-                        <button class="left-button" onclick="">&#10094;</button>
-                        <button class="right-button" onclick="">&#10095;</button>
-                        <p class="sunrise">
+                    <div class="content"1">
+                        <button class="left-button" onclick="showDivs()">&#10094;</button>
+                        <button class="right-button" onclick="showDivs()">&#10095;</button>
+                        <p class="sunrise" id="wonky">
                             <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
                             Sunrise <br>
                             ${this._data.results.sunrise}

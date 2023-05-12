@@ -237,6 +237,8 @@ class Comp2110Portal extends LitElement {
     margin-top: 20px;
     background-color: rgb(36, 39, 41);
     border-radius: 10px;
+
+    position: relative;
   }
   
   .widget{
@@ -332,10 +334,20 @@ class Comp2110Portal extends LitElement {
 
   #secondary-ad{
     grid-row: 3;
+
+    position: absolute;
+    top: 25%;
+    left: 25%;
+
+    scale: 150%;
   } 
 
   uph-widget{
     grid-row: 2;
+
+    position: absolute;
+    top: 8%;
+    left: 24%;
   }
 
   sun-widget{
