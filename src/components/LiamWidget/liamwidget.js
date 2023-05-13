@@ -26,6 +26,7 @@ class WeatherWidget extends LitElement {
             display: block;
             position: relative;
             top: 20px;
+            
 
             
         }
@@ -223,8 +224,8 @@ class WeatherWidget extends LitElement {
 
     _weatherText(){
 
-        this.weatherCode = "3"//JSON.stringify(this._data.current_weather.weathercode);
-        this.isday = "0"//JSON.stringify(this._data.current_weather.is_day);
+        this.weatherCode = JSON.stringify(this._data.current_weather.weathercode);
+        this.isday = JSON.stringify(this._data.current_weather.is_day);
         this.currentHour = ((this._data.current_weather.time).slice(11, 13));
         if(this.isday == "1"){
             this.BackColor = "white";
