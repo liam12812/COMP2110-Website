@@ -21,6 +21,7 @@ class WeatherWidget extends LitElement {
             display: block;
             width: 320px;
             height: 320px;
+
             
         }
 
@@ -31,13 +32,15 @@ class WeatherWidget extends LitElement {
             position:relative;
             display: block;
             bottom: 30px;
+
         }
 
         #place{
             position: relative;
             left: 10px;
-            bottom: 20px;
-            font-size: 30px;
+            bottom: 30px;
+            font-size: 20px;
+            font-weight: 500 ;
         }
         #Temp{
             position: relative;
@@ -46,7 +49,10 @@ class WeatherWidget extends LitElement {
             font-weight: bold;
         }
         #title{
-            font-weight: ;
+            font-weight: 600 ;
+            font-size: 24px;
+            position: relative;
+            left: 10px;
         }
     
 
@@ -86,8 +92,8 @@ class WeatherWidget extends LitElement {
 
     _weatherText(){
 
-        this.weatherCode = "2"//JSON.stringify(this._data.current_weather.weathercode);
-        this.isday = "0"//JSON.stringify(this._data.current_weather.is_day);
+        this.weatherCode = JSON.stringify(this._data.current_weather.weathercode);
+        this.isday = JSON.stringify(this._data.current_weather.is_day);
         if(this.weatherCode == 0){
             this.weather_type = "Clear Sky"
             if(this.isday == "1"){
@@ -328,7 +334,7 @@ class WeatherWidget extends LitElement {
                 return html`
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour};">Current Weather:</p>
-                    <p id='place'>Sydney</p>
+                    <p id='place' style="color:${this.textcolour};">Sydney</p>
                     <p id='Temp'>${this._data.current_weather.temperature}&deg;C</p>
                     <p id='Date'>${(this._data.current_weather.time).slice(0, 10)}</p>
                     <p id='Time'>${(this._data.current_weather.time).slice(11, 16)}</p>
