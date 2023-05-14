@@ -83,6 +83,34 @@ class BlogPost extends LitElement {
   #contentfield textarea{
     height: 100px;
   }
+
+.headerbar{
+  display: inline-block;
+}
+
+  #refresh-button {
+    position: relative;
+    left: 80%;
+
+    
+
+    height: 40px;
+    width: 40px;
+
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 30px;
+}
+
+#refresh-button:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#refresh-button:active {
+    font-size: 25px;
+}
   `;
 
   constructor() {
@@ -116,7 +144,9 @@ _post(event) {
 }
 
 
-
+reload(){
+  location.reload();
+}
 
   render() {
     
@@ -144,7 +174,8 @@ _post(event) {
     }
     else{
       return html`
-      <h1>Post to Blog</h1>
+      <h1 class='headerbar' >Post to Blog</h1>
+      <button class='headerbar' id="refresh-button" @click=${this.reload}>&#8635;</button>
       <p>You must be logged in to use this feature <p>
   `;
     }
