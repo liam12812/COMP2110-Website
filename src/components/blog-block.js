@@ -99,6 +99,31 @@ class BlockBlock extends LitElement {
     overflow-x: hidden;
   }
 
+  
+    #refresh-button {
+     display: inline-block;
+     margin-left: 20px;
+  
+      
+  
+      height: 40px;
+      width: 40px;
+  
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      border-radius: 3px;
+      color: white;
+      font-size: 30px;
+  }
+  
+  #refresh-button:hover {
+      background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  #refresh-button:active {
+      font-size: 25px;
+  }
+
   `;
 
   constructor() {
@@ -173,7 +198,7 @@ else{
     }
     
     return html`
-    <h1> COMP2110 Blog </h1>
+    <h1 class='headerbar'> COMP2110 Blog </h1>
     <p class='subject' id='text'> Welcome to the COMP2110 Blog, select the number of posts per page here:  </p> 
     <form class='subject'>
       <select name="postnums" @change=${this._updateBlog}>
@@ -196,6 +221,7 @@ else{
               <input type='submit' value='Next &raquo;'>
         </li>
     </form>
+    <button class='headerbar' id="refresh-button" @click=${this._fetch}>&#8635;</button>
 
         ${this._posts.map(post => html`<div class="blogpost">
           <h2>${post.title}</h2>

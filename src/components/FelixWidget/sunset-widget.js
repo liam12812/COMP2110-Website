@@ -249,11 +249,13 @@ class SunWidget extends LitElement {
             this.slide -= 1;
         }
         console.log('left');
+        this._recallFetch();
     }
 
     rightClick (){
         this.slide += 1;
         console.log('right');
+        this._recallFetch();
     }
 
     render() {  
