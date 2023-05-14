@@ -83,7 +83,6 @@ class Comp2110Portal extends LitElement {
   .main-nav{
     float: left;
     width: 45%;
-    min-width: ;
     height: 100px;
     display: flex;
     align-items: center;
@@ -356,6 +355,15 @@ class Comp2110Portal extends LitElement {
     grid-row: 1;
 
     position: absolute;
+    top: 20px;
+    left: 96px;
+  }
+
+  #primary-ad{
+    grid-column: 3;
+    grid-row: 1;
+
+    position: absolute;
     top: 15px;
     left: 96px;
   }
@@ -385,6 +393,9 @@ class Comp2110Portal extends LitElement {
     position: absolute;
     top: 10%;
     left: 25%;
+
+    width: 320;
+    height: 320;
   } 
 
   #container {
@@ -396,12 +407,21 @@ class Comp2110Portal extends LitElement {
     padding-bottom: 80px;
   }
 
+
+
   @media only screen and (max-width: 2048px) {
+
+    .logo {
+      scale: 25%;
+    }
 
     main{
       display: grid;
       grid-template-columns: 1fr 482px;
       grid-template-rows: 380px 1fr 380px;
+
+      margin-left: 10px;
+      margin-right: 15px;
     }
 
     login-widget{
@@ -424,11 +444,13 @@ class Comp2110Portal extends LitElement {
       grid-column: 1 / 3;
 
       display: grid;
-      grid-template-rows: 482px;
+      grid-template-rows: 380px;
       grid-template-columns: 1fr 1fr 1fr;
 
-      height: 482px;
-      width: 100%;
+      height: 380px;
+      width: calc(100% - 30px);
+
+      margin-left: 20px;
     }
 
     cc-widget{
@@ -446,44 +468,189 @@ class Comp2110Portal extends LitElement {
       grid-row: 1;
     }
 
+    #content {
+      padding-bottom: 90px;
+    }
+
   }
 
-  @media only screen and (max-width: 900px) {
+
+
+  @media only screen and (max-width: 1664px) {
+
+    .logo {
+      scale: 25%;
+    }
+
+    main{
+      display: grid;
+      grid-template-columns: 1fr 482px;
+      grid-template-rows: 380px 1fr 380px;
+
+      margin-left: 10px;
+      margin-right: 15px;
+    }
+
+    login-widget{
+      grid-row: 1;
+      grid-column: 2;
+
+      margin: 0 auto;
+    }
+
+    .blog{
+      grid-row: 2;
+      grid-column: 1 / 3;
+    }
+    
+    #primary-widgets{
+      grid-column: 2;
+      grid-row: 1;
+      margin: 0px 10px 10px 20px;
+  
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #primary-widgets{
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    sun-widget{
+      grid-column: 1;
+      grid-row: 1;
+  
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  
+    weather-widget{
+      grid-column: 2;
+      grid-row: 1;
+  
+      position: absolute;
+      top: 15px;
+      left: 10px;
+    }
+  
+    #primary-ad{
+      display: none;
+    }
+
+    #secondary-widgets {
+      grid-row: 3;
+      grid-column: 1 / 3;
+
+      display: grid;
+      grid-template-rows: 380px;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      height: 380px;
+      width: calc(100% - 30px);
+
+      margin-left: 20px;
+    }
+
+    cc-widget{
+      grid-column: 1;
+      grid-row: 1;
+    }
+  
+    uph-widget{
+      grid-column: 2;
+      grid-row: 1;
+    }
+    
+    #secondary-ad{
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    #content {
+      padding-bottom: 90px;
+    }
+
+  }
+
+  @media only screen and (max-width: 1220px) {
+
+    .logo {
+      scale: 25%;
+    }
 
     main{
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 380px 380px 1fr 380px;
+
+      margin-left: 10px;
+      margin-right: 15px;
     }
 
     login-widget{
       grid-row: 1;
-      grid-column: 2;
+      grid-column: 1;
+
+      margin: 0 auto;
     }
 
     .blog{
-      grid-row: 2;
-      grid-column: 1 / 3;
+      grid-row: 3;
+      grid-column: 1;
+
+      width: calc(100vw - 60px);
     }
     
     #primary-widgets{
-      grid-row: 1;
       grid-column: 1;
+      grid-row: 2;
+      margin: 0px 10px 10px 20px;
+  
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #primary-widgets{
+      grid-row: 2;
+      grid-column: 1;
+    }
+
+    sun-widget{
+      grid-column: 1;
+      grid-row: 1;
+  
+      position: absolute;
+      top: 10px;
+      left: 13%;
+    }
+  
+    weather-widget{
+      grid-column: 2;
+      grid-row: 1;
+  
+      position: absolute;
+      top: 15px;
+      left: 15%;
+    }
+  
+    #primary-ad{
+      display: inline;
     }
 
     #secondary-widgets {
       grid-row: 3;
-      grid-column: 1 / 3;
+      grid-column: 1;
 
       display: grid;
-      grid-template-rows: 482px;
+      grid-template-rows: 380px;
       grid-template-columns: 1fr 1fr 1fr;
 
-      margin-left: 0px;
-      margin-top: 0px;
+      height: 380px;
+      width: calc(100vw - 60px);
 
-      height: 482px;
-      width: calc(100% - 20px);
+      margin-left: 20px;
     }
 
     cc-widget{
@@ -498,6 +665,148 @@ class Comp2110Portal extends LitElement {
     
     #secondary-ad{
       grid-column: 3;
+      grid-row: 1;
+    }
+
+    #content {
+      padding-bottom: 90px;
+    }
+
+  }
+
+
+
+  @media only screen and (max-width: 900px) {
+
+    .logo {
+      scale: 20%;
+    }
+
+    .page-header{
+      height: 300px;
+    }
+
+    .page-header-main{
+      height: 200px;
+    }
+
+    .main-nav{
+      float: left;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 5px 5px 20px;
+    }
+ 
+    .header-search {
+      float: left;
+      width: 100%;
+      height: 100px;
+      padding-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #nav-main-search {
+      height: 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+ 
+    main{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 392px 1200px 1fr 1000px;
+    }
+
+    login-widget{
+      grid-row: 1;
+      grid-column: 1;
+
+      margin: 0 auto;
+    }
+
+    .blog{
+      grid-row: 3;
+      grid-column: 1;
+
+      width: calc(100vw - 60px);
+
+      margin-left: 10px;
+    }
+    
+    #primary-widgets{
+      grid-row: 2;
+      grid-column: 1;
+
+      display: grid;
+      grid-template-rows: 360px 360px 360px;
+      grid-template-columns: 1fr;
+
+      margin-left: 10px;
+    }
+
+    sun-widget{
+      grid-column: 1;
+      grid-row: 3;
+  
+      position: absolute;
+      top: 15%;
+      left: 22%;
+    }
+  
+    weather-widget{
+      grid-column: 1;
+      grid-row: 2;
+  
+      position: absolute;
+      top: 5%;
+      left: 22%;
+    }
+  
+    #primary-ad{
+      display: inline;
+
+      grid-column: 1;
+      grid-row: 1;
+  
+      position: absolute;
+      top: 5%;
+      left: 28%;
+    }
+
+    #secondary-widgets {
+      grid-row: 4;
+      grid-column: 1;
+
+      display: grid;
+      grid-template-rows: 360px 360px 360px;
+      grid-template-columns: 1fr;
+
+      margin-left: 10px;
+      margin-top: 0px;
+
+      height: 100%;
+      width: calc(100% - 20px);
+    }
+
+    cc-widget{
+      grid-column: 1;
+      grid-row: 2;
+    }
+  
+    uph-widget{
+      grid-column: 1;
+      grid-row: 3;
+    }
+    
+    #secondary-ad{
+      grid-column: 1;
       grid-row: 1;
     }
 
@@ -544,6 +853,7 @@ class Comp2110Portal extends LitElement {
           <section class="widgets" id="primary-widgets"> 
             <weather-widget></weather-widget>
             <sun-widget></sun-widget>
+            <ad-widget id="primary-ad"></ad-widget>
           </section>
 
           <div class="blog">

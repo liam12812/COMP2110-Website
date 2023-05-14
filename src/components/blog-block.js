@@ -90,6 +90,11 @@ class BlockBlock extends LitElement {
     background: rgb(36, 50, 60);
   
   }
+
+  h2{
+    overflow-x: hidden;
+  }
+  
   #content{
     overflow-x: hidden;
   }

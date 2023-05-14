@@ -623,6 +623,48 @@ class WeatherWidget extends LitElement {
 
     _updateCity(event){
         this.City= event.target.value;
+        if(this.City == "Sydney"){
+            this.Latitude = -33.87;
+            this.Longitude = 151.21;
+            this.timezone = "Australia%2FSydney";
+        }
+        else if(this.City == "Melbourne"){
+            this.Latitude = -37.84;
+            this.Longitude = 144.95;
+            this.timezone = "Australia%2FMelbourne";
+        }
+        else if(this.City == "Brisbane"){
+            this.Latitude = -27.47;
+            this.Longitude = 153.02;
+            this.timezone = "Australia%2FBrisbane";
+        }
+        else if(this.City == "Canberra"){
+            this.Latitude = -35.28;
+            this.Longitude = 149.13;
+            this.timezone = "Australia%2FCanberra";
+        }
+        else if(this.City == "Adelaide"){
+            this.Latitude = -34.92;
+            this.Longitude = 138.60;
+            this.timezone = "Australia%2FAdelaide";
+        }
+        else if(this.City == "Darwin"){
+            this.Latitude = -37.84;
+            this.Longitude = 144.95;
+            this.timezone = "Australia%2FDarwin";
+        }
+        else if(this.City == "Hobart"){
+            this.Latitude = -37.84;
+            this.Longitude = 144.95;
+            this.timezone = "Australia%2FHobart";
+        }
+        else if(this.City == "Perth"){
+            this.Latitude = -37.84;
+            this.Longitude = 144.95;
+            this.timezone = "Australia%2FPerth";
+        }
+        console.log(this.City);
+        console.log(this.Latitude);
         this._fetch();
     }
 
@@ -638,7 +680,7 @@ class WeatherWidget extends LitElement {
                     <option value= "Melbourne"> Melbourne</option>
                     <option value= "Brisbane"> Brisbane</option>
                     <option value= "Canberra"> Canberra</option>
-                    <option value= "ADelaide"> Adelaide</option>
+                    <option value= "Adelaide"> Adelaide</option>
                     <option value= "Darwin"> Darwin</option>
                     <option value= "Hobart"> Hobart</option>
                     <option value= "Perth"> Perth</option>
