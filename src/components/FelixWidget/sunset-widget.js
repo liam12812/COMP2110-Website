@@ -7,11 +7,12 @@ class SunWidget extends LitElement {
     static properties = {
         url: {type: String},
         _data: {state: true},
+        slide: {type: Number}
     }
 
     static styles = css`
 
-        :host {
+        #container{
             box-sizing: border-box;
 
             border-radius: 10px;
@@ -21,7 +22,7 @@ class SunWidget extends LitElement {
 
             margin: auto;
 
-            background: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg);
+            
             background-size: 150%;
             background-repeat: no-repeat;
 
@@ -53,11 +54,10 @@ class SunWidget extends LitElement {
         .left-button {
             position: absolute;
             top: 33%;
+            left: 0%;
 
             height: 30%;
             width: 25px;
-
-            margin-left: 5px;
 
             background-color: rgba(0, 0, 0, 0);
             border: none;
@@ -76,7 +76,7 @@ class SunWidget extends LitElement {
 
         .right-button {
             position: absolute;
-            left: 93.8%;
+            left: 92.3%;
             top: 33%;
 
             height: 30%;
@@ -185,7 +185,8 @@ class SunWidget extends LitElement {
 
     constructor(){
         super();
-        this.url = 'https://api.sunrisesunset.io/json?lat=-33.8715&lng=151.2006'
+        this.url = 'https://api.sunrisesunset.io/json?lat=-33.8715&lng=151.2006';
+        this.slide = 0;
     }
 
     connectedCallback() {
@@ -201,14 +202,26 @@ class SunWidget extends LitElement {
         });
     }
 
+    leftClick (){
+        this.slide -= 1;
+    }
+
+    rightClick (){
+        this.slide += 1;
+    }
+
+    
+
     render() {  
-        if(this._data) {
+        if(this._data && (this.slide % 2 == 0)) {
             return html`
+
+                <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
                 <h3 class="title">Sun Position</h3>
 
-                    <div class="content"1">
-                        <button class="left-button" onclick="showDivs()">&#10094;</button>
-                        <button class="right-button" onclick="showDivs()">&#10095;</button>
+                    <div class="content">
+                        <button class="left-button" @click=${this.leftClick}>&#10094;</button>
+                        <button class="right-button" @click=${this.rightClick}>&#10095;</button>
                         <p class="sunrise" id="wonky">
                             <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
                             Sunrise <br>
@@ -228,30 +241,37 @@ class SunWidget extends LitElement {
                     <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
                 </p>
                 </section>
+                </div>
             `;
-        } else {
+        } else if (this._data && (this.slide % 2 == 1)) {
             return html`
-            <h3 class="title">Sunrise/set Times</h3>
-            <div class="main">
-                <p class="sunrise">
-                    <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
-                    Sunrise <br>
-                    Loading...
-                    </p>
-                <p class="sunset">
-                    <img class="icon" id="sunset-icon" src="src/components/FelixWidget/content/vecteezy_sunset-sun-line-icon-vector-illustration-logo_.jpg">
-                    Sunset <br>    
-                    Loading...
+
+            <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555244.jpg)">
+            <h3 class="title">Sun Position</h3>
+
+                    <div class="content">
+                        <button class="left-button" @click=${this.leftClick}>&#10094;</button>
+                        <button class="right-button" @click=${this.rightClick}>&#10095;</button>
+                        <p class="sunrise" id="wonky">
+                            <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
+                            Dawn <br>
+                            ${this._data.results.dawn}
+                            </p>
+                        <p class="sunset">
+                            <img class="icon" id="sunset-icon" src="src/components/FelixWidget/content/vecteezy_sunset-sun-line-icon-vector-illustration-logo_.jpg">
+                            Dusk <br>    
+                            ${this._data.results.dusk}
+                        </p>
+                    </div>
+
+                <section class="footer">
+                <p id="creditAPI"> 
+                    Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
+                <p id="creditIMG">
+                    <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
                 </p>
-            </div>
-        <section class="footer">
-        <p id="creditIMG">
-            <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
-        </p>
-        <p id="creditAPI"> 
-            Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
-        </p>
-        </section>
+                </section>
+                </div>
             `;
         }
     }

@@ -301,7 +301,7 @@ class Comp2110Portal extends LitElement {
     grid-row: 2;
 
     width: 482px;
-    height: 1000px;
+    height: 1100px;
 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -364,8 +364,11 @@ class Comp2110Portal extends LitElement {
     grid-row: 1;
 
     position: absolute;
-    top: 15px;
+    top: 50px;
     left: 96px;
+
+    scale: 125%;
+    border-radius: 10px;
   }
 
   
@@ -383,9 +386,10 @@ class Comp2110Portal extends LitElement {
 
   uph-widget{
     grid-row: 2;
+    
     position: absolute;
-    top: 8%;
-    left: 24%;
+    top: 2%;
+    left: 2%;
   }
   
   #secondary-ad{
@@ -868,6 +872,7 @@ class Comp2110Portal extends LitElement {
           <section class="widgets" id="secondary-widgets">
             <cc-widget></cc-widget>
             <uph-widget></uph-widget>
+            <ad-widget id="secondary-ad"></ad-widget>
           </section>
         </main>
       </div>
