@@ -8,3 +8,4 @@ My widget is going to have a list of countries , that once chosen , the user wil
 --> I also implemeted a function at the bottom "Usercountrychange" that is triggered when the user changes countries to be able to retrieve th upcoming public holidays selected.
 --> I kept encountering an error with my widget that resulted in all the public holidays of the chosen country being selected.
 --> I was able to reach a solution by filtering out the data of public holidays that were less than the current data to be able to only display what is required: Upcoming public holidays of selected country.
+--> Finally I was able to finish my widget by styling based on the style of the other widgets in the website.
