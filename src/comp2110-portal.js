@@ -640,7 +640,7 @@ class Comp2110Portal extends LitElement {
     }
 
     #secondary-widgets {
-      grid-row: 3;
+      grid-row: 4;
       grid-column: 1;
 
       display: grid;

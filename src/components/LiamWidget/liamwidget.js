@@ -17,6 +17,7 @@ class WeatherWidget extends LitElement {
         currentHour: {type: String},
         weatherIcon: {type: String},
         BackColor: {type: String},
+        DropColor:{type:String},
         TextColor: {type:String},
         City: {type:String},
 
@@ -48,9 +49,13 @@ class WeatherWidget extends LitElement {
             bottom: 28px;
             font-size: 18px;
             font-weight: 500 ;
-            background: none;
             border-radius: 10px;
             display: inline-block;
+            background: none;
+        }
+
+        #dropdown option{
+            background: blue;
         }
 
         #Temp{
@@ -90,6 +95,7 @@ class WeatherWidget extends LitElement {
             left: 240px;
             font-weight: bold;
             font-size: 12px;
+            color: black;
         }
         #Time{
             position:relative;
@@ -97,6 +103,7 @@ class WeatherWidget extends LitElement {
             left: 278px;
             font-weight: bold;
             font-size: 12px;
+            color: black;
         }
         #feel{
             position:relative;
@@ -619,6 +626,7 @@ class WeatherWidget extends LitElement {
             }
             
         }
+
     }
 
     _updateCity(event){
@@ -675,7 +683,7 @@ class WeatherWidget extends LitElement {
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
                     <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
-                    <select class='place' id='dropdown' style="color:${this.textcolour};" @change="${this._updateCity}">
+                    <select class='place' id='dropdown' style="color:${this.textcolour}; ${this.DropColor};" @change="${this._updateCity}">
                     <option value= "Sydney"> Sydney</option>
                     <option value= "Melbourne"> Melbourne</option>
                     <option value= "Brisbane"> Brisbane</option>
@@ -685,9 +693,9 @@ class WeatherWidget extends LitElement {
                     <option value= "Hobart"> Hobart</option>
                     <option value= "Perth"> Perth</option>
                 </select>
-                    <p id='Date' style="color:${this.textcolour};" >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
-                    <p id='Time' style="color:${this.textcolour};">${(this._data.current_weather.time).slice(11, 16)}</p>
-                    <p id='Backing' style="background-color:${this.BackColor}; color:${this.BackColor}; ">s</p>
+                    <p id='Date'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
+                    <p id='Time' >${(this._data.current_weather.time).slice(11, 16)}</p>
+                    <p id='Backing' style="background-color:${this.BackColor}; ">s</p>
                     <p id='Temp' style="color:${this.TextColor}">${this._data.current_weather.temperature}&deg;C</p>
                     <p id='weather' style="color:${this.TextColor}">${this.weather_type}</p>
                     <p id='feel' style="color:${this.TextColor}">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
