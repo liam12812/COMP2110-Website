@@ -835,8 +835,8 @@ class Comp2110Portal extends LitElement {
                 <nav class="main-nav">
                   <ul class="main-menu">
                     <li><span class="currentpage">Home</span></li>
-                    <li><a href="#" class="pagelink">About</a></li>
-                    <li><a href="#" class="pagelink">Blog</a></li>
+                    <li><a href="#blog" class="pagelink">Blog</a></li>
+                    <li><a href="#secondary-widgets" class="pagelink">Widgets</a></li>
                   </ul>
                 </nav>
                                     
@@ -860,7 +860,7 @@ class Comp2110Portal extends LitElement {
             <ad-widget id="primary-ad"></ad-widget>
           </section>
 
-          <div class="blog">
+          <div class="blog" id='blog'>
             <div class="blogpost" id="blogpost-1">
               <blog-block></blog-block>
             </div>

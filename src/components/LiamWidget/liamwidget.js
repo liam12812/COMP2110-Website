@@ -672,17 +672,6 @@ class WeatherWidget extends LitElement {
             this.Longitude = 115.86;
             this.timezone = "Australia%2FPerth";
         }
-
-        let Coords = {
-            latitude : this.Latitude,
-            longitude : this.Longitude
-
-        };
-        
-        const getCoords = () => {
-            return Coords;
-        };
-        exports.getCoords = getCoords;
         
         this._fetch();
     }
