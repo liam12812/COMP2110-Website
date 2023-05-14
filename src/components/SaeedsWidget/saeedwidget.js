@@ -11,22 +11,56 @@ class UpcomingPublicHolidays extends LitElement {
     static MainUrl = 'https://date.nager.at/api/v2/publicholidays';
 
     static styles = css`
-
-    h3{
-        font-family:Georgia,'Times New Roman', Times, serif;
-        font-size:20px;
+    
+    select{
+        color:silver;
+        font-weight:bold;
+        height:25px;
+        background-color:transparent;
+        border:1px solid silver;
+        border-radius: 10px;
     }
-    ul{
-        border-style:groove;
-        display: inline-block;
-        font-size:12px;
-        margin-left:0;
+    select:hover{
+        background-color:#56667A;
+        
         
     }
-    #widget{
-        display:flex;
-        flex:wrap;
+
+    h3{
+        margin-top:-15px;
+        font-size:30px;
+        text-align:center;
+        color:white;
     }
+    ul{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        font-size:12px;
+        list-style-type:none;
+        padding:0;
+        margon:0;
+        max-height:200px;
+        overflow-y:auto;
+        font-size:15px;
+        
+        
+    }
+    li{
+        text-align:center;
+        border: 1px solid silver;
+        border-radius:10px;
+        margin:5px;
+        padding:5px;
+        overflow:hidden;
+        
+        white-space:nowrap;
+       
+       
+    }
+    
+    
+   
    `;
 
    constructor(){
@@ -59,25 +93,25 @@ class UpcomingPublicHolidays extends LitElement {
         return html`
         <div class ="widget">
         <h3> Upcoming Public Holidays </h3>
-        <select @change="${this.userCountryChange}">
-            <option value= "AU"> Australia</option>
-            <option value= "AT"> Austria</option>
-            <option value= "AR"> Argentina</option>
-            <option value= "CA"> Canada</option>
-            <option value= "CN"> China</option>
-            <option value= "MX"> Mexico</option>
-            <option value= "ES"> Spain</option>
-            <option value= "ZA"> South Africa</option>
-            <option value= "US"> United States</option>
-        </select>
+            <div class="button">
+            <select @change="${this.userCountryChange}">
+                <option value= "AU"> Australia</option>
+                <option value= "AT"> Austria</option>
+                <option value= "CN"> China</option>
+                <option value= "MX"> Mexico</option>
+                <option value= "ZA"> South Africa</option>
+                <option value= "US"> United States</option>
+            </select>
         </div>
+   
 
         <ul>
           ${this.upcomingHolidays.length === 0
             ?  html`<li> No Remaining Public Holidays</li>`
             : this.upcomingHolidays.map(
                 holiday => html`<li>${holiday.date}: ${holiday.name}</li>`)}
-                </ul>
+        </ul>
+     </div>
     `;}
    
 
