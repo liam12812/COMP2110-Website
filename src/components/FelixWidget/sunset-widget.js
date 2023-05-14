@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-
+import {URL} from './position.js';
 // URL TO USE: https://api.sunrisesunset.io/json?lat=-33.8715&lng=151.2006
 
 class SunWidget extends LitElement {
@@ -14,11 +14,10 @@ class SunWidget extends LitElement {
         :host {
             box-sizing: border-box;
 
-            border: 1px solid white;
             border-radius: 5px;
 
-            width: 460px;
-            height: 460px;
+            width: 320px;
+            height: 320px;
 
             margin: auto;
 
@@ -39,7 +38,8 @@ class SunWidget extends LitElement {
 
             margin: auto;
             margin-top: 20px;
-            margin-bottom: 20px;
+
+            font-size: 30px;
         }
 
         .content {
@@ -108,6 +108,7 @@ class SunWidget extends LitElement {
 
             margin: 0 auto;
             float: left;
+            font-size: 25px;
 
             text-align: right;
             backdrop-filter: blur(6px);
@@ -128,6 +129,7 @@ class SunWidget extends LitElement {
 
             margin:  0 auto;
             float: left;
+            font-size: 25px;
 
             text-align: right;
             backdrop-filter: blur(6px);
@@ -142,8 +144,8 @@ class SunWidget extends LitElement {
             border: 1px dotted black;
             margin: auto;
 
-            height: 80px;
-            width: 80px;
+            height: 60px;
+            width: 60px;
         }
 
         #sunset-icon {
@@ -151,8 +153,8 @@ class SunWidget extends LitElement {
             border: 1px dotted black;
             margin: auto;
 
-            height: 80px;
-            width: 80px;
+            height: 60px;
+            width: 60px;
         }
 
         .footer {
@@ -162,17 +164,17 @@ class SunWidget extends LitElement {
         }
 
         #creditAPI {
-            font-size: 12px;
-            width: 50%;
-            float: right;
-            text-align: right;
-        }
-
-        #creditIMG {
-            font-size: 12px;
+            font-size: 10px;
             width: 50%;
             float: left;
             text-align: left;
+        }
+
+        #creditIMG {
+            font-size: 10px;
+            width: 50%;
+            float: right;
+            text-align: right;
         }
 
         a {
@@ -243,10 +245,11 @@ class SunWidget extends LitElement {
                 </p>
             </div>
         <section class="footer">
-        <p id="creditAPI"> 
-            Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
         <p id="creditIMG">
             <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
+        </p>
+        <p id="creditAPI"> 
+            Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
         </p>
         </section>
             `;

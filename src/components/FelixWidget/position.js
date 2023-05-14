@@ -1,102 +1,21 @@
-var x = document.getElementById("co");
-
 export function URL () {
 
-    function getPos(position){
+    function getPosition() {
 
-        const {
-            latitude,
-            longitude
-        } = position.coords;
-
-        fetchAPI(latitude, longitude);
-
-        x.innerHTML = latitude + " " + longitude;
+        return new Promise((res, rej) => {
+            navigator.geolocation.getCurrentPosition(res, rej);
+        });
     }
 
-    function fetchAPI(lat, lng) {
-        alert(lat + " " + lng);
-        var url = ("https://api.sunrisesunset.io/json?lat=" + lat + "&lng=" + lng);
-        alert(url);
-        return;
+    async function main() {
+        var position = await getPosition();  // wait for getPosition to complete
+        const ur = 'https://api.sunrisesunset.io/json?lat='+ position.coords.latitude +'&lng=' + position.coords.longitude;
+        return ur;
     }
 
-    navigator.geolocation.getCurrentPosition(getPos);
+    const url = main();
 
-    return;
-}
-
-
-/*
-export function URL () {
-
-    function getX () {
-
-        function successCallback(position) {
-            const {
-                latitude,
-            } = position.coords;
-
-            alert(`Your latitude: (${latitude})`);
-
-            lat = latitude;
-
-            alert("Lat =" + lat);
-        }
-        
-        function errorCallback(error) {
-            alert(error);
-        };
-
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        } else {
-            alert("Geolocation not supported on browser");
-        }
-
-        var lat;
-
-        alert("Lat2 =" + lat);
-
-        return lat;
-    }
-
-    function getY () {
-
-        function successCallback(position) {
-            const {
-                longitude
-            } = position.coords;
-
-            alert(`Your longitude: (${longitude})`);
-
-            lng = longitude;
-
-            alert("Lng =" + lng);
-        }
-        
-        function errorCallback(error) {
-            alert(error);
-        };
-
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        } else {
-            alert("Geolocation not supported on browser");
-        }
-
-        var lng;
-
-        alert("Lng2 =" + lng);
-
-        return lng;
-    }
-
-    const x = getX();
-    const y = getY();
-
-    const url = "https://api.sunrisesunset.io/json?lat=" + x + "&lng=" + y;
+    alert(url + " Yay");
 
     return url;
 }
-*/

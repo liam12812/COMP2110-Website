@@ -30,9 +30,15 @@ class Comp2110Portal extends LitElement {
   body{
     color: rgb(223, 220, 216);
     background: url(src/images/funky-lines.webp);
-    /* background-color: rgb(24, 26, 27);*/
+    background-color: rgb(24, 26, 27);
   }
   
+  .logo {
+    scale: 30%;
+    position: absolute;
+    left: 10px;
+  }
+
   .page-header{
     width: 100%;
     height: 200px;
@@ -68,6 +74,7 @@ class Comp2110Portal extends LitElement {
   .page-header-main{
     float: left;
     width: 99%;
+    min-width: 2048px;
     height: 100px;
     margin-left: 0.5%;
     margin-right: 0.5%;
@@ -225,7 +232,7 @@ class Comp2110Portal extends LitElement {
   
   main{
     display: grid;
-    grid-template-columns: 10% 60% 20% 10%;
+    grid-template-columns: 1fr 1536px 512px 1fr;
     grid-template-rows: 380px 3fr;
     margin-top: 20px;
     background: url(src/images/funky-lines.webp);
@@ -253,6 +260,7 @@ class Comp2110Portal extends LitElement {
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
 
     font-size: 30px;
     box-shadow: 5px 5px 4px 2px slategray;
@@ -290,30 +298,39 @@ class Comp2110Portal extends LitElement {
     padding-top: 30px;
     font-size: 25px;
   }
-  
+
   #secondary-widgets{
     grid-column: 3;
     grid-row: 2;
 
-    height: 1500px;
-
-    margin: 10px 20px 0px 10px;
+    width: 482px;
+    height: 1000px;
 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
 
     font-size: 30px;
     box-shadow: 5px 5px 4px 2px slategray;
+
+    position: sticky;
+    align-self: start;
+
+    margin-left: 10px;
+    margin-top: 10px;
   }
   
   footer{
     width: 99%;
     height: 50px;
-    margin: 20px 0.5% 0.5% 0.5%;
+    margin: auto 0.5% 0.5% 0.5%;
     background-color: #282A35;
     border-radius: 10px;
     font-size: 20px;
     display: flex;
+
+    position: absolute;
+    bottom: 0;
+
     justify-content: center;
     align-items: center;
   }
@@ -328,19 +345,38 @@ class Comp2110Portal extends LitElement {
     padding-right: 10px;
   }
 
-  cc-widget{
-    grid-column: 1;
-  }
+  
 
-  #secondary-ad{
-    grid-row: 3;
+  sun-widget{
+    grid-column: 1;
+    grid-row: 1;
 
     position: absolute;
-    top: 25%;
-    left: 25%;
+    top: 15px;
+    left: 96px;
+  }
 
-    scale: 150%;
-  } 
+  weather-widget{
+    grid-column: 2;
+    grid-row: 1;
+
+    position: absolute;
+    top: 15px;
+    left: 96px;
+  }
+
+  
+  login-widget{
+    grid-row: 1;
+    grid-column: 3;
+
+    margin-left: 10px;
+  }
+
+
+  cc-widget{
+    grid-row: 1;
+  }
 
   uph-widget{
     grid-row: 2;
@@ -349,15 +385,23 @@ class Comp2110Portal extends LitElement {
     top: 8%;
     left: 24%;
   }
+  
+  #secondary-ad{
+    grid-row: 3;
 
-  sun-widget{
-    grid-row: 1;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+  } 
+
+  #container {
+    position: relative;
+    min-height: 100vh;
   }
 
-  weather-widget{
-    grid-column: 2;
+  #content {
+    padding-bottom: 80px;
   }
-
 
   `;
 
@@ -368,59 +412,63 @@ class Comp2110Portal extends LitElement {
 
   render() {
     return html`
-    <header class="page-header">
-      <a href="#" class="logo">
-        <img src="src/images/COMP_2110_Logo.png" width="500" height="80"/>
-      </a>
-        <h1>COMP2110 Portal</h1>
-          <div class="page-header-main">
-            <nav class="main-nav">
-              <ul class="main-menu">
-                <li><span class="currentpage">Home</span></li>
-                <li><a href="#" class="pagelink">About</a></li>
-                <li><a href="#" class="pagelink">Blog</a></li>
-              </ul>
-            </nav>
+    <div id="container">
+      <div id="content">
+        <header class="page-header">
+          <a href="#" class="logo">
+            <img src="src/images/COMP_2110_Logo.png"/>
+          </a>
+            <h1>COMP2110 Portal</h1>
+              <div class="page-header-main">
+                <nav class="main-nav">
+                  <ul class="main-menu">
+                    <li><span class="currentpage">Home</span></li>
+                    <li><a href="#" class="pagelink">About</a></li>
+                    <li><a href="#" class="pagelink">Blog</a></li>
+                  </ul>
+                </nav>
                                     
-            <div class="header-search">
-              <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
-                <label for="main-q" class="visually-hidden">Search Site</label>
-                <div id="searchBar"><input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..."></div>
-                <input type="submit" class="search-button" aria-label="Search" value="Search"> 
-              </form>
+                <div class="header-search">
+                  <form action="/search" role="search" class="search-form search-widget" id="nav-main-search">
+                    <label for="main-q" class="visually-hidden">Search Site</label>
+                    <div id="searchBar"><input id="main-q"  type="search" class="search-input-field" name="q" placeholder="Site search..."></div>
+                    <input type="submit" class="search-button" aria-label="Search" value="Search"> 
+                  </form>
+                </div>
+              </div>
+        </header>
+
+        <main>
+
+          <login-widget></login-widget>
+
+          <section class="widgets" id="primary-widgets"> 
+            <weather-widget></weather-widget>
+            <sun-widget></sun-widget>
+          </section>
+
+          <div class="blog">
+            <div class="blogpost" id="blogpost-1">
+              <blog-block></blog-block>
             </div>
-
-            <login-widget></login-widget>
+            <div class="blogpost" id="blogpost-2">
+              <blog-post></blog-post>
+            </div>
           </div>
-    </header>
 
-    <main>
-      <section class="widgets" id="primary-widgets">
-        <cc-widget></cc-widget>
-        <weather-widget></weather-widget>
-        
-      </section>
-
-      <div class="blog">
-        <div class="blogpost" id="blogpost-1">
-            <blog-block></blog-block>
-        </div>
-        <div class="blogpost" id="blogpost-2">
-        <blog-post></blog-post>
-    </div>
+          <section class="widgets" id="secondary-widgets">
+            <cc-widget></cc-widget>
+            <uph-widget></uph-widget>
+            <ad-widget id="secondary-ad"></ad-widget>
+          </section>
+        </main>
       </div>
 
-      <section class="widgets" id="secondary-widgets">
-        <sun-widget></sun-widget>
-        <uph-widget></uph-widget>
-        <ad-widget id="secondary-ad"></ad-widget>
-      </section>
-    </main>
-
-    <footer id="footer">
-      <p id="copyright">Copyright &copy; COMP2110 Web Designers, 2023.</p>
-      <p id="attribution">The COMP2110 Portal is a service of Group 48.</p>
-    </footer>
+      <footer id="footer">
+        <p id="copyright">Copyright &copy; COMP2110 Web Designers, 2023.</p>
+        <p id="attribution">The COMP2110 Portal is a service of Group 48.</p>
+      </footer>
+    </div>
     `;
   }
 }
