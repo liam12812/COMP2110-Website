@@ -30,7 +30,6 @@ class Comp2110Portal extends LitElement {
   body{
     color: rgb(223, 220, 216);
     background: url(src/images/funky-lines.webp);
-    background-color: rgb(24, 26, 27);
   }
   
   .logo {
@@ -74,7 +73,6 @@ class Comp2110Portal extends LitElement {
   .page-header-main{
     float: left;
     width: 99%;
-    min-width: 2048px;
     height: 100px;
     margin-left: 0.5%;
     margin-right: 0.5%;
@@ -401,6 +399,64 @@ class Comp2110Portal extends LitElement {
 
   #content {
     padding-bottom: 80px;
+  }
+
+  @media only screen and (max-width: 2048px) {
+
+    main{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 380px 380px 1fr 380px;
+    }
+
+    login-widget{
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    .blog{
+      grid-row: 3;
+      grid-column: 1;
+    }
+    
+    #primary-widgets{
+      grid-row: 2;
+      grid-column: 1;
+    }
+
+    #secondary-widgets {
+      grid-row: 4;
+      grid-column: 1;
+
+      display: grid;
+      grid-template-rows: 482px;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      height: 482px;
+      width: 100%;
+    }
+
+    cc-widget{
+      grid-column: 1;
+      grid-row: 1;
+
+
+    }
+  
+    uph-widget{
+      grid-column: 2;
+      grid-row: 1;
+    }
+    
+    #secondary-ad{
+      grid-column: 3;
+      grid-row: 1;
+    } 
+
+    @media only screen and (max-width: 900px) {
+
+    }
+
   }
 
   `;

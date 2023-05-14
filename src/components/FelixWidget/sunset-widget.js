@@ -14,7 +14,7 @@ class SunWidget extends LitElement {
         :host {
             box-sizing: border-box;
 
-            border-radius: 5px;
+            border-radius: 10px;
 
             width: 320px;
             height: 320px;
