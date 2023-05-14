@@ -167,9 +167,9 @@ class LoginWidget extends LitElement {
           }
         }
 
-        @media only screen and (max-width: 1664px) {
+        @media only screen and (max-width: 1220px) {
           .header-auth{
-            width: calc(100vw - 70px);
+            width: calc(100vw - 60px);
             margin-left: 10px;
           }
         }
