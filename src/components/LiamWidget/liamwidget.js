@@ -672,6 +672,9 @@ class WeatherWidget extends LitElement {
             this.Longitude = 115.86;
             this.timezone = "Australia%2FPerth";
         }
+
+        localStorage.setItem("LocalLat", this.Latitude);
+        localStorage.setItem("LocalLong", this.Longitude);
         
         this._fetch();
     }
