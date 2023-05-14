@@ -383,7 +383,6 @@ class Comp2110Portal extends LitElement {
 
   uph-widget{
     grid-row: 2;
-
     position: absolute;
     top: 8%;
     left: 24%;
@@ -391,7 +390,6 @@ class Comp2110Portal extends LitElement {
   
   #secondary-ad{
     grid-row: 3;
-
     position: absolute;
     top: 10%;
     left: 25%;
@@ -870,7 +868,6 @@ class Comp2110Portal extends LitElement {
           <section class="widgets" id="secondary-widgets">
             <cc-widget></cc-widget>
             <uph-widget></uph-widget>
-            <ad-widget id="secondary-ad"></ad-widget>
           </section>
         </main>
       </div>
