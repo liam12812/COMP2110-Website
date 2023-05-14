@@ -18,6 +18,7 @@ class WeatherWidget extends LitElement {
         weatherIcon: {type: String},
         BackColor: {type: String},
         TextColor: {type:String},
+        City: {type:String},
 
       }
   
@@ -26,8 +27,6 @@ class WeatherWidget extends LitElement {
             display: block;
             position: relative;
             top: 20px;
-            
-
             
         }
 
@@ -43,17 +42,21 @@ class WeatherWidget extends LitElement {
 
         }
 
-        #place{
+        #dropdown{
             position: relative;
             left: 10px;
-            bottom: 43px;
-            font-size: 20px;
+            bottom: 28px;
+            font-size: 18px;
             font-weight: 500 ;
+            background: none;
+            border-radius: 10px;
+            display: inline-block;
         }
+
         #Temp{
             position: relative;
             left: 15px;
-            bottom: 330px;
+            bottom: 305px;
             font-weight: bold;
             font-size: 35px;
         }
@@ -70,54 +73,54 @@ class WeatherWidget extends LitElement {
             width: 20px;
             position: relative;
             left: 10px;
-            bottom: 40px;
+            bottom: 25px;
 
         }
         #weather{
             position: relative;
             left: 17px;
-            bottom: 366px;
+            bottom: 341px;
             font-weight: bold;
             font-size: 20px;
         }
 
         #Date{
             position:relative;
-            bottom: 130px;
+            bottom: 105px;
             left: 240px;
             font-weight: bold;
             font-size: 12px;
         }
         #Time{
             position:relative;
-            bottom: 140px;
+            bottom: 115px;
             left: 278px;
             font-weight: bold;
             font-size: 12px;
         }
         #feel{
             position:relative;
-            bottom: 380px;
+            bottom: 355px;
             left: 17px;
             font-style: oblique;
             font-size: 14px;
         }
         #weathericon{
             position:relative;
-            bottom: 500px; 
+            bottom: 475px; 
             left: 200px;
             width: 90px;
         }
         #highlow{
             position:relative;
-            bottom: 400px; 
+            bottom: 375px; 
             right: 100px; 
             width: 60px;       
 
         }
         .max{
             position:relative;
-            bottom: 480px;
+            bottom: 455px;
             left: 50px;
             display: inline-block;
             font-size: 14px;
@@ -131,7 +134,7 @@ class WeatherWidget extends LitElement {
         }
         .min{
             position:relative;
-            bottom: 510px;
+            bottom: 485px;
             left: 50px;
             display: inline-block;
             font-size: 14px;
@@ -149,12 +152,12 @@ class WeatherWidget extends LitElement {
         }
         #RainPLogo{
             position:relative;
-            bottom: 590px;
+            bottom: 565px;
             left: 170px;
         }
         #RainPText{
             position:relative;
-            bottom: 610px;
+            bottom: 585px;
             left: 170px;
             font-weight: bold;
             font-size: 22px;
@@ -165,20 +168,20 @@ class WeatherWidget extends LitElement {
         }
         #RainALogo{
             position:relative;
-            bottom: 625px;
+            bottom: 600px;
             left: 170px;
             width: 45px;
         }
         #RainAText{
             position:relative;
-            bottom: 640px;
+            bottom: 615px;
             left: 173px;
             font-weight: bold;
             font-size: 22px;
         }
         #Backing{
             position: relative;
-            bottom: 97px;
+            bottom: 72px;
             left: 10px;
             width: 300px;
             height: 200px;
@@ -199,6 +202,7 @@ class WeatherWidget extends LitElement {
         this.Longitude = 151.21;
         this.timezone = "Australia%2FSydney";
         this.imageUrl = "src/images/Clear_Day.png";
+        this.City = "Sydney";
 
         
       }
@@ -617,6 +621,11 @@ class WeatherWidget extends LitElement {
         }
     }
 
+    _updateCity(event){
+        this.City= event.target.value;
+        this._fetch();
+    }
+
         render() {
             if(this._data){
                                 
@@ -624,7 +633,16 @@ class WeatherWidget extends LitElement {
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
                     <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
-                    <p class='place' id='place' style="color:${this.textcolour};">Sydney</p>
+                    <select class='place' id='dropdown' style="color:${this.textcolour};" @change="${this._updateCity}">
+                    <option value= "Sydney"> Sydney</option>
+                    <option value= "Melbourne"> Melbourne</option>
+                    <option value= "Brisbane"> Brisbane</option>
+                    <option value= "Canberra"> Canberra</option>
+                    <option value= "ADelaide"> Adelaide</option>
+                    <option value= "Darwin"> Darwin</option>
+                    <option value= "Hobart"> Hobart</option>
+                    <option value= "Perth"> Perth</option>
+                </select>
                     <p id='Date' style="color:${this.textcolour};" >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
                     <p id='Time' style="color:${this.textcolour};">${(this._data.current_weather.time).slice(11, 16)}</p>
                     <p id='Backing' style="background-color:${this.BackColor}; color:${this.BackColor}; ">s</p>
@@ -650,6 +668,7 @@ class WeatherWidget extends LitElement {
                     <p class='RainAmount' id='RainAText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
                     </div>
                 </div>
+
                 
                     
                 
