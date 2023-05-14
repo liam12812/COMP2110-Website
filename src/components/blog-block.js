@@ -90,6 +90,9 @@ class BlockBlock extends LitElement {
     background: rgb(36, 50, 60);
   
   }
+  #content{
+    overflow-x: hidden;
+  }
 
   `;
 
@@ -192,7 +195,9 @@ else{
         ${this._posts.map(post => html`<div class="blogpost">
           <h2>${post.title}</h2>
           <h3>By ${post.name}</h3>
+          <div id='content'>
           ${BlockBlock.formatBody(post.content)}
+          </div>
           <hr class="dashed">
         </div>`)}
          
