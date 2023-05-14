@@ -6,7 +6,10 @@ class SunWidget extends LitElement {
 
     static properties = {
         _data: {state: true},
-        slide: {type: Number}
+        slide: {type: Number},
+        city: {type: String},
+        Latitude: {type: String},
+        Longitude: {type: String}
     }
 
     static styles = css`
@@ -209,6 +212,9 @@ class SunWidget extends LitElement {
     constructor(){
         super();
         this.slide = 0;
+        this.city = "Sydney";
+        this.Latitude = -33.87;
+        this.Longitude = 151.21;
     }
 
     connectedCallback() {
@@ -217,10 +223,18 @@ class SunWidget extends LitElement {
     }
 
     _fetch() {  
+        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
+        .then(response => response.json())
+        .then(data => {
+            this._data = data;
+        });
+    }
+
+    _recallFetch() {  
         this._data = null;
         this.Latitude = localStorage.getItem("LocalLat");
         this.Longitude = localStorage.getItem("LocalLong");
-        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + localStorage.getItem("LocalLong"))
+        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
         .then(response => response.json())
         .then(data => {
             this._data = data;
@@ -245,9 +259,9 @@ class SunWidget extends LitElement {
         if(this._data && (this.slide % 2 == 0)) {
             return html`
                 <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
-                <h3 class="title">${localStorage.getItem("LocalCity")}</h3>
+                <h3 class="title">${this.city}</h3>
                     <div class="content">
-                        <button class="refresh-button" @click=${this._fetch}>&#8635;</button>
+                        <button class="refresh-button" @click=${this._recallFetch}>&#8635;</button>
                         <button class="left-button" @click=${this.leftClick}>&#10094;</button>
                         <button class="right-button" @click=${this.rightClick}>&#10095;</button>
                         <p class="sunrise" id="wonky">
@@ -274,10 +288,10 @@ class SunWidget extends LitElement {
         } else if (this._data && (this.slide % 2 == 1)) {
             return html`
             <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555244.jpg)">
-            <h3 class="title">${localStorage.getItem("LocalCity")}</h3>
+            <h3 class="title">${this.city}</h3>
 
                     <div class="content">
-                        <button class="refresh-button" @click=${this._fetch}>&#8635;</button>
+                        <button class="refresh-button" @click=${this._recallFetch}>&#8635;</button>
                         <button class="left-button" @click=${this.leftClick}>&#10094;</button>
                         <button class="right-button" @click=${this.rightClick}>&#10095;</button>
                         <p class="sunrise" id="wonky">
