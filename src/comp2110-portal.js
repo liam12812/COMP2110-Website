@@ -386,7 +386,7 @@ class Comp2110Portal extends LitElement {
 
   uph-widget{
     grid-row: 2;
-    
+
     position: absolute;
     top: 2%;
     left: 2%;
@@ -872,7 +872,7 @@ class Comp2110Portal extends LitElement {
           <section class="widgets" id="secondary-widgets">
             <cc-widget></cc-widget>
             <uph-widget></uph-widget>
-            <ad-widget id="secondary-ad"></ad-widget>
+            <div id="secondary-ad"></div>
           </section>
         </main>
       </div>
