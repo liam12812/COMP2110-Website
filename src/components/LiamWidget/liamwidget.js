@@ -55,7 +55,7 @@ class WeatherWidget extends LitElement {
         }
 
         #dropdown option{
-            background: blue;
+            background-color: #1a5ba1;
         }
 
         #Temp{
@@ -131,7 +131,7 @@ class WeatherWidget extends LitElement {
             left: 50px;
             display: inline-block;
             font-size: 14px;
-            color: #Be2a25;
+            color: #e0332d;
         }
         #maxlabel{
             font-weight: bold;
@@ -145,7 +145,7 @@ class WeatherWidget extends LitElement {
             left: 50px;
             display: inline-block;
             font-size: 14px;
-            color: #3b4f97;
+            color: #8197e3;
         }
         #minlabel{
             font-weight: bold;
@@ -194,6 +194,7 @@ class WeatherWidget extends LitElement {
             height: 200px;
             opacity: 0.2;
             border-radius: 10px;
+            color: transparent;
         }
 
     
@@ -657,22 +658,32 @@ class WeatherWidget extends LitElement {
             this.timezone = "Australia%2FAdelaide";
         }
         else if(this.City == "Darwin"){
-            this.Latitude = -37.84;
-            this.Longitude = 144.95;
+            this.Latitude = -12.46;
+            this.Longitude = 130.84;
             this.timezone = "Australia%2FDarwin";
         }
         else if(this.City == "Hobart"){
-            this.Latitude = -37.84;
-            this.Longitude = 144.95;
+            this.Latitude = -42.88;
+            this.Longitude = 147.32;
             this.timezone = "Australia%2FHobart";
         }
         else if(this.City == "Perth"){
-            this.Latitude = -37.84;
-            this.Longitude = 144.95;
+            this.Latitude = -31.95;
+            this.Longitude = 115.86;
             this.timezone = "Australia%2FPerth";
         }
-        console.log(this.City);
-        console.log(this.Latitude);
+
+        let Coords = {
+            latitude : this.Latitude,
+            longitude : this.Longitude
+
+        };
+        
+        const getCoords = () => {
+            return Coords;
+        };
+        exports.getCoords = getCoords;
+        
         this._fetch();
     }
 
@@ -731,6 +742,10 @@ class WeatherWidget extends LitElement {
     
     
 }
+
 customElements.define('weather-widget', WeatherWidget);
+
+
+
 
 
