@@ -14,11 +14,11 @@ class UpcomingPublicHolidays extends LitElement {
     
     select{
         color:silver;
-        font-weight:bold;
         height:25px;
         background-color:transparent;
         border:1px solid silver;
         border-radius: 10px;
+        margin-top:-5px;
     }
     select:hover{
         background-color:#56667A;
@@ -97,9 +97,11 @@ class UpcomingPublicHolidays extends LitElement {
             <select @change="${this.userCountryChange}">
                 <option value= "AU"> Australia</option>
                 <option value= "AT"> Austria</option>
+                <option value= "AR"> Argentina</option>
                 <option value= "CN"> China</option>
                 <option value= "MX"> Mexico</option>
                 <option value= "ZA"> South Africa</option>
+                <option value="ES"> Spain</option>
                 <option value= "US"> United States</option>
             </select>
         </div>
