@@ -310,9 +310,6 @@ class Comp2110Portal extends LitElement {
     font-size: 30px;
     box-shadow: 5px 5px 4px 2px slategray;
 
-    position: sticky;
-    align-self: start;
-
     margin-left: 10px;
     margin-top: 10px;
   }
@@ -405,28 +402,28 @@ class Comp2110Portal extends LitElement {
 
     main{
       display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 380px 380px 1fr 380px;
+      grid-template-columns: 1fr 482px;
+      grid-template-rows: 380px 1fr 380px;
     }
 
     login-widget{
       grid-row: 1;
-      grid-column: 1;
+      grid-column: 2;
     }
 
     .blog{
-      grid-row: 3;
-      grid-column: 1;
+      grid-row: 2;
+      grid-column: 1 / 3;
     }
     
     #primary-widgets{
-      grid-row: 2;
+      grid-row: 1;
       grid-column: 1;
     }
 
     #secondary-widgets {
-      grid-row: 4;
-      grid-column: 1;
+      grid-row: 3;
+      grid-column: 1 / 3;
 
       display: grid;
       grid-template-rows: 482px;
@@ -439,8 +436,6 @@ class Comp2110Portal extends LitElement {
     cc-widget{
       grid-column: 1;
       grid-row: 1;
-
-
     }
   
     uph-widget{
@@ -451,14 +446,64 @@ class Comp2110Portal extends LitElement {
     #secondary-ad{
       grid-column: 3;
       grid-row: 1;
-    } 
-
-    @media only screen and (max-width: 900px) {
-
     }
 
   }
 
+  @media only screen and (max-width: 900px) {
+
+    main{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 380px 380px 1fr 380px;
+    }
+
+    login-widget{
+      grid-row: 1;
+      grid-column: 2;
+    }
+
+    .blog{
+      grid-row: 2;
+      grid-column: 1 / 3;
+    }
+    
+    #primary-widgets{
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    #secondary-widgets {
+      grid-row: 3;
+      grid-column: 1 / 3;
+
+      display: grid;
+      grid-template-rows: 482px;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      margin-left: 0px;
+      margin-top: 0px;
+
+      height: 482px;
+      width: calc(100% - 20px);
+    }
+
+    cc-widget{
+      grid-column: 1;
+      grid-row: 1;
+    }
+  
+    uph-widget{
+      grid-column: 2;
+      grid-row: 1;
+    }
+    
+    #secondary-ad{
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+  }
   `;
 
   constructor() {
