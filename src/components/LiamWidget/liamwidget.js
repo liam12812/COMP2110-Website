@@ -675,6 +675,7 @@ class WeatherWidget extends LitElement {
 
         localStorage.setItem("LocalLat", this.Latitude);
         localStorage.setItem("LocalLong", this.Longitude);
+        localStorage.setItem("LocalCity", this.City);
         
         this._fetch();
     }
