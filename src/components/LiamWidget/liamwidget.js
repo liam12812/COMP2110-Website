@@ -43,7 +43,7 @@ class WeatherWidget extends LitElement {
 
         }
 
-        #dropdown{
+        #placename{
             position: relative;
             left: 10px;
             bottom: 28px;
@@ -54,9 +54,6 @@ class WeatherWidget extends LitElement {
             background: none;
         }
 
-        #dropdown option{
-            background-color: #1a5ba1;
-        }
 
         #Temp{
             position: relative;
@@ -688,16 +685,7 @@ class WeatherWidget extends LitElement {
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
                     <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
-                    <select class='place' id='dropdown' style="color:${this.textcolour}; ${this.DropColor};" @change="${this._updateCity}">
-                    <option value= "Sydney"> Sydney</option>
-                    <option value= "Melbourne"> Melbourne</option>
-                    <option value= "Brisbane"> Brisbane</option>
-                    <option value= "Canberra"> Canberra</option>
-                    <option value= "Adelaide"> Adelaide</option>
-                    <option value= "Darwin"> Darwin</option>
-                    <option value= "Hobart"> Hobart</option>
-                    <option value= "Perth"> Perth</option>
-                </select>
+                    <p class='place' id='placename' style="color:${this.textcolour}; ${this.DropColor};">${this.City}</p>
                     <p id='Date'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
                     <p id='Time' >${(this._data.current_weather.time).slice(11, 16)}</p>
                     <p id='Backing' style="background-color:${this.BackColor}; ">s</p>
