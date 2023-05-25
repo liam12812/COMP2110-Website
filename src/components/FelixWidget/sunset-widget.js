@@ -249,7 +249,7 @@ class SunWidget extends LitElement {
     }
 
     setTimezone(){
-        this.Timezone = this._data.results.dawn;
+        this.Timezone = this._data.results.timezone;
     }
 
     render() {  
