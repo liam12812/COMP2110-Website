@@ -10,16 +10,6 @@ import './components/SaeedsWidget/saeedwidget.js';
 import './components/LiamWidget/liamwidget.js';
 import './components/FelixWidget/sunset-widget.js'
 
-window.onload = function() {      
-  var geoSuccess = function(position) {           
-     document.cookie("position_latitude", position.coords.latitude);
-     document.cookie("position_longitude", position.coords.longitude);
-     document.location.reload(true);
-  };
-  if ($.cookie("position_longitude", undefined))
-      navigator.geolocation.getCurrentPosition(geoSuccess);
-};
-
 class Comp2110Portal extends LitElement {
   static properties = {
     header: { type: String },
