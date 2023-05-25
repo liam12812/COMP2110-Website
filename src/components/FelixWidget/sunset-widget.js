@@ -230,6 +230,7 @@ class SunWidget extends LitElement {
             this._data = data;
         console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
         });
+        this.setTimezone();
     }
 
     leftClick (){
@@ -244,6 +245,11 @@ class SunWidget extends LitElement {
     rightClick (){
         this.slide += 1;
         console.log('right');
+    }
+
+    setTimezone(){
+        localStorage.setItem("Timezone", this._data.results.timezone);
+        console.log(localStorage.getItem("Timezone"));
     }
 
     render() {  
