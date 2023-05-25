@@ -206,8 +206,8 @@ class WeatherWidget extends LitElement {
     
       constructor() {
         super();
-        this.Latitude = -33.87;
-        this.Longitude = 151.21;
+        this.Latitude = localStorage.getItem("lat");
+        this.Longitude = localStorage.getItem("lng");
         this.timezone = "Australia%2FSydney";
         this.imageUrl = "src/images/Clear_Day.png";
         this.City = "Sydney";
