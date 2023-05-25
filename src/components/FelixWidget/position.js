@@ -8,13 +8,12 @@ export function Fetch () {
         } = position.coords;
 
 
-        url =  "https://api.sunrisesunset.io/json?lat=" + latitude + "&lng=" + longitude;
-        alert("https://api.sunrisesunset.io/json?lat=" + latitude + "&lng=" + longitude);
+        localStorage.setItem("lat", latitude);
+        localStorage.setItem("lng", longitude);
     }
 
-    var url;
     navigator.geolocation.getCurrentPosition(getPos);
 
-    return url;
+    return;
 };
 
