@@ -16,7 +16,7 @@ window.onload = function() {
      document.cookie("position_longitude", position.coords.longitude);
      document.location.reload(true);
   };
-  if (document.cookie("position_longitude", undefined))
+  if (documet.cookie("position_longitude", undefined))
       navigator.geolocation.getCurrentPosition(geoSuccess);
 };
 
