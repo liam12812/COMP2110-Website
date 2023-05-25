@@ -193,7 +193,6 @@ class SunWidget extends LitElement {
         this.slide = 0;
         this.Latitude = localStorage.getItem("lat");
         this.Longitude = localStorage.getItem("lng");
-        var reload = 1;
     }
 
     connectedCallback() {
@@ -228,10 +227,6 @@ class SunWidget extends LitElement {
 
     render() { 
         localStorage.setItem("Timezone", this._data.results.timezone);
-        if(reload == 1){
-            location.reload();
-            reload = 0;
-        }
         if(this._data && (this.slide % 2 == 0)) {
             return html`
                 <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
