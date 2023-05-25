@@ -228,6 +228,7 @@ class SunWidget extends LitElement {
         .then(response => response.json())
         .then(data => {
             this._data = data;
+        console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
         });
     }
 
