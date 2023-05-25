@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import {Fetch} from './position.js';
 
 // URL TO USE: https://api.sunrisesunset.io/json?lat=-33.8715&lng=151.2006
 
@@ -9,7 +10,8 @@ class SunWidget extends LitElement {
         slide: {type: Number},
         city: {type: String},
         Latitude: {type: String},
-        Longitude: {type: String}
+        Longitude: {type: String},
+        _url: {type: String}
     }
 
     static styles = css`
@@ -215,6 +217,7 @@ class SunWidget extends LitElement {
         this.city = "Sydney";
         this.Latitude = -33.87;
         this.Longitude = 151.21;
+        this._url = Fetch();
     }
 
     connectedCallback() {
@@ -235,7 +238,8 @@ class SunWidget extends LitElement {
         this.city = localStorage.getItem("LocalCity");
         this.Latitude = localStorage.getItem("LocalLat");
         this.Longitude = localStorage.getItem("LocalLong");
-        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
+        //fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
+        fetch(this._url)
         .then(response => response.json())
         .then(data => {
             this._data = data;

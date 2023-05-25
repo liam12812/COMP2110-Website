@@ -1,6 +1,3 @@
-var x = document.getElementById("coords");
-
-
 export function Fetch () {
 
     function getPos(position){
@@ -11,14 +8,13 @@ export function Fetch () {
         } = position.coords;
 
 
-        x.innerHTML = "https://api.sunrisesunset.io/json?lat=" + latitude + "&lng=" + longitude;
+        url =  "https://api.sunrisesunset.io/json?lat=" + latitude + "&lng=" + longitude;
         alert("https://api.sunrisesunset.io/json?lat=" + latitude + "&lng=" + longitude);
-
-        
     }
 
+    var url;
     navigator.geolocation.getCurrentPosition(getPos);
 
-    return;
+    return url;
 };
 
