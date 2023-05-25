@@ -248,7 +248,7 @@ class SunWidget extends LitElement {
     }
 
     setTimezone(){
-        localStorage.setItem("Timezone", this._data.results.sunset);
+        localStorage.setItem("Timezone", 3);
         console.log(localStorage.getItem("Timezone"));
     }
 
