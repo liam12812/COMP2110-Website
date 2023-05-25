@@ -46,7 +46,7 @@ class WeatherWidget extends LitElement {
         #placename{
             position: relative;
             left: 10px;
-            bottom: 28px;
+            bottom: 48px;
             font-size: 18px;
             font-weight: 500 ;
             border-radius: 10px;
