@@ -45,8 +45,8 @@ class WeatherWidget extends LitElement {
 
         #placename{
             position: relative;
-            left: 10px;
-            bottom: 48px;
+            left: 8px;
+            bottom: 43px;
             font-size: 18px;
             font-weight: 500 ;
             border-radius: 10px;
@@ -58,7 +58,7 @@ class WeatherWidget extends LitElement {
         #Temp{
             position: relative;
             left: 15px;
-            bottom: 305px;
+            bottom: 325px;
             font-weight: bold;
             font-size: 35px;
         }
@@ -75,20 +75,20 @@ class WeatherWidget extends LitElement {
             width: 20px;
             position: relative;
             left: 10px;
-            bottom: 25px;
+            bottom: 40px;
 
         }
         #weather{
             position: relative;
             left: 17px;
-            bottom: 341px;
+            bottom: 361px;
             font-weight: bold;
             font-size: 20px;
         }
 
         #Date{
             position:relative;
-            bottom: 105px;
+            bottom: 125px;
             left: 240px;
             font-weight: bold;
             font-size: 12px;
@@ -96,7 +96,7 @@ class WeatherWidget extends LitElement {
         }
         #Time{
             position:relative;
-            bottom: 115px;
+            bottom: 135px;
             left: 278px;
             font-weight: bold;
             font-size: 12px;
@@ -104,27 +104,27 @@ class WeatherWidget extends LitElement {
         }
         #feel{
             position:relative;
-            bottom: 355px;
+            bottom: 375px;
             left: 17px;
             font-style: oblique;
             font-size: 14px;
         }
         #weathericon{
             position:relative;
-            bottom: 475px; 
+            bottom: 495px; 
             left: 200px;
             width: 90px;
         }
         #highlow{
             position:relative;
-            bottom: 375px; 
+            bottom: 395px; 
             right: 100px; 
             width: 60px;       
 
         }
         .max{
             position:relative;
-            bottom: 455px;
+            bottom: 475px;
             left: 50px;
             display: inline-block;
             font-size: 14px;
@@ -138,11 +138,11 @@ class WeatherWidget extends LitElement {
         }
         .min{
             position:relative;
-            bottom: 485px;
+            bottom: 505px;
             left: 50px;
             display: inline-block;
             font-size: 14px;
-            color: #8197e3;
+            color: #4C2EB1;
         }
         #minlabel{
             font-weight: bold;
@@ -156,12 +156,12 @@ class WeatherWidget extends LitElement {
         }
         #RainPLogo{
             position:relative;
-            bottom: 565px;
+            bottom: 585px;
             left: 170px;
         }
         #RainPText{
             position:relative;
-            bottom: 585px;
+            bottom: 605px;
             left: 170px;
             font-weight: bold;
             font-size: 22px;
@@ -172,20 +172,20 @@ class WeatherWidget extends LitElement {
         }
         #RainALogo{
             position:relative;
-            bottom: 600px;
+            bottom: 620px;
             left: 170px;
             width: 45px;
         }
         #RainAText{
             position:relative;
-            bottom: 615px;
+            bottom: 635px;
             left: 173px;
             font-weight: bold;
             font-size: 22px;
         }
         #Backing{
             position: relative;
-            bottom: 72px;
+            bottom: 92px;
             left: 10px;
             width: 300px;
             height: 200px;
@@ -628,55 +628,6 @@ class WeatherWidget extends LitElement {
 
     }
 
-    _updateCity(event){
-        this.City= event.target.value;
-        if(this.City == "Sydney"){
-            this.Latitude = -33.87;
-            this.Longitude = 151.21;
-            this.timezone = "Australia%2FSydney";
-        }
-        else if(this.City == "Melbourne"){
-            this.Latitude = -37.84;
-            this.Longitude = 144.95;
-            this.timezone = "Australia%2FMelbourne";
-        }
-        else if(this.City == "Brisbane"){
-            this.Latitude = -27.47;
-            this.Longitude = 153.02;
-            this.timezone = "Australia%2FBrisbane";
-        }
-        else if(this.City == "Canberra"){
-            this.Latitude = -35.28;
-            this.Longitude = 149.13;
-            this.timezone = "Australia%2FCanberra";
-        }
-        else if(this.City == "Adelaide"){
-            this.Latitude = -34.92;
-            this.Longitude = 138.60;
-            this.timezone = "Australia%2FAdelaide";
-        }
-        else if(this.City == "Darwin"){
-            this.Latitude = -12.46;
-            this.Longitude = 130.84;
-            this.timezone = "Australia%2FDarwin";
-        }
-        else if(this.City == "Hobart"){
-            this.Latitude = -42.88;
-            this.Longitude = 147.32;
-            this.timezone = "Australia%2FHobart";
-        }
-        else if(this.City == "Perth"){
-            this.Latitude = -31.95;
-            this.Longitude = 115.86;
-            this.timezone = "Australia%2FPerth";
-        }
-
-        localStorage.setItem("LocalLat", this.Latitude);
-        localStorage.setItem("LocalLong", this.Longitude);
-        localStorage.setItem("LocalCity", this.City);
-        
-        this._fetch();
-    }
 
         render() {
             if(this._data){
