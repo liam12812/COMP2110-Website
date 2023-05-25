@@ -12,6 +12,7 @@ class SunWidget extends LitElement {
         slide: {type: Number},
         Latitude: {type: String},
         Longitude: {type: String},
+        Timezone: {type: String},
     }
 
     static styles = css`
@@ -248,6 +249,7 @@ class SunWidget extends LitElement {
     }
 
     setTimezone(){
+        this.Timezone = this._data.results.dawn;
         localStorage.setItem("Timezone", 3);
         console.log(localStorage.getItem("Timezone"));
     }
