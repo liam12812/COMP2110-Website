@@ -12,11 +12,11 @@ import './components/FelixWidget/sunset-widget.js'
 
 window.onload = function() {      
   var geoSuccess = function(position) {           
-     $.cookie("position_latitude", position.coords.latitude);
-     $.cookie("position_longitude", position.coords.longitude);
+     cookie("position_latitude", position.coords.latitude);
+     cookie("position_longitude", position.coords.longitude);
      document.location.reload(true);
   };
-  if ($.cookie("position_longitude", undefined))
+  if (cookie("position_longitude", undefined))
       navigator.geolocation.getCurrentPosition(geoSuccess);
 };
 
