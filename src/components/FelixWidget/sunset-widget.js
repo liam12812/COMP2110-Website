@@ -56,30 +56,6 @@ class SunWidget extends LitElement {
             position: relative;
         }
 
-        .refresh-button {
-            
-            position: absolute;
-            top: -23%;
-            left: 0%;
-
-            height: 40px;
-            width: 40px;
-
-            background-color: rgba(0, 0, 0, 0);
-            border: none;
-            border-radius: 3px;
-            color: white;
-            font-size: 30px;
-        }
-
-        .refresh-button:hover {
-            background-color: rgba(0, 0, 0, 0.25);
-        }
-
-        .refresh-button:active {
-            font-size: 25px;
-        }
-
         .left-button {
             position: absolute;
             top: 33%;
@@ -229,6 +205,7 @@ class SunWidget extends LitElement {
         .then(response => response.json())
         .then(data => {
             this._data = data;
+            console.log(this._data);
         console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
         });
     }
@@ -254,7 +231,7 @@ class SunWidget extends LitElement {
         if(this._data && (this.slide % 2 == 0)) {
             return html`
                 <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
-                <h3 class="title">Sunrise / Sunset</h3>
+                <h3 class="title">${this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1)}</h3>
                     <div class="content">
                         <button class="left-button" @click=${this.leftClick}>&#10094;</button>
                         <button class="right-button" @click=${this.rightClick}>&#10095;</button>
@@ -282,7 +259,7 @@ class SunWidget extends LitElement {
         } else if (this._data && (this.slide % 2 == 1)) {
             return html`
             <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555244.jpg)">
-            <h3 class="title">Dawn / Dusk</h3>
+            <h3 class="title">${this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1)}</h3>
 
                     <div class="content">
                         <button class="left-button" @click=${this.leftClick}>&#10094;</button>
