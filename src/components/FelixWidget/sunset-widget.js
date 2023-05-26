@@ -146,7 +146,7 @@ class SunWidget extends LitElement {
 
         #sunrise-icon {
             float: left;
-            border: 1px dotted black;
+            border-radius: 5px;
             margin: auto;
 
             height: 60px;
@@ -155,7 +155,7 @@ class SunWidget extends LitElement {
 
         #sunset-icon {
             float: left;
-            border: 1px dotted black;
+            border-radius: 5px;
             margin: auto;
 
             height: 60px;
@@ -191,8 +191,8 @@ class SunWidget extends LitElement {
     constructor(){
         super();
         this.slide = 0;
-        this.Latitude = localStorage.getItem("lat");
-        this.Longitude = localStorage.getItem("lng");
+        this.Latitude = sessionStorage.getItem("lat");
+        this.Longitude = sessionStorage.getItem("lng");
     }
 
     connectedCallback() {
@@ -209,6 +209,8 @@ class SunWidget extends LitElement {
         console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
         });
     }
+
+    
 
     leftClick (){
         if (this.slide == 0){
@@ -284,34 +286,6 @@ class SunWidget extends LitElement {
                 </section>
                 </div>
             `;
-        } else if(!this._data && (this.slide % 2 == 0)) { {
-            return html`
-                <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
-                <h3 class="title">Loading...</h3>
-
-                    <div class="content">
-                        <button class="left-button" @click=${this.leftClick}>&#10094;</button>
-                        <button class="right-button" @click=${this.rightClick}>&#10095;</button>
-                        <p class="sunrise" id="wonky">
-                            <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
-                            Loading... <br>
-                            </p>
-                        <p class="sunset">
-                            <img class="icon" id="sunset-icon" src="src/components/FelixWidget/content/vecteezy_sunset-sun-line-icon-vector-illustration-logo_.jpg">
-                            Loading... <br>    
-                        </p>
-                    </div>
-
-                <section class="footer">
-                <p id="creditAPI"> 
-                    Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
-                <p id="creditIMG">
-                    <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
-                </p>
-                </section>
-                </div>
-            `;
-        }
     } else {
         return html`
             <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555244.jpg)">

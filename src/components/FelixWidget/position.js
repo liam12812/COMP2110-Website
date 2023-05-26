@@ -8,11 +8,15 @@ export function Fetch () {
         } = position.coords;
 
 
-        localStorage.setItem("lat", latitude);
-        localStorage.setItem("lng", longitude);
+        sessionStorage.setItem("lat", latitude);
+        sessionStorage.setItem("lng", longitude);
     }
 
-    navigator.geolocation.getCurrentPosition(getPos);
+    function failed(){
+        alert("Please use a browser that supports geolocation or unblock location services for full widget functionality")
+    }
+
+    navigator.geolocation.getCurrentPosition(getPos, failed);
 
     return;
 };
