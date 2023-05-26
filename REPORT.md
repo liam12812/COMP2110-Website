@@ -9,6 +9,18 @@ Your team should write a short report on your experience working on this project
 
 4. What was rewarding: one or two things that you were able to do that you feel contributed to your understanding of the content of this unit.
 
+5. Andrew:
+    - I chose to do the currency conversions widget, because I liked the idea of peforming calculations with the data retrieved using the fetch command. as it turned out, no calculations were required, but that is why I chose to do it.
+    - what was the most challenging part of the project for you?
+
+5. Individual reflection: each team member should write one paragraph on their personal experience(include your name):
+    - which widget did you choose and why?
+    - what was the most challenging part of the project for you?
+
+5. Individual reflection: each team member should write one paragraph on their personal experience(include your name):
+    - which widget did you choose and why?
+    - what was the most challenging part of the project for you?
+
 5. Individual reflection: each team member should write one paragraph on their personal experience(include your name):
     - which widget did you choose and why?
     - what was the most challenging part of the project for you?
