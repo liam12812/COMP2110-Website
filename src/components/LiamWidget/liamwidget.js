@@ -206,6 +206,7 @@ class WeatherWidget extends LitElement {
         super();
         this.Latitude = localStorage.getItem("lat");
         this.Longitude = localStorage.getItem("lng");
+        console.log(localStorage.getItem("lng"));
         this.timezone = 'Australia/Sydney';
         this.imageUrl = "src/images/Clear_Day.png";
         this.City = localStorage.getItem("Timezone").split('/')[1];
