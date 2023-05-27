@@ -205,7 +205,7 @@ class WeatherWidget extends LitElement {
       constructor() {
         super();
         console.log(sessionStorage.getItem("Timezone"));
-        this.timezone = sessionStorage.getItem("Timezone").results.timezone;
+        this.timezone = sessionStorage.getItem("Timezone");
         this.Latitude = sessionStorage.getItem("lat");
         this.Longitude = sessionStorage.getItem("lng");
         this.imageUrl = "src/images/Clear_Day.png";
