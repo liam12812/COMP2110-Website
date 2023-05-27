@@ -206,7 +206,6 @@ class WeatherWidget extends LitElement {
         super();
         this.Latitude = sessionStorage.getItem("lat");
         this.Longitude = sessionStorage.getItem("lng");
-        this.timezone = sessionStorage.getItem("Timezone");
         this.imageUrl = "src/images/Clear_Day.png";
         this.City = localStorage.getItem("Timezone").split('/')[1];
         console.log(this.City);
@@ -221,6 +220,7 @@ class WeatherWidget extends LitElement {
     }
 
     _fetch () {
+        this.timezone = sessionStorage.getItem("Timezone");
         const url = `${WeatherWidget.BASE_URL}latitude=${this.Latitude}&longitude=${this.Longitude}&current_weather=true&timezone=${this.timezone}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`
         console.log(url);
         fetch(url)
