@@ -225,7 +225,6 @@ class WeatherWidget extends LitElement {
             border-radius: 10px;
             display: inline-block;
             background-color: Transparent;
-            border: none;
         }
 
         #geobutton2{
