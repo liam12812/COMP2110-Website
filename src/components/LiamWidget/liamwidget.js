@@ -221,7 +221,7 @@ class WeatherWidget extends LitElement {
 
         #geobutton1{
             position: relative;
-            left: 10px;
+            left: 30px;
             bottom: 28px;
             background: none;
             font-size: 18px;
@@ -858,6 +858,11 @@ class WeatherWidget extends LitElement {
 
         this._fetch();
     }
+
+    useLocation(){
+
+    }
+
         render() {
             if(this._data){    
                 if(this.timezone != sessionStorage.getItem("Timezone")){
