@@ -204,6 +204,7 @@ class WeatherWidget extends LitElement {
     
       constructor() {
         super();
+        this.timezone = "Australia/Sydneys";
         this.Latitude = sessionStorage.getItem("lat");
         this.Longitude = sessionStorage.getItem("lng");
         this.imageUrl = "src/images/Clear_Day.png";
@@ -221,7 +222,7 @@ class WeatherWidget extends LitElement {
 
     _fetch () {
         this.timezone = sessionStorage.getItem("Timezone");
-        console.log(this.timezone.results.timezone);
+        console.log(this.timezone);
         const url = `${WeatherWidget.BASE_URL}latitude=${this.Latitude}&longitude=${this.Longitude}&current_weather=true&timezone=${this.timezone}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`
         console.log(url);
         fetch(url)
