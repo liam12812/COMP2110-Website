@@ -204,10 +204,9 @@ class WeatherWidget extends LitElement {
     
       constructor() {
         super();
-        console.log(sessionStorage.getItem("Timezone"));
-        this.timezone = sessionStorage.getItem("Timezone");
-        this.Latitude = sessionStorage.getItem("lat");
-        this.Longitude = sessionStorage.getItem("lng");
+        this.timezone = "Australia%2FSydney";
+        this.Latitude = -33.87;
+        this.Longitude = 151.21;
         this.imageUrl = "src/images/Clear_Day.png";
         this.City = sessionStorage.getItem("Timezone").split('/')[1];
         console.log(this.City);
@@ -677,7 +676,50 @@ class WeatherWidget extends LitElement {
     }
         render() {
             if(this._data){    
-                           
+                if(this.timezone != sessionStorage.getItem("Timezone")){
+                                
+                    return html`
+                    <div id='container' style="${this.imageUrl})">
+                        <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
+                        <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
+                        <select class='place' id='dropdown' style="color:${this.textcolour}; ${this.DropColor};" @change="${this._updateCity}">
+                        <option value= "Sydney"> Sydney</option>
+                        <option value= "Melbourne"> Melbourne</option>
+                        <option value= "Brisbane"> Brisbane</option>
+                        <option value= "Canberra"> Canberra</option>
+                        <option value= "Adelaide"> Adelaide</option>
+                        <option value= "Darwin"> Darwin</option>
+                        <option value= "Hobart"> Hobart</option>
+                        <option value= "Perth"> Perth</option>
+                    </select>
+                        <p id='Date'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
+                        <p id='Time' >${(this._data.current_weather.time).slice(11, 16)}</p>
+                        <p id='Backing' style="background-color:${this.BackColor}; ">s</p>
+                        <p id='Temp' style="color:${this.TextColor}">${this._data.current_weather.temperature}&deg;C</p>
+                        <p id='weather' style="color:${this.TextColor}">${this.weather_type}</p>
+                        <p id='feel' style="color:${this.TextColor}">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
+                        <img src="${this.weatherIcon}" id='weathericon'></img>
+                        <img src="src/images/High_Low.png" id='highlow'></img>
+                        <div id='max'>
+                            <p class='max' id='maxlabel' >Max:</p>
+                            <p class='max' id='maxtemp'>${this._data.daily.temperature_2m_max}&deg;C</p>
+                        <div>
+                        <div id="min">
+                        <p class='min' id='minlabel'>Min:</p>
+                        <p class='min' id='mintemp'>${this._data.daily.temperature_2m_min}&deg;C</p>
+                        </div>
+                        <div>
+                        <img src="src/images/Rain_Percent.png" class='RainPercent' id='RainPLogo'></img>
+                        <p class='RainPercent' id='RainPText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation_probability[this.currentHour]}%</p>
+                        </div>
+                        <div>
+                        <img src="src/images/Rain_Amount.png" class='RainAmount' id='RainALogo'></img>
+                        <p class='RainAmount' id='RainAText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
+                        </div>
+                    </div>
+                    `;  
+                }
+            else if(this.timezone == sessionStorage.getItem("Timezone")) {        
                 return html`
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
@@ -709,7 +751,8 @@ class WeatherWidget extends LitElement {
                     </div>
                 </div>
                 
-                `;                
+                `; 
+            }               
             }
 
         }
