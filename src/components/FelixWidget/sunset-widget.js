@@ -225,7 +225,7 @@ class SunWidget extends LitElement {
 
 
     render() { 
-        localStorage.setItem("Timezone", this._data.results.timezone);
+        sessionStorage.setItem("Timezone", this._data.results.timezone);
         if(this._data && (this.slide % 2 == 0)) {
             return html`
                 <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
