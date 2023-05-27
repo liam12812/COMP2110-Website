@@ -23,9 +23,8 @@ class SunWidget extends LitElement {
             height: 320px;
 
             margin: auto;
-
             
-            background-size: 150%;
+            background-size: 180%;
             background-repeat: no-repeat;
 
             color: white;
@@ -197,38 +196,94 @@ class SunWidget extends LitElement {
         this._fetch();
     }
 
-    _fetch() {  
+    _fetch() { 
+
+        function success(){
+            location = 1;
+        }
+
+        var location = 0;
+        navigator.geolocation.getCurrentPosition(success)
+        console.log("Check " + this.Latitude + " " + this.Longitude)
+        if(this.Latitude == null && location == 0) {
+        this.Latitude = Math.floor(Math.random() * 60);
+        this.Longitude = Math.floor(Math.random() * 180);
+        var lat_pol;
+        var lng_pol;
+        if(Math.round(Math.random()) == 0){
+            lat_pol = "-";
+        } else {
+            lat_pol = "";
+        }
+        if(Math.round(Math.random()) == 0){
+            var lng_pol = "-";
+        } else {
+            var lng_pol = "";
+        }
+        this.Latitude = lat_pol + this.Latitude;
+        this.Longitude = lng_pol + this.Longitude;
         fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
         .then(response => response.json())
         .then(data => {
             this._data = data;
             console.log(this._data);
             sessionStorage.setItem("Timezone", this._data.results.timezone);
-        console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
+            console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
+            console.log(this.Latitude + " " + this.Longitude + " " + this._data.results.timezone)
+            var checkGMT = this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1);
+            checkGMT = checkGMT.slice(0, 3);
+            console.log(checkGMT);
+            if(checkGMT.slice(0, 3) == "GMT"){
+                this._data = null;
+                this.Latitude = null;
+                this.Longitude = null;
+                this._fetch();
+            }
         });
+        } else {
+            location = 1;
+            fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
+            .then(response => response.json())
+            .then(data => {
+            this._data = data;
+            var checkGMT = this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1);
+            checkGMT = checkGMT.slice(0, 3);
+            console.log(checkGMT);
+            if(checkGMT.slice(0, 3) == "GMT"){
+                this._fetch();
+            }
+            console.log(this._data);
+            sessionStorage.setItem("Timezone", this._data.results.timezone);
+            console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
+            console.log(this.Latitude + " " + this.Longitude + " " + this._data.results.timezone)
+        });
+        }
     }
 
     
 
     leftClick (){
         if (this.slide == 0){
-            this.slide += 1;
+            this.slide = 2;
         } else {
             this.slide -= 1;
         }
-        console.log('left');
+        console.log(this.slide);
     }
 
     rightClick (){
-        this.slide += 1;
-        console.log('right');
+        if (this.slide == 2){
+            this.slide = 0;
+        } else {
+            this.slide += 1;
+        }
+        console.log(this.slide);
     }
 
-
     render() { 
-        if(this._data && (this.slide % 2 == 0)) {
+        if (this._data && (this.slide == 0)) {
             return html`
-                <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
+                <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_beautiful-forest-panoramic-realistic-wanderlust-vector_9302810.jpg)">
                 <h3 class="title">${this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1)}</h3>
                     <div class="content">
                         <button class="left-button" @click=${this.leftClick}>&#10094;</button>
@@ -244,7 +299,6 @@ class SunWidget extends LitElement {
                             ${this._data.results.sunset}
                         </p>
                     </div>
-
                 <section class="footer">
                 <p id="creditAPI"> 
                     Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
@@ -254,9 +308,9 @@ class SunWidget extends LitElement {
                 </section>
                 </div>
             `;
-        } else if (this._data && (this.slide % 2 == 1)) {
+        } else if (this._data && (this.slide == 1)) {
             return html`
-            <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555244.jpg)">
+            <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_realistic-mountain-flat-landscape-vector-illustration_22976120.jpg)">
             <h3 class="title">${this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1)}</h3>
 
                     <div class="content">
@@ -283,14 +337,41 @@ class SunWidget extends LitElement {
                 </section>
                 </div>
             `;
-    } else {
+        } else if (this._data && (this.slide == 2)) {
+            return html`
+            <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_beautiful-forest-panoramic-realistic-neon-vector-vivid_13780884.jpg)">
+            <h3 class="title">${this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1)}</h3>
+
+                    <div class="content">
+                        <button class="left-button" @click=${this.leftClick}>&#10094;</button>
+                        <button class="right-button" @click=${this.rightClick}>&#10095;</button>
+                        <p class="sunrise" id="wonky">
+                            <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
+                            Day Length <br>
+                            ${this._data.results.day_length}
+                            </p>
+                        <p class="sunset">
+                            <img class="icon" id="sunset-icon" src="src/components/FelixWidget/content/vecteezy_sunset-sun-line-icon-vector-illustration-logo_.jpg">
+                            Golden Hour <br>    
+                            ${this._data.results.golden_hour}
+                        </p>
+                    </div>
+
+                <section class="footer">
+                <p id="creditAPI"> 
+                    Powered by <a href="https://sunrisesunset.io/">SunriseSunset.io</a>
+                <p id="creditIMG">
+                    <a href="https://www.vecteezy.com/free-vector/sunrise">Sunrise Vectors by Vecteezy</a>
+                </p>
+                </section>
+                </div>
+            `;
+        } else {
         return html`
-            <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555244.jpg)">
+            <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_beautiful-forest-panoramic-realistic-wanderlust-vector_9302810.jpg)">
             <h3 class="title">Loading...</h3>
 
                 <div class="content">
-                    <button class="left-button" @click=${this.leftClick}>&#10094;</button>
-                    <button class="right-button" @click=${this.rightClick}>&#10095;</button>
                     <p class="sunrise" id="wonky">
                         <img class="icon" id="sunrise-icon" src="src/components/FelixWidget/content/vecteezy_sunrise-sun-line-icon-vector-illustration-logo_.jpg">
                         Loading... <br>
