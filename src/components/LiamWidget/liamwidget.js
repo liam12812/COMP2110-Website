@@ -196,6 +196,173 @@ class WeatherWidget extends LitElement {
         }
 
     
+        #container1{
+            background-color: #3498DB ;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            position:relative;
+            display: block;
+            bottom: 30px;
+            width: 320px;
+            height: 320px;
+
+        }
+
+        #dropdown1{
+            position: relative;
+            left: 10px;
+            bottom: 28px;
+            font-size: 18px;
+            font-weight: 500 ;
+            border-radius: 10px;
+            display: inline-block;
+            background: none;
+        }
+
+        #dropdown1 option{
+            background-color: #1a5ba1;
+        }
+
+        #Temp1{
+            position: relative;
+            left: 15px;
+            bottom: 305px;
+            font-weight: bold;
+            font-size: 35px;
+        }
+        #title1{
+            font-weight: 600 ;
+            font-size: 24px;
+            position: relative;
+            left: 10px;
+        }
+        .place1{
+            display: inline-block;
+        }
+        #placeicon1{
+            width: 20px;
+            position: relative;
+            left: 10px;
+            bottom: 25px;
+
+        }
+        #weather1{
+            position: relative;
+            left: 17px;
+            bottom: 341px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #Date1{
+            position:relative;
+            bottom: 105px;
+            left: 240px;
+            font-weight: bold;
+            font-size: 12px;
+            color: black;
+        }
+        #Time1{
+            position:relative;
+            bottom: 115px;
+            left: 278px;
+            font-weight: bold;
+            font-size: 12px;
+            color: black;
+        }
+        #feel1{
+            position:relative;
+            bottom: 355px;
+            left: 17px;
+            font-style: oblique;
+            font-size: 14px;
+        }
+        #weathericon1{
+            position:relative;
+            bottom: 475px; 
+            left: 200px;
+            width: 90px;
+        }
+        #highlow1{
+            position:relative;
+            bottom: 375px; 
+            right: 100px; 
+            width: 60px;       
+
+        }
+        .max1{
+            position:relative;
+            bottom: 455px;
+            left: 50px;
+            display: inline-block;
+            font-size: 14px;
+            color: #e0332d;
+        }
+        #maxlabel1{
+            font-weight: bold;
+        }
+        #maxtemp1{
+            font-style: oblique;
+        }
+        .min1{
+            position:relative;
+            bottom: 485px;
+            left: 50px;
+            display: inline-block;
+            font-size: 14px;
+            color: #8197e3;
+        }
+        #minlabel1{
+            font-weight: bold;
+        }
+        #mintemp1{
+            font-style: oblique;
+        }
+        .RainPercent1{
+            left: 50px;
+            display: inline-block;
+        }
+        #RainPLogo1{
+            position:relative;
+            bottom: 565px;
+            left: 170px;
+        }
+        #RainPText1{
+            position:relative;
+            bottom: 585px;
+            left: 170px;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        .RainAmount1{
+            left: 50px;
+            display: inline-block;
+        }
+        #RainALogo1{
+            position:relative;
+            bottom: 600px;
+            left: 170px;
+            width: 45px;
+        }
+        #RainAText1{
+            position:relative;
+            bottom: 615px;
+            left: 173px;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        #Backing1{
+            position: relative;
+            bottom: 72px;
+            left: 10px;
+            width: 300px;
+            height: 200px;
+            opacity: 0.2;
+            border-radius: 10px;
+            color: transparent;
+        }
+
+    
 
 
       `;
@@ -679,10 +846,10 @@ class WeatherWidget extends LitElement {
                 if(this.timezone != sessionStorage.getItem("Timezone")){
                                 
                     return html`
-                    <div id='container' style="${this.imageUrl})">
-                        <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
-                        <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
-                        <select class='place' id='dropdown' style="color:${this.textcolour}; ${this.DropColor};" @change="${this._updateCity}">
+                    <div id='container1' style="${this.imageUrl})">
+                        <p id='title1' style="color:${this.textcolour}; ">Current Weather:</p>
+                        <img src="src/images/Location.png" class='place1' id='placeicon1' style="filter: invert(${this.iswhite});"></img>
+                        <select class='place1' id='dropdown1' style="color:${this.textcolour}; ${this.DropColor};" @change="${this._updateCity}">
                         <option value= "Sydney"> Sydney</option>
                         <option value= "Melbourne"> Melbourne</option>
                         <option value= "Brisbane"> Brisbane</option>
@@ -692,29 +859,29 @@ class WeatherWidget extends LitElement {
                         <option value= "Hobart"> Hobart</option>
                         <option value= "Perth"> Perth</option>
                     </select>
-                        <p id='Date'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
-                        <p id='Time' >${(this._data.current_weather.time).slice(11, 16)}</p>
-                        <p id='Backing' style="background-color:${this.BackColor}; ">s</p>
-                        <p id='Temp' style="color:${this.TextColor}">${this._data.current_weather.temperature}&deg;C</p>
-                        <p id='weather' style="color:${this.TextColor}">${this.weather_type}</p>
-                        <p id='feel' style="color:${this.TextColor}">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
-                        <img src="${this.weatherIcon}" id='weathericon'></img>
-                        <img src="src/images/High_Low.png" id='highlow'></img>
-                        <div id='max'>
-                            <p class='max' id='maxlabel' >Max:</p>
-                            <p class='max' id='maxtemp'>${this._data.daily.temperature_2m_max}&deg;C</p>
+                        <p id='Date1'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
+                        <p id='Time1' >${(this._data.current_weather.time).slice(11, 16)}</p>
+                        <p id='Backing1' style="background-color:${this.BackColor}; ">s</p>
+                        <p id='Temp1' style="color:${this.TextColor}">${this._data.current_weather.temperature}&deg;C</p>
+                        <p id='weather1' style="color:${this.TextColor}">${this.weather_type}</p>
+                        <p id='feel1' style="color:${this.TextColor}">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
+                        <img src="${this.weatherIcon}" id='weathericon1'></img>
+                        <img src="src/images/High_Low.png" id='highlow1'></img>
+                        <div id='max1'>
+                            <p class='max1' id='maxlabel1' >Max:</p>
+                            <p class='max1' id='maxtemp1'>${this._data.daily.temperature_2m_max}&deg;C</p>
                         <div>
-                        <div id="min">
-                        <p class='min' id='minlabel'>Min:</p>
-                        <p class='min' id='mintemp'>${this._data.daily.temperature_2m_min}&deg;C</p>
+                        <div id="min1">
+                        <p class='min1' id='minlabel1'>Min:</p>
+                        <p class='min1' id='mintemp1'>${this._data.daily.temperature_2m_min}&deg;C</p>
                         </div>
                         <div>
-                        <img src="src/images/Rain_Percent.png" class='RainPercent' id='RainPLogo'></img>
-                        <p class='RainPercent' id='RainPText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation_probability[this.currentHour]}%</p>
+                        <img src="src/images/Rain_Percent.png" class='RainPercent1' id='RainPLogo1'></img>
+                        <p class='RainPercent1' id='RainPText1' style="color:${this.TextColor}">: ${this._data.hourly.precipitation_probability[this.currentHour]}%</p>
                         </div>
                         <div>
-                        <img src="src/images/Rain_Amount.png" class='RainAmount' id='RainALogo'></img>
-                        <p class='RainAmount' id='RainAText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
+                        <img src="src/images/Rain_Amount.png" class='RainAmount1' id='RainALogo1'></img>
+                        <p class='RainAmount1' id='RainAText1' style="color:${this.TextColor}">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
                         </div>
                     </div>
                     `;  
