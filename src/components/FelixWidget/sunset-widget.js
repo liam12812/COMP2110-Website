@@ -190,7 +190,6 @@ class SunWidget extends LitElement {
         this.slide = 0;
         this.Latitude = sessionStorage.getItem("lat");
         this.Longitude = sessionStorage.getItem("lng");
-        this.fetch();
     }
 
     connectedCallback() {
