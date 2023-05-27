@@ -628,10 +628,53 @@ class WeatherWidget extends LitElement {
 
     }
 
+    _updateCity(event){
+        this.City= event.target.value;
+        if(this.City == "Sydney"){
+            this.Latitude = -33.87;
+            this.Longitude = 151.21;
+            this.timezone = "Australia%2FSydney";
+        }
+        else if(this.City == "Melbourne"){
+            this.Latitude = -37.84;
+            this.Longitude = 144.95;
+            this.timezone = "Australia%2FMelbourne";
+        }
+        else if(this.City == "Brisbane"){
+            this.Latitude = -27.47;
+            this.Longitude = 153.02;
+            this.timezone = "Australia%2FBrisbane";
+        }
+        else if(this.City == "Canberra"){
+            this.Latitude = -35.28;
+            this.Longitude = 149.13;
+            this.timezone = "Australia%2FCanberra";
+        }
+        else if(this.City == "Adelaide"){
+            this.Latitude = -34.92;
+            this.Longitude = 138.60;
+            this.timezone = "Australia%2FAdelaide";
+        }
+        else if(this.City == "Darwin"){
+            this.Latitude = -12.46;
+            this.Longitude = 130.84;
+            this.timezone = "Australia%2FDarwin";
+        }
+        else if(this.City == "Hobart"){
+            this.Latitude = -42.88;
+            this.Longitude = 147.32;
+            this.timezone = "Australia%2FHobart";
+        }
+        else if(this.City == "Perth"){
+            this.Latitude = -31.95;
+            this.Longitude = 115.86;
+            this.timezone = "Australia%2FPerth";
+        }
 
+        this._fetch();
+    }
         render() {
-            if(this._data){
-                                
+            if(this._data){               
                 return html`
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
@@ -662,14 +705,13 @@ class WeatherWidget extends LitElement {
                     <p class='RainAmount' id='RainAText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
                     </div>
                 </div>
-
                 
-                    
-                
-                `;
-
-
-                
+                `;                
+            }
+            else{
+                return html`
+                <div id='container' style="${this.imageUrl})">
+                </div>`;
             }
         }
     
