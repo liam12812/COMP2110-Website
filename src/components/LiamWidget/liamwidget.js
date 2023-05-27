@@ -220,9 +220,6 @@ class WeatherWidget extends LitElement {
         }
 
         #geobutton1 input{
-            position: relative;
-            left: 30px;
-            bottom: 28px;
             background: none;
             text-decoration: none;
             font-size: 18px;
@@ -230,6 +227,13 @@ class WeatherWidget extends LitElement {
             border-radius: 10px;
             display: inline-block;
             background-color: Transparent;
+            border: none;
+        }
+
+        #geobutton2{
+            position: relative;
+            left: 30px;
+            bottom: 28px;
         }
 
 
