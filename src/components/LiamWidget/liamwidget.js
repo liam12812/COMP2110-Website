@@ -205,7 +205,7 @@ class WeatherWidget extends LitElement {
         super();
         this.Latitude = localStorage.getItem("lat");
         this.Longitude = localStorage.getItem("lng");
-        this.timezone = localStorage.getItem("Timezone");
+        this.timezone = 'Australia/Sydney';
         this.imageUrl = "src/images/Clear_Day.png";
         this.City = localStorage.getItem("Timezone").split('/')[1];
         console.log(this.City);
@@ -674,7 +674,8 @@ class WeatherWidget extends LitElement {
         this._fetch();
     }
         render() {
-            if(this._data){               
+            if(this._data){    
+                           
                 return html`
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
