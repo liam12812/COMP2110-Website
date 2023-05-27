@@ -203,8 +203,7 @@ class SunWidget extends LitElement {
         .then(data => {
             this._data = data;
             console.log(this._data);
-            sessionStorage.setItem("Timezone", JSON.stringify(this._data.results));
-            console.log(sessionStorage.getItem("Timezone"));
+            sessionStorage.setItem("Timezone", JSON.stringify(this._data.results.timezone));
         console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
         });
     }
