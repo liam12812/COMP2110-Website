@@ -1,9 +1,6 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-import {Fetch} from './position.js';
 
 // URL TO USE: https://api.sunrisesunset.io/json?lat=-33.8715&lng=151.2006
-
-Fetch();
 
 class SunWidget extends LitElement {
 
