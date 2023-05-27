@@ -220,8 +220,8 @@ class WeatherWidget extends LitElement {
     }
 
     _fetch () {
-        this.timezone = sessionStorage.getItem("Timezone").results.timezone;
-        console.log(this.timezone);
+        this.timezone = sessionStorage.getItem("Timezone");
+        console.log(this.timezone.results.timezone);
         const url = `${WeatherWidget.BASE_URL}latitude=${this.Latitude}&longitude=${this.Longitude}&current_weather=true&timezone=${this.timezone}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`
         console.log(url);
         fetch(url)
