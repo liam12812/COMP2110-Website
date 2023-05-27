@@ -708,11 +708,7 @@ class WeatherWidget extends LitElement {
                 
                 `;                
             }
-            else{
-                return html`
-                <div id='container' style="${this.imageUrl})">
-                </div>`;
-            }
+
         }
     
     
