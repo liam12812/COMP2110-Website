@@ -198,6 +198,9 @@ class SunWidget extends LitElement {
     connectedCallback() {
         super.connectedCallback();
         this._fetch();
+        localStorage.setItem("Timezone", this._data.results.timezone);
+        console.log(2);
+
     }
 
     _fetch() {  
@@ -207,8 +210,8 @@ class SunWidget extends LitElement {
             this._data = data;
             console.log(this._data);
         console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
-        })
-        .then(localStorage.setItem("Timezone", this._data.results.timezone));
+        console.log(1);
+        });
     }
 
     
