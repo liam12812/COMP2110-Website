@@ -198,9 +198,6 @@ class SunWidget extends LitElement {
     connectedCallback() {
         super.connectedCallback();
         this._fetch();
-        localStorage.setItem("Timezone", this._data.results.timezone);
-        console.log(2);
-
     }
 
     _fetch() {  
@@ -210,7 +207,6 @@ class SunWidget extends LitElement {
             this._data = data;
             console.log(this._data);
         console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);
-        console.log(1);
         });
     }
 
@@ -232,6 +228,7 @@ class SunWidget extends LitElement {
 
 
     render() { 
+        localStorage.setItem("Timezone", this._data.results.timezone);
         if(this._data && (this.slide % 2 == 0)) {
             return html`
                 <div id="container" style = "background-image: url(src/components/FelixWidget/content/vecteezy_vector-illustration-of-mountain-landscapes-in-a-flat-style_8555312.jpg)">
