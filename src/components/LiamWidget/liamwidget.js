@@ -222,8 +222,6 @@ class WeatherWidget extends LitElement {
         #geobutton1 input{
             background: none;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: 500 ;
             border-radius: 10px;
             display: inline-block;
             background-color: Transparent;
@@ -887,8 +885,8 @@ class WeatherWidget extends LitElement {
                         <option value= "Hobart"> Hobart</option>
                         <option value= "Perth"> Perth</option>
                     </select>
-                    <form class= 'place1' id='geobutton2' style="color:${this.textcolour}; ${this.DropColor};" @submit=${this.useLocation}> 
-                    <li id="geobutton1">
+                    <form class= 'place1' id='geobutton2' @submit=${this.useLocation}> 
+                    <li id="geobutton1" style="color:${this.textcolour}; ${this.DropColor};">
                           <input type='submit' value='Use Current Location'>
                     </li>
                 </form>
