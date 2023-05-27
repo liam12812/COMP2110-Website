@@ -221,11 +221,14 @@ class WeatherWidget extends LitElement {
 
         #geobutton1{
             position: relative;
+            left: 10px;
+            bottom: 28px;
             background: none;
             font-size: 18px;
             font-weight: 500 ;
             border-radius: 10px;
             display: inline-block;
+            background-color: Transparent;
         }
 
         li{
