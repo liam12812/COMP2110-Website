@@ -184,7 +184,7 @@ class SunWidget extends LitElement {
 
     `;
 
-    constructor(){
+    constructor() {
         super();
         this.slide = 0;
         this.Latitude = sessionStorage.getItem("lat");
@@ -193,19 +193,13 @@ class SunWidget extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-        this._fetch();
+        setTimeout(() => { this._fetch(); }, 1000);
     }
 
     _fetch() { 
-
-        function success(){
-            location = 1;
-        }
-
-        var location = 0;
-        navigator.geolocation.getCurrentPosition(success)
-        console.log("Check " + this.Latitude + " " + this.Longitude)
-        if(this.Latitude == null && location == 0) {
+        this.Latitude = sessionStorage.getItem("lat");
+        this.Longitude = sessionStorage.getItem("lng");
+        if(this.Latitude == null) {
         this.Latitude = Math.floor(Math.random() * 60);
         this.Longitude = Math.floor(Math.random() * 180);
         var lat_pol;
@@ -241,17 +235,10 @@ class SunWidget extends LitElement {
             }
         });
         } else {
-            location = 1;
             fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
             .then(response => response.json())
             .then(data => {
             this._data = data;
-            var checkGMT = this._data.results.timezone.substring(this._data.results.timezone.indexOf('/') + 1);
-            checkGMT = checkGMT.slice(0, 3);
-            console.log(checkGMT);
-            if(checkGMT.slice(0, 3) == "GMT"){
-                this._fetch();
-            }
             console.log(this._data);
             sessionStorage.setItem("Timezone", this._data.results.timezone);
             console.log('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude);

@@ -89,8 +89,8 @@ class BlogPost extends LitElement {
 }
 
   #refresh-button {
-    position: relative;
-    left: 80%;
+    position: absolute;
+    left: 90%;
 
     
 
