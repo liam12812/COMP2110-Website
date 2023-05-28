@@ -411,6 +411,7 @@ class WeatherWidget extends LitElement {
       connectedCallback() {
         super.connectedCallback();
         this._fetch();
+        this._tzfetch();
         
     }
 
@@ -422,9 +423,17 @@ class WeatherWidget extends LitElement {
         .then(data => { 
             this._data = data;
         this._weatherText();
-            console.log(this._data);
         });
-    }    
+    }
+    
+    _tzfetch(){
+        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
+        .then(response => response.json())
+        .then(data => {
+            this._tzdata = data;
+            console.log(this._tzdata);
+        });
+    }
 
 
     _weatherText(){
