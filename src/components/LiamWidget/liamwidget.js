@@ -900,9 +900,9 @@ class WeatherWidget extends LitElement {
 
     useLocation(){
         sessionStorage.setItem("currentLoc", 1);
+        this.City = (sessionStorage.getItem("TZ")).split('/')[1];
         this._tzfetch();
         this._fetch();
-        console.log("test");
     }
 
     stopLocation(){
