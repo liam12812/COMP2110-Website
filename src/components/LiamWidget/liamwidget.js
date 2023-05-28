@@ -242,8 +242,8 @@ class WeatherWidget extends LitElement {
         }
         #geobutton3{
             position: relative;
-            left: 80px;
-            bottom: 30px;
+            left: 75px;
+            bottom: 40px;
             
         }
 
