@@ -412,7 +412,7 @@ class WeatherWidget extends LitElement {
     }
 
     _fetch () {
-        if(currentloc != 1){
+        if(this.currentloc != 1){
         this.timezone = "Australia%2FSydney";
         this.Latitude = -33.87;
         this.Longitude = 151.21;
