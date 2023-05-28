@@ -8,6 +8,7 @@ class WeatherWidget extends LitElement {
         Latitude: { type: String },
         time: {type: String},
         _data: {type: String, state: true},
+        _tzdata: {type: String, state: true},
         timezone: {type: String},
         weather_type: {type: String},
         imageUrl: {type: String},
@@ -220,17 +221,23 @@ class WeatherWidget extends LitElement {
         }
 
         #geobutton1 input{
-            background: none;
             text-decoration: none;
             border-radius: 10px;
             display: inline-block;
-            background-color: Transparent;
+            font-size: 15px;
+            font-weight: 500;
         }
+
+        #geobutton1 input:hover {
+            transform: scale(1.03);
+            cursor: pointer;
+          }
 
         #geobutton2{
             position: relative;
-            left: 30px;
+            left: 18px;
             bottom: 28px;
+            
         }
 
 
@@ -395,7 +402,7 @@ class WeatherWidget extends LitElement {
         this.Longitude = 151.21;
         this.imageUrl = "src/images/Clear_Day.png";
         this.City = "Sydney";
-       // this.City = sessionStorage.getItem("Timezone").split('/')[1];
+       // this.City = (this._data.results.timezone).split('/')[1];
         console.log(this.City);
 
         
@@ -416,7 +423,13 @@ class WeatherWidget extends LitElement {
             this._data = data;
         this._weatherText();
         });
-        
+
+        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
+        .then(response => response.json())
+        .then(data => {
+            this._tzdata = data;
+        });
+        console.log(this._tzdata);
         
     }    
 
@@ -426,12 +439,12 @@ class WeatherWidget extends LitElement {
         this.isday = JSON.stringify(this._data.current_weather.is_day);
         this.currentHour = ((this._data.current_weather.time).slice(11, 13));
         if(this.isday == "1"){
-            this.BackColor = "white";
-            this.TextColor = "black";
+            this.BackColor = "rgb(255,255,255";
+            this.TextColor = "rgb(0,0,0";
         }
         else if(this.isday == "0"){
-            this.BackColor = "black";
-            this.TextColor = "white";
+            this.BackColor = "rgb(0,0,0";
+            this.TextColor = "rgb(255,255,255";
         }
         console.log(this.BackColor);
         if(this.weatherCode == 0){
@@ -886,15 +899,15 @@ class WeatherWidget extends LitElement {
                     </select>
                     <form class= 'place1' id='geobutton2' @submit=${this.useLocation}> 
                     <li id="geobutton1">
-                          <input type='submit' value='Use Current Location' style="color:red;>
+                          <input type='submit' value='Use Current Location' style="color:${this.textcolour}; ${this.DropColor}; background-color: ${this.BackColor},0.2); border: 1px solid ${this.textcolour};">
                     </li>
                 </form>
                         <p id='Date1'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
                         <p id='Time1' >${(this._data.current_weather.time).slice(11, 16)}</p>
-                        <p id='Backing1' style="background-color:${this.BackColor}; ">s</p>
-                        <p id='Temp1' style="color:${this.TextColor}">${this._data.current_weather.temperature}&deg;C</p>
-                        <p id='weather1' style="color:${this.TextColor}">${this.weather_type}</p>
-                        <p id='feel1' style="color:${this.TextColor}">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
+                        <p id='Backing1' style="background-color:${this.BackColor}); "></p>
+                        <p id='Temp1' style="color:${this.TextColor})">${this._data.current_weather.temperature}&deg;C</p>
+                        <p id='weather1' style="color:${this.TextColor})">${this.weather_type}</p>
+                        <p id='feel1' style="color:${this.TextColor})">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
                         <img src="${this.weatherIcon}" id='weathericon1'></img>
                         <img src="src/images/High_Low.png" id='highlow1'></img>
                         <div id='max1'>
@@ -907,11 +920,11 @@ class WeatherWidget extends LitElement {
                         </div>
                         <div>
                         <img src="src/images/Rain_Percent.png" class='RainPercent1' id='RainPLogo1'></img>
-                        <p class='RainPercent1' id='RainPText1' style="color:${this.TextColor}">: ${this._data.hourly.precipitation_probability[this.currentHour]}%</p>
+                        <p class='RainPercent1' id='RainPText1' style="color:${this.TextColor})">: ${this._data.hourly.precipitation_probability[this.currentHour]}%</p>
                         </div>
                         <div>
                         <img src="src/images/Rain_Amount.png" class='RainAmount1' id='RainALogo1'></img>
-                        <p class='RainAmount1' id='RainAText1' style="color:${this.TextColor}">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
+                        <p class='RainAmount1' id='RainAText1' style="color:${this.TextColor})">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
                         </div>
                     </div>
                     `;  
@@ -924,10 +937,10 @@ class WeatherWidget extends LitElement {
                     <p class='place' id='placename' style="color:${this.textcolour}; ${this.DropColor};">${this.City}</p>
                     <p id='Date'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
                     <p id='Time' >${(this._data.current_weather.time).slice(11, 16)}</p>
-                    <p id='Backing' style="background-color:${this.BackColor}; ">s</p>
-                    <p id='Temp' style="color:${this.TextColor}">${this._data.current_weather.temperature}&deg;C</p>
-                    <p id='weather' style="color:${this.TextColor}">${this.weather_type}</p>
-                    <p id='feel' style="color:${this.TextColor}">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
+                    <p id='Backing' style="background-color:${this.BackColor}); "></p>
+                    <p id='Temp' style="color:${this.TextColor})">${this._data.current_weather.temperature}&deg;C</p>
+                    <p id='weather' style="color:${this.TextColor})">${this.weather_type}</p>
+                    <p id='feel' style="color:${this.TextColor})">Feels like ${this._data.hourly.apparent_temperature[this.currentHour]}&deg;C</p>
                     <img src="${this.weatherIcon}" id='weathericon'></img>
                     <img src="src/images/High_Low.png" id='highlow'></img>
                     <div id='max'>
@@ -940,11 +953,11 @@ class WeatherWidget extends LitElement {
                     </div>
                     <div>
                     <img src="src/images/Rain_Percent.png" class='RainPercent' id='RainPLogo'></img>
-                    <p class='RainPercent' id='RainPText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation_probability[this.currentHour]}%</p>
+                    <p class='RainPercent' id='RainPText' style="color:${this.TextColor})">: ${this._data.hourly.precipitation_probability[this.currentHour]}%</p>
                     </div>
                     <div>
                     <img src="src/images/Rain_Amount.png" class='RainAmount' id='RainALogo'></img>
-                    <p class='RainAmount' id='RainAText' style="color:${this.TextColor}">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
+                    <p class='RainAmount' id='RainAText' style="color:${this.TextColor})">: ${this._data.hourly.precipitation[this.currentHour]}mm</p>
                     </div>
                 </div>
                 
