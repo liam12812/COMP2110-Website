@@ -422,18 +422,10 @@ class WeatherWidget extends LitElement {
         .then(data => { 
             this._data = data;
         this._weatherText();
-        this._tzfetch();
+            console.log(this._data);
         });
     }    
-    _tzfetch(){
-        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
-        .then(response => response.json())
-        .then(data => {
-            this._data = data;
-        });
-        console.log(this._data);
-        
-    }
+
 
     _weatherText(){
 
