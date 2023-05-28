@@ -903,9 +903,9 @@ class WeatherWidget extends LitElement {
                         <option value= "Hobart"> Hobart</option>
                         <option value= "Perth"> Perth</option>
                     </select>
-                    <form class= 'place1' id='geobutton2'> 
+                    <form class= 'place1' id='geobutton2' @submit=${this.useLocation}> 
                     <li id="geobutton1">
-                          <input type='button' value='Use Current Location' onclick="${useLocation()}" style="color:${this.textcolour}; ${this.DropColor}; background-color: ${this.BackColor},0.2); border: 1px solid ${this.textcolour};">
+                          <input type='submit' value='Use Current Location' style="color:${this.textcolour}; ${this.DropColor}; background-color: ${this.BackColor},0.2); border: 1px solid ${this.textcolour};">
                     </li>
                 </form>
                         <p id='Date1'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
