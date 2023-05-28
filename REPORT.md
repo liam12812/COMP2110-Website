@@ -2,7 +2,7 @@ Instructions:
 Your team should write a short report on your experience working on this project. There is no hard word limit but as a guide you should be writing around 2000-3000 words. It should cover the following topics:
 
 1. Details of your deployment and where your application can be accessed (URL).
-    - https://6bddedde.comp2110-group48-portal.pages.dev/
+    Our website has been deployed as a static site using Cloudflare pages. We have done so through the use of the wrangler command line tool from Cloudflare which returned the URL https://c784228e.comp2110-group48-portal-2qe.pages.dev at which our website can be accessed. In order to update the website once deployed, all edits have to be committed and pushed to the GitHub repository before running the command “npx wrangler pages deploy .” in the git bash terminal. This means that it deploys the current directory to the site. You can check when the website was last updated from the Cloudflare dashboard, under “workers and pages”. The small differences we made to the website before deploying were that we incorporated a geolocation function to source the latitude and longitude of the user, so that our widgets would work with the current location instead of an input one.
 
 2. What you achieved: a short (few paragraphs) description of what your group has implemented; highlight any extensions or additional work you did.
 
