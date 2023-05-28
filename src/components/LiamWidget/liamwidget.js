@@ -405,7 +405,7 @@ class WeatherWidget extends LitElement {
             this.City = "Sydney";
             }
        // this.City = (this._data.results.timezone).split('/')[1];
-        console.log(this.City);
+        console.log(this.currentloc);
 
         
       }
