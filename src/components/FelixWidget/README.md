@@ -1,4 +1,5 @@
-This is Felix's widget!
+This is Felix's widget.
+
 My widget is a Sunrise/Sunset display that tells the user the sunrise and sunset time, and can be given further details such as dawn, dusk, daylength and golden hour when they scroll across using the side buttons.  It imports the data from SunriseSunset.io, an API service that provides many different data types relating to sun position and time. 
 
 It works by first requesting the users coordinates. If the user accepts location services then it inputs the coordinates into a url. If not, it creates a random set of coordinates to input instead, or uses the last known coordinates from the users current session. After fetching data the data it puts it into slides to display it. It has buttons on either side to slide through 3 sets of data, which minimizes clutter on screen but still allows the user to choose to know more.
