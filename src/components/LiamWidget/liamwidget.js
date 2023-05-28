@@ -420,11 +420,11 @@ class WeatherWidget extends LitElement {
 
     _fetch () {
         if(this.currentloc == 1){
-            this.timezone = this._tzdata.results.timezone;
             this.Latitude = sessionStorage.getItem("lat");
             this.Longitude = sessionStorage.getItem("lng");
             this.City = (this._tzdata.results.timezone).split('/')[1];
         }
+        console.log(this._tzdata);
         const url = `${WeatherWidget.BASE_URL}latitude=${this.Latitude}&longitude=${this.Longitude}&current_weather=true&timezone=${this.timezone}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`
         console.log(url);
         fetch(url)
