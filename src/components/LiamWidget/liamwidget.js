@@ -407,6 +407,7 @@ class WeatherWidget extends LitElement {
             }
 
         console.log(this.currentloc);
+        console.log(sessionStorage.getItem("TZ"));
 
         
       }
