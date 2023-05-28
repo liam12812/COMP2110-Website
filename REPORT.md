@@ -24,8 +24,7 @@ Benefits For Learning:
 
  Andrew: The Currency Conversion Widget
 
-    - I chose to do the currency conversions widget, because I liked the idea of peforming calculations with the data retrieved using the fetch command. as it turned out, no calculations were required, but that is why I chose to do it.
-    - I think the hardest part was finding time to work on it together, because I didn't want to work too late in the evenings, and everyone else was usually busy during the day.
+    I chose to do the currency conversions widget, because I liked the idea of peforming calculations with the data retrieved using the fetch command. as it turned out, no calculations were required, but that is why I chose to do it. I think the hardest part was finding time to work on it together, because I didn't want to work too late in the evenings, and everyone else was usually busy during the day. Anotther Challenge was getting the site consistantly styled as the use of widgets meant that we had styling in many different places that all needed to be very close to the same thing to get the effect of a consistantly styled website, or portal, as we were calling it during this project.
 
 Felix: The Sunrise/set Widget
     
