@@ -65,7 +65,11 @@
     }
 
     function failed(){
-      alert("Please use a browser that supports geolocation or unblock location services for full widget functionality")
+      alert("Unable to retrieve location")
+    }
+
+    if(!navigator.geolocation){
+      alert("Browser does not support Geolocation")
     }
 
     navigator.geolocation.getCurrentPosition(getPos, failed);
