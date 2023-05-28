@@ -881,7 +881,7 @@ class WeatherWidget extends LitElement {
     }
 
     useLocation(){
-
+        this.currentloc = 1;
     }
 
         render() {
