@@ -895,6 +895,7 @@ class WeatherWidget extends LitElement {
         }
 
         this._fetch();
+        this._tzfetch();
     }
 
     useLocation(){
