@@ -896,7 +896,7 @@ class WeatherWidget extends LitElement {
 
         render() {
             if(this._data){    
-                if(this.timezone != sessionStorage.getItem("Timezone")){
+                if(this.currentloc != 1){
                                 
                     return html`
                     <div id='container1' style="${this.imageUrl})">
@@ -944,7 +944,7 @@ class WeatherWidget extends LitElement {
                     </div>
                     `;  
                 }
-            else if(this.timezone == sessionStorage.getItem("Timezone")) {        
+            else if(this.currentloc == 1) {        
                 return html`
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
