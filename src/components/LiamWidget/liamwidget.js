@@ -898,6 +898,12 @@ class WeatherWidget extends LitElement {
         console.log("test");
     }
 
+    stopLocation(){
+        sessionStorage.setItem("currentLoc", 0);
+        this._tzfetch();
+        this._fetch();
+    }
+
         render() {
             if(this._data){    
                 if(this.currentloc != 1){
@@ -954,6 +960,11 @@ class WeatherWidget extends LitElement {
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
                     <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
                     <p class='place' id='placename' style="color:${this.textcolour}; ${this.DropColor};">${this.City}</p>
+                    <form class= 'place' id='geobutton2' @submit=${this.stopLocation}> 
+                    <li id="geobutton1">
+                          <input type='submit' value='Stop Using Location' style="color:${this.textcolour}; ${this.DropColor}; background-color: ${this.BackColor},0.2); border: 1px solid ${this.textcolour};">
+                    </li>
+                </form>
                     <p id='Date'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
                     <p id='Time' >${(this._data.current_weather.time).slice(11, 16)}</p>
                     <p id='Backing' style="background-color:${this.BackColor}); "></p>
