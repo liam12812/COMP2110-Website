@@ -1,7 +1,5 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 
-// URL TO USE: https://api.sunrisesunset.io/json?lat=-33.8715&lng=151.2006
-
 class SunWidget extends LitElement {
 
     static properties = {
@@ -246,8 +244,6 @@ class SunWidget extends LitElement {
         });
         }
     }
-
-    
 
     leftClick (){
         if (this.slide == 0){
