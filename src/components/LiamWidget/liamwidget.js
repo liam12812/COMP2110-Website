@@ -14,6 +14,7 @@ class WeatherWidget extends LitElement {
         imageUrl: {type: String},
         weatherCode: {type: String},
         isday: {type: String},
+        currentloc: {type: String},
         textcolour: {type: String},
         iswhite: {type: String},
         currentHour: {type: String},
@@ -397,11 +398,6 @@ class WeatherWidget extends LitElement {
     
       constructor() {
         super();
-        this.timezone = "Australia%2FSydney";
-        this.Latitude = -33.87;
-        this.Longitude = 151.21;
-        this.imageUrl = "src/images/Clear_Day.png";
-        this.City = "Sydney";
        // this.City = (this._data.results.timezone).split('/')[1];
         console.log(this.City);
 
@@ -416,6 +412,12 @@ class WeatherWidget extends LitElement {
     }
 
     _fetch () {
+        if(currentloc != 1){
+        this.timezone = "Australia%2FSydney";
+        this.Latitude = -33.87;
+        this.Longitude = 151.21;
+        this.City = "Sydney";
+        }
         const url = `${WeatherWidget.BASE_URL}latitude=${this.Latitude}&longitude=${this.Longitude}&current_weather=true&timezone=${this.timezone}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`
         console.log(url);
         fetch(url)
