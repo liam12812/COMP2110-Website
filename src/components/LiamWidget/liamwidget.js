@@ -441,6 +441,9 @@ class WeatherWidget extends LitElement {
         .then(data => {
             this._tzdata = data;
             sessionStorage.setItem("TZ", this._tzdata.results.timezone);
+            console.log(this._tzdata);
+            console.log(this._tzdata.results.timezone);
+            console.log(sessionStorage.getItem("TZ"));
         });
     }
 
