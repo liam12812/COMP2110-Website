@@ -11,10 +11,6 @@ Your team should write a short report on your experience working on this project
    Refresh buttons have been implemented on the blog post and blog creation block to refresh the blocks themselves, rather than the entire webpage, which creates a faster responding website.
    The widgets have been split into two separate bars, where the general information that’s useful on a daily basis such as the weather widget is always displayed at the top, next to the login widget as that is information that a user may want to access by itself when accessing the page, so it is important that is displayed first in order to provide a need to use the portal and simplicity, as less time to access more useful information is an important design factor.
 
-
-
-
-
  Developmental Challenges
 
     Throughout the development stage of this project, there was a limited number of technical and organisational challenges that were encountered. The main technical challenge encountered was that the widgets were not appropriately designed to be responsive. This resulted in the widgets overlapping with one another when resizing the window. The challenge was successfuly overcome by restricting the sizes of every widget to fit within its own designated container regardless of the window size to ensure a responsive design. Another challenge that was encountered by the group was in relation to the availabilities of all group members. It was very difficult to organise a day where all the group members would schedule an online or in-person meeting to discuss the project development plans and work together due to the varying availabilities of each member.This was very challenging during the early stages of the project, however the group collectively decided to detail all the plans moving forward in a discord chat which ensured an optimal level of communication and co-ordination.
