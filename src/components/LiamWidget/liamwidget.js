@@ -66,7 +66,7 @@ class WeatherWidget extends LitElement {
             font-size: 35px;
         }
         #title{
-            font-weight: 600 ;
+            font-weight: bold ;
             font-size: 24px;
             position: relative;
             left: 10px;
@@ -240,6 +240,12 @@ class WeatherWidget extends LitElement {
             bottom: 28px;
             
         }
+        #geobutton3{
+            position: relative;
+            left: 75px;
+            bottom: 35px;
+            
+        }
 
 
         li{
@@ -407,6 +413,7 @@ class WeatherWidget extends LitElement {
             }
 
         console.log(this.currentloc);
+        console.log(sessionStorage.getItem("TZ"));
 
         
       }
@@ -420,11 +427,11 @@ class WeatherWidget extends LitElement {
 
     _fetch () {
         if(this.currentloc == 1){
+            this.timezone = sessionStorage.getItem("TZ");
             this.Latitude = sessionStorage.getItem("lat");
             this.Longitude = sessionStorage.getItem("lng");
-            this.City = (this._tzdata.results.timezone).split('/')[1];
+            this.City = (sessionStorage.getItem("TZ")).split('/')[1];
         }
-        console.log(this._tzdata);
         const url = `${WeatherWidget.BASE_URL}latitude=${this.Latitude}&longitude=${this.Longitude}&current_weather=true&timezone=${this.timezone}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`
         console.log(url);
         fetch(url)
@@ -440,7 +447,10 @@ class WeatherWidget extends LitElement {
         .then(response => response.json())
         .then(data => {
             this._tzdata = data;
+            sessionStorage.setItem("TZ", this._tzdata.results.timezone);
             console.log(this._tzdata);
+            console.log(this._tzdata.results.timezone);
+            console.log(sessionStorage.getItem("TZ"));
         });
     }
 
@@ -894,9 +904,15 @@ class WeatherWidget extends LitElement {
         console.log("test");
     }
 
+    stopLocation(){
+        sessionStorage.setItem("currentLoc", 0);
+        this._tzfetch();
+        this._fetch();
+    }
+
         render() {
             if(this._data){    
-                if(this.timezone != sessionStorage.getItem("Timezone")){
+                if(this.currentloc != 1){
                                 
                     return html`
                     <div id='container1' style="${this.imageUrl})">
@@ -944,12 +960,17 @@ class WeatherWidget extends LitElement {
                     </div>
                     `;  
                 }
-            else if(this.timezone == sessionStorage.getItem("Timezone")) {        
+            else if(this.currentloc == 1) {        
                 return html`
                 <div id='container' style="${this.imageUrl})">
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
                     <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
                     <p class='place' id='placename' style="color:${this.textcolour}; ${this.DropColor};">${this.City}</p>
+                    <form class= 'place' id='geobutton3' @submit=${this.stopLocation}> 
+                    <li id="geobutton1">
+                          <input type='submit' value='Stop Using Location' style="color:${this.textcolour}; ${this.DropColor}; background-color: ${this.BackColor},0.2); border: 1px solid ${this.textcolour};">
+                    </li>
+                </form>
                     <p id='Date'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
                     <p id='Time' >${(this._data.current_weather.time).slice(11, 16)}</p>
                     <p id='Backing' style="background-color:${this.BackColor}); "></p>
