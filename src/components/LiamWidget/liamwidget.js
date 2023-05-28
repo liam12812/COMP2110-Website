@@ -405,7 +405,13 @@ class WeatherWidget extends LitElement {
             this.Longitude = 151.21;
             this.City = "Sydney";
             }
-       // this.City = (this._data.results.timezone).split('/')[1];
+        else if(this.currentloc == 1){
+            this.timezone = this._tzdata.results.timezone;
+            this.Latitude = sessionStorage.getItem("lat");
+            this.Longitude = sessionStorage.getItem("lng");
+            this.City = "ggg";//(this._tzdata.results.timezone).split('/')[1];
+        }
+
         console.log(this.currentloc);
 
         
