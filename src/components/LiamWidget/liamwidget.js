@@ -443,7 +443,7 @@ class WeatherWidget extends LitElement {
     }
     
     _tzfetch(){
-        fetch('https://api.sunrisesunset.io/json?lat='+ this.Latitude + '&lng=' + this.Longitude)
+        fetch('https://api.sunrisesunset.io/json?lat='+ sessionStorage.getItem("lat") + '&lng=' + sessionStorage.getItem("lng"))
         .then(response => response.json())
         .then(data => {
             this._tzdata = data;
