@@ -398,6 +398,7 @@ class WeatherWidget extends LitElement {
     
       constructor() {
         super();
+        this.currentloc = sessionStorage.getItem("currentLoc");
         if(this.currentloc != 1){
             this.timezone = "Australia%2FSydney";
             this.Latitude = -33.87;
@@ -881,7 +882,7 @@ class WeatherWidget extends LitElement {
     }
 
     useLocation(){
-        this.currentloc = 1;
+        sessionStorage.setItem("currentLoc", 1);
         this._fetch();
         console.log("test");
     }
