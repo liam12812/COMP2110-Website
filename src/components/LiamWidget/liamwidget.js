@@ -240,6 +240,12 @@ class WeatherWidget extends LitElement {
             bottom: 28px;
             
         }
+        #geobutton3{
+            position: relative;
+            left: 30px;
+            bottom: 28px;
+            
+        }
 
 
         li{
@@ -960,7 +966,7 @@ class WeatherWidget extends LitElement {
                     <p id='title' style="color:${this.textcolour}; ">Current Weather:</p>
                     <img src="src/images/Location.png" class='place' id='placeicon' style="filter: invert(${this.iswhite});"></img>
                     <p class='place' id='placename' style="color:${this.textcolour}; ${this.DropColor};">${this.City}</p>
-                    <form class= 'place' id='geobutton2' @submit=${this.stopLocation}> 
+                    <form class= 'place' id='geobutton3' @submit=${this.stopLocation}> 
                     <li id="geobutton1">
                           <input type='submit' value='Stop Using Location' style="color:${this.textcolour}; ${this.DropColor}; background-color: ${this.BackColor},0.2); border: 1px solid ${this.textcolour};">
                     </li>
