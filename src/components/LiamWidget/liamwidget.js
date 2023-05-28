@@ -394,8 +394,8 @@ class WeatherWidget extends LitElement {
         this.Latitude = -33.87;
         this.Longitude = 151.21;
         this.imageUrl = "src/images/Clear_Day.png";
-        //this.City = "Sydney";
-       this.City = sessionStorage.getItem("Timezone").split('/')[1];
+        this.City = "Sydney";
+       // this.City = sessionStorage.getItem("Timezone").split('/')[1];
         console.log(this.City);
 
         
@@ -885,8 +885,8 @@ class WeatherWidget extends LitElement {
                         <option value= "Perth"> Perth</option>
                     </select>
                     <form class= 'place1' id='geobutton2' @submit=${this.useLocation}> 
-                    <li id="geobutton1" style="color: red;">
-                          <input type='submit' value='Use Current Location'>
+                    <li id="geobutton1">
+                          <input type='submit' value='Use Current Location' style="color:red;>
                     </li>
                 </form>
                         <p id='Date1'  >${(this._data.current_weather.time).slice(8, 10)}/${(this._data.current_weather.time).slice(5, 7)}/${(this._data.current_weather.time).slice(0, 4)}</p>
